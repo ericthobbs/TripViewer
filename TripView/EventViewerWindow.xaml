@@ -1,0 +1,25 @@
+﻿<Window x:Class="TripView.EventViewerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TripView"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow"
+        Title="Logged Trip Events" Height="450" Width="800" d:DataContext="{d:DesignInstance local:TripDataViewModel}">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" Grid.Column="0" 
+                  ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent}" 
+                  IsReadOnly="True" EnableColumnVirtualization="True" EnableRowVirtualization="True" />
+        <StackPanel Margin="10" Grid.Row="1" Grid.Column="0" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Margin="10" MinWidth="50" Content="Close" Click="Button_Click"></Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

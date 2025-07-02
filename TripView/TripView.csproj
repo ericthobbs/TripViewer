@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows10.0.26100.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>True</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>Eric Hobbs</Company>
+    <Authors>Eric Hobbs</Authors>
+    <Product>TripView</Product>
+    <Description>Leafspy Trip Viewer</Description>
+    <Copyright>Copyright © 2025</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <PackageVersion>1.0.0</PackageVersion>
+    <UserSecretsId>4ac31c2f-d979-40fb-9d38-4920f355fac0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="assets\cars\GenericEV.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="LiveChartsCore" Version="2.0.0-rc5.4" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc5.4" />
+    <PackageReference Include="Mapsui" Version="5.0.0-beta.18" />
+    <PackageReference Include="Mapsui.Extensions" Version="5.0.0-beta.18" />
+    <PackageReference Include="Mapsui.Nts" Version="5.0.0-beta.18" />
+    <PackageReference Include="Mapsui.Tiling" Version="5.0.0-beta.18" />
+    <PackageReference Include="Mapsui.Wpf" Version="5.0.0-beta.18" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.6" />
+    <PackageReference Include="OpenTK.GLWpfControl" Version="5.0.0-pre.1" />
+    <PackageReference Include="SkiaSharp.Views" Version="3.119.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LeafSpy.DataParser\LeafSpy.DataParser.csproj" />
+    <ProjectReference Include="..\LeafSpyKMLExporter\LeafSpyKMLExporter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\cars\GenericEV.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

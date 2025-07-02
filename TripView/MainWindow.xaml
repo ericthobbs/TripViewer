@@ -1,0 +1,219 @@
+﻿<Window x:Class="TripView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        xmlns:localvm="clr-namespace:TripView.ViewModels"
+        xmlns:lconv="clr-namespace:TripView.ValueConverters"
+        xmlns:lc="clr-namespace:TripView.Controls"
+        mc:Ignorable="d"
+        Icon="{StaticResource GenericEVWhite}"
+        Title="{Binding Title}" Height="900" Width="1600" d:DataContext="{d:DesignInstance localvm:TripDataViewModel}" WindowState="Maximized" x:Name="MainWin">
+    <Window.Resources>
+        <lconv:NullVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <lconv:EmptyVisibilityConverter x:Key="EmptyToVisibilityConverter"/>
+        <lconv:ColorToSKColorConverter x:Key="ColorToSKColorConverter"/>
+        <lconv:OptionalBrushConverter x:Key="OptionalBrushConverter"/>
+        <lconv:SKColorToBrushConverter x:Key="SKColorBrushConverter"/>
+
+        <Style TargetType="GridSplitter" x:Key="HorizontalSplitterWithGrabber">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridSplitter">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Border Height="5" Background="Gray" VerticalAlignment="Center" CornerRadius="2"/>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Ellipse Width="3" Height="3" Fill="DarkGray" Margin="2"/>
+                                <Ellipse Width="3" Height="3" Fill="DarkGray" Margin="2"/>
+                                <Ellipse Width="3" Height="3" Fill="DarkGray" Margin="2"/>
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="GridSplitter" x:Key="VerticalSplitterWithGrabber">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridSplitter">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Border Width="5" Background="Gray" HorizontalAlignment="Center" CornerRadius="2"/>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+                                <Ellipse Width="3" Height="3" Fill="DarkGray" Margin="0,2"/>
+                                <Ellipse Width="3" Height="3" Fill="DarkGray" Margin="0,2"/>
+                                <Ellipse Width="3" Height="3" Fill="DarkGray" Margin="0,2"/>
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Command="ApplicationCommands.Help" Key="F1"/>
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="AppCommandOpen_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="AppCommandHelp_Executed"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <!-- 0 Menu -->
+            <RowDefinition Height="auto"/>
+            <!-- 1 Header/Summary -->
+            <RowDefinition Height="auto"/>
+            <!-- 2 Map -->
+            <RowDefinition Height="3*"/>
+            <!-- Grid Splitter -->
+            <RowDefinition Height="5"/>
+            <!-- Graph -->
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" IsMainMenu="True">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open Trip CSV..." Command="ApplicationCommands.Open" InputGestureText="CTRL+O"/>
+                <MenuItem Header="Export data to KML..." Click="ExportToKML_Click"/>
+                <MenuItem Header="_Exit" Click="ExitMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Charts" ItemsSource="{Binding ChartMenuItems}">
+                <MenuItem.ItemContainerStyle>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="Header" Value="{Binding Header}"/>
+                        <Setter Property="Command" Value="{Binding Command}"/>
+                        <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
+                        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                        <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
+                    </Style>
+                </MenuItem.ItemContainerStyle>
+            </MenuItem>
+            <MenuItem Header="_Diagnostics" IsEnabled="False" Visibility="Collapsed">
+                <MenuItem Header="Run Judgement Check..." Command="{Binding JudgementCheckCommand}" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="View Logged Events..." Command="{Binding ShowEventWindowCommand}" IsEnabled="True"/>
+                <!-- ItemsSource="{Binding MapLayersMenuItems, RelativeSource={RelativeSource AncestorType=Window}}" -->
+                <MenuItem Header="Map Layers" ItemsSource="{Binding MapLayersMenuItems, ElementName=MainWin}">
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Header" Value="{Binding Header}"/>
+                            <Setter Property="Command" Value="{Binding Command}"/>
+                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
+                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                </MenuItem>
+                <MenuItem Header="Map Widgets" ItemsSource="{Binding MapWidgetsMenuItems, ElementName=MainWin}">
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Header" Value="{Binding Header}"/>
+                            <Setter Property="Command" Value="{Binding Command}"/>
+                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
+                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                </MenuItem>                
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_Help" Command="ApplicationCommands.Help" InputGestureText="F1"/>
+                <MenuItem Header="_About..." Click="AboutMenuItem_Click" />
+            </MenuItem>
+        </Menu>
+
+        <lc:PropertyGrid Grid.Row="1" Grid.RowSpan="4" Grid.Column="0"  
+                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                         SelectedObject="{Binding SelectedEvent}"/>
+
+        <GridSplitter Grid.Row="2" Grid.RowSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns"
+                      ShowsPreview="True" Width="5" Style="{StaticResource VerticalSplitterWithGrabber}" />
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+            <TextBlock Text="Trip Date:" 
+               FontWeight="Bold" 
+               VerticalAlignment="Center" 
+               Margin="0,0,5,0"/>
+
+            <TextBlock Text="{Binding StartDate, UpdateSourceTrigger=PropertyChanged}" 
+             Width="150" 
+             VerticalAlignment="Center"/>
+
+            <TextBlock Text="Start:" 
+               FontWeight="Bold" 
+               VerticalAlignment="Center" 
+               Margin="0,0,5,0"/>
+
+            <TextBlock Text="{Binding StartTime, UpdateSourceTrigger=PropertyChanged}" 
+             Width="150" 
+             VerticalAlignment="Center"/>
+
+            <TextBlock Text="End:" 
+               FontWeight="Bold" 
+               VerticalAlignment="Center" 
+               Margin="0,0,5,0"/>
+
+            <TextBlock Text="{Binding EndTime, UpdateSourceTrigger=PropertyChanged}" 
+             Width="150" 
+             VerticalAlignment="Center"/>
+
+            <TextBlock Text="Distance:" 
+               FontWeight="Bold" 
+               VerticalAlignment="Center" 
+               Margin="0,0,5,0"/>
+
+            <TextBlock Text="{Binding TripHaversineDistance, UpdateSourceTrigger=PropertyChanged}" 
+             Width="150" 
+             VerticalAlignment="Center" ToolTip="{Binding TripMilesDistance, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+            <TextBlock Text="VIN:" 
+               FontWeight="Bold" 
+               VerticalAlignment="Center" 
+               Margin="0,0,5,0"/>
+
+            <TextBlock Text="{Binding VIN, UpdateSourceTrigger=PropertyChanged}" 
+             Width="150" 
+             VerticalAlignment="Center"/>
+        </StackPanel>
+        <mapsui:MapControl Grid.Row="2" Grid.Column="2" x:Name="TripMap" 
+                           Loaded="TripMap_Loaded"
+                           VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <mapsui:MapControl.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Save As Image..." Click="MenuItem_Click"/>
+                </ContextMenu>
+            </mapsui:MapControl.ContextMenu>
+        </mapsui:MapControl>
+
+        <GridSplitter Grid.Row="3" Grid.Column="2" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                      ShowsPreview="True" ResizeDirection="Rows" Style="{StaticResource HorizontalSplitterWithGrabber}"/>
+
+        <lvc:CartesianChart x:Name="ActiveChart" Grid.Row="4" Grid.Column="2"
+                            MinHeight="100" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{Binding BackgroundColor, Converter={StaticResource SKColorBrushConverter}}"
+                            DataContext="{Binding ActiveChart}" Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" LegendPosition="Right"
+                            ZoomMode="Both" FindingStrategy="CompareAllTakeClosest" PointerPressedCommand="{Binding PointerPressedCommand}"
+                            ContextMenuOpening="Chart_ContextMenuItemOpening">
+            <lvc:CartesianChart.ContextMenu>
+                <ContextMenu ItemsSource="{Binding ContextMenuItems}">
+                    <ContextMenu.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Header" Value="{Binding Header}"/>
+                            <Setter Property="Command" Value="{Binding Command}"/>
+                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
+                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                            <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
+                        </Style>
+                    </ContextMenu.ItemContainerStyle>
+                </ContextMenu>
+            </lvc:CartesianChart.ContextMenu>
+        </lvc:CartesianChart>
+    </Grid>
+</Window>
