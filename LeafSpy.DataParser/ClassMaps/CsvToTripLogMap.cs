@@ -23,12 +23,13 @@
  */
 using CsvHelper.Configuration;
 using LeafSpy.DataParser.TypeConverters;
+using LeafSpy.DataParser.ValueTypes;
 
 namespace LeafSpy.DataParser.ClassMaps
 {
-    internal class TripMap : ClassMap<TripLog>
+    internal class CsvToTripLogMap : ClassMap<TripLog>
     {
-        public TripMap(LeafspyImportConfiguration config)
+        public CsvToTripLogMap(LeafspyImportConfiguration config)
         {
             Map(m => m.DateTime).Name("Date/Time");                 //Date/Time
 
@@ -157,58 +158,6 @@ namespace LeafSpy.DataParser.ClassMaps
                     }
                 }
             }
-        }
-    }
-
-    internal class ChargeMap : ClassMap<ChargeLog>
-    {
-        public ChargeMap()
-        {
-            Map(m => m.Gids).Name("Gids");
-            Map(m => m.SOC).Name("SOC").TypeConverter<FloatConverter10K>();
-            Map(m => m.PackVolts).Name("Pack Volts");
-            Map(m => m.PackT1F).Name("Pack T1 F");
-            Map(m => m.EpochTime).Name("epoch time").TypeConverter<EpochConverter>();
-            Map(m => m.ChargeMode).Name("Charge Mode");
-            Map(m => m.ObcOutPwr).Name("OBC Out Pwr");
-            Map(m => m.PackAmps).Name("Pack Amps");
-        }
-    }
-
-    internal class ECUVersionMap : ClassMap<ECUVersions>
-    {
-        public ECUVersionMap()
-        {
-            Map(m => m.PN).Name("PN");
-            Map(m => m.Version).Name("Version");
-            Map(m => m.ECUType).Name("ECU Type________");
-            Map(m => m.ExtraInformation).Name("Extra Information____________________________");
-        }
-    }
-
-    internal class TripHistoryMap : ClassMap<TripHistory>
-    {
-        public TripHistoryMap()
-        {
-            Map(m => m.Date).Name("Date");
-            Map(m => m.Time).Name("Time");
-            Map(m => m.OdoInMiles).Name("odo mi");
-            Map(m => m.TripDistanceInMiles).Name("dist mi");
-            Map(m => m.ElevationDeltaFeet).Name("elv ft");
-            Map(m => m.EnergyInKwhUsed).Name("Energy");
-            Map(m => m.Gids).Name("Gids");
-            Map(m => m.SGids).Name("SGids");
-            Map(m => m.EGids).Name("EGids");
-            Map(m => m.Ahr).Name("AHr");
-            Map(m => m.SOH).Name("SOH");
-            Map(m => m.Hx).Name("Hx");
-            Map(m => m.SHVolt).Name("SHVolt");
-            Map(m => m.EHVolt).Name("EHVolt");
-            Map(m => m.Drive).Name("Drive");
-            Map(m => m.Regen).Name("Regen");
-            Map(m => m.Charge).Name("Charge");
-            Map(m => m.L1L2Count).Name("L1/L2");
-            Map(m => m.QCCount).Name("QC");
         }
     }
 }

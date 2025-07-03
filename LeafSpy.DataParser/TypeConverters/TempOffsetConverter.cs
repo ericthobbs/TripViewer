@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -24,17 +21,29 @@ using LeafSpy.DataParser.ValueTypes;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-namespace LeafSpy.DataParser
+using CsvHelper.Configuration;
+using CsvHelper;
+using CsvHelper.TypeConversion;
+
+namespace LeafSpy.DataParser.TypeConverters
 {
-    public class ChargeLog
+    internal class TempOffsetConverter : DefaultTypeConverter
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        public readonly int Offset = 40; //The Leaf reports these temps with an offset (most likely to prevent the sensor from returning a negative number).
+        public override object? ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
+        {
+            if (!string.IsNullOrEmpty(text))
+            {
+                return float.Parse(text) + Offset;
+            }
+            return 0;
+        }
+
+        public TempOffsetConverter() { }
+        public TempOffsetConverter(int offset)
+        {
+            Offset = offset; 
+        }
+
     }
 }

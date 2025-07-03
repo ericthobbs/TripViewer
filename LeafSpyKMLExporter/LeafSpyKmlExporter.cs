@@ -23,6 +23,8 @@
  */
 using System.Globalization;
 using LeafSpy.DataParser;
+using LeafSpy.DataParser.Parsers;
+using LeafSpy.DataParser.ValueTypes;
 
 
 namespace LeafSpyKMLExporter

@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -24,17 +21,33 @@ using LeafSpy.DataParser.ValueTypes;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-namespace LeafSpy.DataParser
+using CsvHelper.Configuration;
+
+namespace LeafSpy.DataParser.ClassMaps
 {
-    public class ChargeLog
+    internal class CsvToTripHistoryMap : ClassMap<TripHistory>
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        public CsvToTripHistoryMap()
+        {
+            Map(m => m.Date).Name("Date");
+            Map(m => m.Time).Name("Time");
+            Map(m => m.OdoInMiles).Name("odo mi");
+            Map(m => m.TripDistanceInMiles).Name("dist mi");
+            Map(m => m.ElevationDeltaFeet).Name("elv ft");
+            Map(m => m.EnergyInKwhUsed).Name("Energy");
+            Map(m => m.Gids).Name("Gids");
+            Map(m => m.SGids).Name("SGids");
+            Map(m => m.EGids).Name("EGids");
+            Map(m => m.Ahr).Name("AHr");
+            Map(m => m.SOH).Name("SOH");
+            Map(m => m.Hx).Name("Hx");
+            Map(m => m.SHVolt).Name("SHVolt");
+            Map(m => m.EHVolt).Name("EHVolt");
+            Map(m => m.Drive).Name("Drive");
+            Map(m => m.Regen).Name("Regen");
+            Map(m => m.Charge).Name("Charge");
+            Map(m => m.L1L2Count).Name("L1/L2");
+            Map(m => m.QCCount).Name("QC");
+        }
     }
 }

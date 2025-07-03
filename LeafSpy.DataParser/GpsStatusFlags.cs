@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -26,15 +23,17 @@ using LeafSpy.DataParser.ValueTypes;
  */
 namespace LeafSpy.DataParser
 {
-    public class ChargeLog
+    [Flags]
+    public enum GpsStatusFlags
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        None            = 0x0,
+        HardwareAvail   = 0x1,
+        HardwareEnabled = 0x2,
+        LoggingEnabled  = 0x4,
+        GpsOn           = 0x8,
+        AccuracyValid   = 0x10,
+        AltitudeValid   = 0x20,
+        SpeedValid      = 0x40,
+        All             = HardwareAvail | HardwareEnabled | LoggingEnabled | GpsOn | AccuracyValid | AltitudeValid | SpeedValid
     }
 }

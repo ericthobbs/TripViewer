@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -24,17 +21,35 @@ using LeafSpy.DataParser.ValueTypes;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-namespace LeafSpy.DataParser
+namespace LeafSpy.DataParser.ValueTypes
 {
-    public class ChargeLog
+    public class GPSCoordinates
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        public GPSCoord Latitude { get; private set; }
+        public GPSCoord Longitude { get; private set; }
+
+        public GPSCoordinates(GPSCoord lat, GPSCoord @long)
+        {
+            Latitude = lat;
+            Longitude = @long;
+        }
+
+        public double DistanceInMeters(GPSCoordinates other)
+        {
+            return GPSCoord.DistanceInMeters(Latitude, Longitude, other.Latitude, other.Longitude);
+        }
+
+        public bool IsZero()
+        {
+            var isZeroLat = Latitude.ToDecimalDegrees() == 0;
+            var isZeroLong = Longitude.ToDecimalDegrees() == 0;
+
+            return isZeroLat && isZeroLong;
+        }
+
+        public override string ToString()
+        {
+            return $"{Latitude.ToDecimalDegrees():F6}, {Longitude.ToDecimalDegrees():F6}";
+        }
     }
 }

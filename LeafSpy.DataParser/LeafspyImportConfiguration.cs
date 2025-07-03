@@ -21,19 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
 namespace LeafSpy.DataParser
 {
-    public enum DistanceUnit
-    {
-        [Display(Name = "feet")]
-        FEET,
-        [Display(Name = "meters")]
-        METER,
-    }
-
     public class LeafspyImportConfiguration
     {
         public DistanceUnit DistanceUnit { get; set; }

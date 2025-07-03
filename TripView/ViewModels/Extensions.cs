@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 using LeafSpy.DataParser;
+using LeafSpy.DataParser.ValueTypes;
 using Mapsui;
 using Mapsui.Extensions;
 using Mapsui.Projections;

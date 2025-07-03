@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -24,17 +21,27 @@ using LeafSpy.DataParser.ValueTypes;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-namespace LeafSpy.DataParser
+using System.Diagnostics;
+
+namespace LeafSpy.DataParser.ValueTypes
 {
-    public class ChargeLog
+    [DebuggerDisplay("{Value}, {Energy} kwh Remaining")]
+    public class GidUnit : BaseValue
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        public int InternalWhMultiplier { get; set; } = 80;
+
+        public GidUnit(string rawValue, int? whMultiplier = null) : base(rawValue)
+        {
+            if (whMultiplier.HasValue)
+                InternalWhMultiplier = whMultiplier.Value;
+        }
+
+        public int Value { get  { return int.Parse(RawValue); } }
+        public int Energy { get { return Value * InternalWhMultiplier; } }
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 }

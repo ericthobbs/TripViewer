@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -24,17 +21,18 @@ using LeafSpy.DataParser.ValueTypes;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-namespace LeafSpy.DataParser
+using CsvHelper.Configuration;
+
+namespace LeafSpy.DataParser.ClassMaps
 {
-    public class ChargeLog
+    internal class CsvToEcuVersionMap : ClassMap<ECUVersions>
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        public CsvToEcuVersionMap()
+        {
+            Map(m => m.PN).Name("PN");
+            Map(m => m.Version).Name("Version");
+            Map(m => m.ECUType).Name("ECU Type________");
+            Map(m => m.ExtraInformation).Name("Extra Information____________________________");
+        }
     }
 }

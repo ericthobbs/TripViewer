@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -26,15 +23,13 @@ using LeafSpy.DataParser.ValueTypes;
  */
 namespace LeafSpy.DataParser
 {
-    public class ChargeLog
+    public enum AirPressureUnit
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        [System.ComponentModel.DataAnnotations.Display(Name = "Bar")]
+        BAR,
+        [System.ComponentModel.DataAnnotations.Display(Name = "PSI")]
+        PSI,
+        [System.ComponentModel.DataAnnotations.Display(Name = "kPa")]
+        KPA
     }
 }

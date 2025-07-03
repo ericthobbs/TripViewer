@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -24,17 +21,27 @@ using LeafSpy.DataParser.ValueTypes;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-namespace LeafSpy.DataParser
+using System.Diagnostics;
+
+namespace LeafSpy.DataParser.ValueTypes
 {
-    public class ChargeLog
+    [DebuggerDisplay("{ToDateTime()}")]
+    public class UnixEpoch : BaseValue
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        public UnixEpoch(string raw) : base(raw) { }    //12345678.123 (includes MS)      
+
+        public long ToEpochSeconds()
+        {
+            return (long)Math.Truncate(double.Parse(RawValue));
+        }
+
+        public DateTimeOffset ToDateTime()
+        {
+            return DateTimeOffset.FromUnixTimeSeconds(ToEpochSeconds());
+        }
+        public override string ToString()
+        {
+            return ToDateTime().ToString();
+        }
     }
 }

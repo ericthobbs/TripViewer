@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -26,15 +23,13 @@ using LeafSpy.DataParser.ValueTypes;
  */
 namespace LeafSpy.DataParser
 {
-    public class ChargeLog
+    public enum FrontWiperStatus
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        None = 0,
+        Stopped = 0x08,
+        Intermittent = 0x10,
+        Switch = 0x20,
+        Low = 0x40,
+        High = 0x80,
     }
 }

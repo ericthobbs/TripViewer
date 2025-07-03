@@ -1,7 +1,4 @@
-﻿
-using LeafSpy.DataParser.ValueTypes;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -24,17 +21,23 @@ using LeafSpy.DataParser.ValueTypes;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-namespace LeafSpy.DataParser
+using CsvHelper.Configuration;
+using LeafSpy.DataParser.TypeConverters;
+
+namespace LeafSpy.DataParser.ClassMaps
 {
-    public class ChargeLog
+    internal class CsvToChargeLogMap : ClassMap<ChargeLog>
     {
-        public int Gids { get; set; }
-        public float SOC { get; set; }
-        public float PackVolts { get; set; }
-        public float PackT1F { get; set; }
-        public required UnixEpoch EpochTime { get; set; }
-        public ChargeMode ChargeMode { get; set; }
-        public string? ObcOutPwr { get; set; }
-        public float PackAmps { get; set; }
+        public CsvToChargeLogMap()
+        {
+            Map(m => m.Gids).Name("Gids");
+            Map(m => m.SOC).Name("SOC").TypeConverter<FloatConverter10K>();
+            Map(m => m.PackVolts).Name("Pack Volts");
+            Map(m => m.PackT1F).Name("Pack T1 F");
+            Map(m => m.EpochTime).Name("epoch time").TypeConverter<EpochConverter>();
+            Map(m => m.ChargeMode).Name("Charge Mode");
+            Map(m => m.ObcOutPwr).Name("OBC Out Pwr");
+            Map(m => m.PackAmps).Name("Pack Amps");
+        }
     }
 }

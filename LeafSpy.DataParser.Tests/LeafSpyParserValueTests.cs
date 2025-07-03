@@ -1,8 +1,4 @@
-﻿
-
-using System.ComponentModel;
-
-/**
+﻿/**
  * MIT License
  * 
  * Copyright (c) 2025 Eric Hobbs
@@ -25,6 +21,9 @@ using System.ComponentModel;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+using System.ComponentModel;
+using LeafSpy.DataParser.ValueTypes;
+
 namespace LeafSpy.DataParser.Tests
 {
     [TestClass]

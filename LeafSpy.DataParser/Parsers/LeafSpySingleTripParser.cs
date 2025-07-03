@@ -21,66 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using CsvHelper;
-using CsvHelper.Configuration;
-using System.Globalization;
 using LeafSpy.DataParser.TypeConverters;
 using LeafSpy.DataParser.ClassMaps;
 
-namespace LeafSpy.DataParser
+namespace LeafSpy.DataParser.Parsers
 {
-    public class LeafSpyBaseCsvParser<T> : IDisposable
-    {
-        public string LogFileName { get; private set; } = String.Empty;
-
-        protected readonly CsvConfiguration config;
-        protected readonly LeafspyImportConfiguration leafspyImportConfiguration;
-        protected CsvReader? csvReader;
-        private bool disposedValue;
-
-        public LeafSpyBaseCsvParser(LeafspyImportConfiguration importConfiguration)
-        {
-            config = new CsvConfiguration(CultureInfo.InvariantCulture) { 
-                Delimiter = importConfiguration.CsvDelimiter
-            };
-            leafspyImportConfiguration = importConfiguration;
-        }
-
-        public virtual void Open(string fileName)
-        {
-            LogFileName = fileName;
-            csvReader = new CsvReader(new StreamReader(File.Open(LogFileName, FileMode.Open, FileAccess.Read, FileShare.Read)), config);
-        }
-
-        public IEnumerable<T> Read()
-        {
-            if (csvReader != null)
-                return csvReader.GetRecords<T>();
-            return [];
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
-                disposedValue = true;
-            }
-        }
-
-        public void Dispose()
-        {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
-    }
-
     public class LeafSpySingleTripParser : LeafSpyBaseCsvParser<TripLog>
     {
         public LeafSpySingleTripParser(LeafspyImportConfiguration cfg) : base(cfg) { }
@@ -109,54 +54,7 @@ namespace LeafSpy.DataParser
             csvReader.Context.TypeConverterCache.AddConverter<PressureValueConverter>(new PressureValueConverter(AirPressureUnit.PSI));
             csvReader.Context.TypeConverterCache.AddConverter<TemperatureValueConverter>(new TemperatureValueConverter(TemperatureUnit.FAHRENHEIT));
 
-            csvReader.Context.RegisterClassMap(new TripMap(leafspyImportConfiguration));
-        }
-    }
-
-    public class LeafSpySingleChargeLogParser : LeafSpyBaseCsvParser<ChargeLog>
-    {
-        public LeafSpySingleChargeLogParser(LeafspyImportConfiguration cfg) : base(cfg) { }
-
-        public override void Open(string fileName)
-        {
-            base.Open(fileName);
-
-            if (csvReader == null)
-                return;//TODO
-
-            csvReader.Context.TypeConverterCache.AddConverter<FloatConverter10K>(new FloatConverter10K());
-            csvReader.Context.TypeConverterCache.AddConverter<EpochConverter>(new EpochConverter());
-            csvReader.Context.RegisterClassMap<ChargeMap>();
-        }
-    }
-
-    public class LeafSpyECUVersionLogParser : LeafSpyBaseCsvParser<ECUVersions>
-    {
-        public LeafSpyECUVersionLogParser(LeafspyImportConfiguration cfg) : base(cfg) { }
-
-        public override void Open(string fileName)
-        {
-            base.Open(fileName);
-
-            if (csvReader == null)
-                return;//TODO
-
-            csvReader.Context.RegisterClassMap<ECUVersionMap>();
-        }
-    }
-
-    public class LeafSpyTripHistoryLogParser : LeafSpyBaseCsvParser<TripHistory>
-    {
-        public LeafSpyTripHistoryLogParser(LeafspyImportConfiguration cfg) : base(cfg) { }
-
-        public override void Open(string fileName)
-        {
-            base.Open(fileName);
-
-            if (csvReader == null)
-                return;//TODO
-
-            csvReader.Context.RegisterClassMap<TripHistoryMap>();
+            csvReader.Context.RegisterClassMap(new CsvToTripLogMap(leafspyImportConfiguration));
         }
     }
 }

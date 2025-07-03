@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 using LeafSpy.DataParser;
+using LeafSpy.DataParser.ValueTypes;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Reflection;
