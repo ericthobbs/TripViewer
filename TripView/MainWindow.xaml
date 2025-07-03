@@ -8,6 +8,7 @@
         xmlns:localvm="clr-namespace:TripView.ViewModels"
         xmlns:lconv="clr-namespace:TripView.ValueConverters"
         xmlns:lc="clr-namespace:TripView.Controls"
+        xmlns:local="clr-namespace:TripView"
         mc:Ignorable="d"
         Icon="{StaticResource GenericEVWhite}"
         Title="{Binding Title}" Height="900" Width="1600" d:DataContext="{d:DesignInstance localvm:TripDataViewModel}" WindowState="Maximized" x:Name="MainWin">
@@ -59,6 +60,11 @@
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="AppCommandOpen_Executed"/>
         <CommandBinding Command="ApplicationCommands.Help" Executed="AppCommandHelp_Executed"/>
+        <CommandBinding Command="local:MainWindow.ShowEventWindowCommand" Executed="ShowEventWindowCommand_Executed" CanExecute="ShowEventWindowCommand_CanExecute"/>
+        <CommandBinding Command="local:MainWindow.ExportToKmlFileCommand" Executed="ExportToKmlFileCommand_Executed" CanExecute="ExportToKmlFileCommand_CanExecute"/>
+        <CommandBinding Command="local:MainWindow.ExitCommand" Executed="ExitCommand_Executed" CanExecute="ExitCommand_CanExecute"/>
+        <CommandBinding Command="local:MainWindow.ShowAboutCommand" Executed="ShowAboutCommand_Executed" CanExecute="ShowAboutCommand_CanExecute"/>
+        <CommandBinding Command="local:MainWindow.SaveMapAsImageCommand" Executed="SaveMapAsImageCommand_Executed" CanExecute="SaveMapAsImageCommand_CanExecute"/>
     </Window.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -81,8 +87,8 @@
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" IsMainMenu="True">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open Trip CSV..." Command="ApplicationCommands.Open" InputGestureText="CTRL+O"/>
-                <MenuItem Header="Export data to KML..." Click="ExportToKML_Click"/>
-                <MenuItem Header="_Exit" Click="ExitMenuItem_Click"/>
+                <MenuItem Command="local:MainWindow.ExportToKmlFileCommand" InputGestureText="CTRL+K"/>
+                <MenuItem Command="local:MainWindow.ExitCommand" InputGestureText="ALT+F4"/>
             </MenuItem>
             <MenuItem Header="_Charts" ItemsSource="{Binding ChartMenuItems}">
                 <MenuItem.ItemContainerStyle>
@@ -99,7 +105,7 @@
                 <MenuItem Header="Run Judgement Check..." Command="{Binding JudgementCheckCommand}" IsEnabled="False"/>
             </MenuItem>
             <MenuItem Header="_View">
-                <MenuItem Header="View Logged Events..." Command="{Binding ShowEventWindowCommand}" IsEnabled="True"/>
+                <MenuItem Command="local:MainWindow.ShowEventWindowCommand"/>
                 <!-- ItemsSource="{Binding MapLayersMenuItems, RelativeSource={RelativeSource AncestorType=Window}}" -->
                 <MenuItem Header="Map Layers" ItemsSource="{Binding MapLayersMenuItems, ElementName=MainWin}">
                     <MenuItem.ItemContainerStyle>
@@ -124,7 +130,7 @@
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_Help" Command="ApplicationCommands.Help" InputGestureText="F1"/>
-                <MenuItem Header="_About..." Click="AboutMenuItem_Click" />
+                <MenuItem Command="local:MainWindow.ShowAboutCommand" />
             </MenuItem>
         </Menu>
 
@@ -187,7 +193,7 @@
                            VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <mapsui:MapControl.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Save As Image..." Click="MenuItem_Click"/>
+                    <MenuItem Command="local:MainWindow.SaveMapAsImageCommand"/>
                 </ContextMenu>
             </mapsui:MapControl.ContextMenu>
         </mapsui:MapControl>

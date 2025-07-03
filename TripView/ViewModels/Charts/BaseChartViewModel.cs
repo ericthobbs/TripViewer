@@ -70,7 +70,7 @@ namespace TripView.ViewModels.Charts
         private ObservableCollection<MenuItemViewModel>? contextMenuItems;
 
         [ObservableProperty]
-        public string name = string.Empty;
+        private string name = string.Empty;
 
         [ObservableProperty]
         private SKColor? backgroundColor;

@@ -1,10 +1,5 @@
 ﻿Possible Future Features:
 	* More test cases.
-	* Add commandline argument support
-		Open File at startup:
-			* -f, --file log.txt
-		Set default Graph to show:
-			* -g, --graph "Elev x Time"
 	* Charge Log Support (Graphs)
 	* Trip History Support (Table, etc)
 	* Location Heatmap
@@ -13,10 +8,6 @@
 		- https://github.com/NetTopologySuite/NetTopologySuite/wiki/GettingStarted
 	* Better Multi trip support
 		* Load More then one trip at once
-	* Convert to AvaloniaUI
-		- https://avaloniaui.net/
-		- https://github.com/bodong1987/Avalonia.PropertyGrid ???
-		- https://github.com/wieslawsoltes/Dock
 	* Add support for https://nominatim.org/ to query location name from lat/long
 		* Would need to be self-hosted
 		* could also spin up a OSM instance to test with at the same time

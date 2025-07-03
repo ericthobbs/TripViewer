@@ -22,12 +22,11 @@
  * SOFTWARE.
  */
 using CommunityToolkit.Mvvm.Messaging.Messages;
-using Mapsui;
 
 namespace TripView.ViewModels.Messages
 {
-    public sealed class NewDataLoaded : ValueChangedMessage<Tuple<MPoint, MPoint>>
+    public sealed class ChartPointPressed : ValueChangedMessage<DateTime>
     {
-        public NewDataLoaded(Tuple<Mapsui.MPoint, Mapsui.MPoint> value) : base(value) { }
+        public ChartPointPressed(DateTime value) : base(value) { }
     }
 }

@@ -46,7 +46,6 @@ namespace TripView.ViewModels.Messages
 
     public sealed class SaveChartAsImageMessage : ValueChangedMessage<ImageSettings>
     {
-
         public SaveChartAsImageMessage(ImageSettings imgOptions) : base(imgOptions) { }
     }
 }

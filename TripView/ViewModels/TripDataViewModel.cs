@@ -35,7 +35,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SkiaSharp;
 using System.Collections.ObjectModel;
-using System.Windows;
 using TripView.ViewModels.Charts;
 using TripView.ViewModels.Messages;
 
@@ -84,8 +83,6 @@ namespace TripView.ViewModels
 
         [ObservableProperty]
         private string title = "TripView: No Data Loaded";
-
-        private EventViewerWindow? _logEventViewer; //TODO: Remove this and have the window open this
 
         public const string FeatureRecordKeyName = "tripdata";
 
@@ -330,61 +327,28 @@ namespace TripView.ViewModels
             }
             if(CellsWithFailedJudgementCheck.Count > 0)
             {
-                var cells = string.Join(", ", CellsWithFailedJudgementCheck.Select(kvp => $"\tCell Pair(Count):{kvp.Key}:{kvp.Value}\n"));
+                var cells = string.Join("\n\t", CellsWithFailedJudgementCheck.Select(kvp => $"Cell Pair(Count):{kvp.Key}:{kvp.Value}"));
                 System.Windows.MessageBox.Show($"Failed Judgement Check. Cell Count: {CellsWithFailedJudgementCheck.Keys.Count}\n{cells}");
             }
         }
 
-        [RelayCommand]
-        private void ShowEventWindow()
+        public async Task LoadLeafSpyLogFile(string filename)
         {
-            //TODO: Remove most of this from the VM and send a message to the window to display the data.
-            if (_logEventViewer == null || !_logEventViewer.IsLoaded)
+            _logger.LogDebug("Selected file: {FileName}", filename);
+            if (System.IO.File.Exists(filename))
             {
-                _logEventViewer = new EventViewerWindow();
-                _logEventViewer.DataContext = this;
-                _logEventViewer.Owner = System.Windows.Application.Current.MainWindow;
-            }
-            if (_logEventViewer.IsVisible)
-                _logEventViewer.Hide();
-            else
-                _logEventViewer.Show();
-        }
-
-        [RelayCommand]
-        private async Task OpenCSVFile()
-        {
-            //TODO: Move this logic into the Window since it really doesn't belong in the ViewModel.
-            var dialog = new Microsoft.Win32.OpenFileDialog
-            {
-                Title = "Select a file",
-                Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*",
-                CheckFileExists = true,
-                Multiselect = false,
-                ReadOnlyChecked = true,
-                ShowReadOnly = true,
-                DefaultExt = ".csv"
-            };
-
-            if (dialog.ShowDialog() == true)
-            {
-                string selectedFile = dialog.FileName;
-                _logger.LogDebug("Selected file: {FileName}", selectedFile);
-                if (System.IO.File.Exists(selectedFile))
+                Reset();
+                Title = $"TripView: {filename}";
+                try
                 {
+                    await LoadCSVData(filename);
+                    FileName = filename;
+                }
+                catch (CsvHelper.HeaderValidationException ex)
+                {
+                    _logger.LogWarning(ex, "failed to load '{FileName}'", FileName);
                     Reset();
-                    Title = $"TripView: {selectedFile}";
-                    try
-                    {
-                        await LoadCSVData(selectedFile);
-                        FileName = selectedFile;
-                    }
-                    catch (CsvHelper.HeaderValidationException ex)
-                    {
-                        _logger.LogError(ex, "CSV Header Validation Error: {Message}", ex.Message);
-                        System.Windows.MessageBox.Show($"Unable to process the file, please choose another.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Reset();
-                    }
+                    throw;
                 }
             }
         }
@@ -428,7 +392,8 @@ namespace TripView.ViewModels
                         };
                         vehPoint.Styles.Add(carStyle);
                         firstRecordProcessed = true;
-                    } else
+                    } 
+                    else
                     {                       
                         var pointStyle = new SymbolStyle { 
                             SymbolScale = 0.4, 

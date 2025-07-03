@@ -332,11 +332,6 @@ namespace LeafSpy.DataParser
                     throw new InvalidEnumArgumentException(nameof(unit));
             }
         }
-
-        public override string ToString()
-        {
-            return $"{float.Parse(RawValue):N2} {SourcePressureUnit}";
-        }
     }
 
     public class SpeedValue : BaseValue
@@ -385,11 +380,6 @@ namespace LeafSpy.DataParser
                 default:
                     throw new InvalidEnumArgumentException(nameof(unit));
             }
-        }
-
-        public override string ToString()
-        {
-            return $"{float.Parse(RawValue):N2} {SourceSpeedUnit}";
         }
     }
 
@@ -441,11 +431,6 @@ namespace LeafSpy.DataParser
                     throw new InvalidEnumArgumentException(nameof(unit));
             }
         }
-
-        public override string ToString()
-        {
-            return $"{float.Parse(RawValue):N2} {SourceDistanceUnit}";
-        }
     }
 
     public class TemperatureValue : BaseValue
@@ -494,13 +479,6 @@ namespace LeafSpy.DataParser
                 default:
                     throw new InvalidEnumArgumentException(nameof(SourceTemperatureUnit));
             }
-        }
-
-        public override string ToString()
-        {
-            if (RawValue == "none")
-                return base.ToString();
-            return $"{float.Parse(RawValue):N2} {SourceTemperatureUnit}";
         }
     }
 

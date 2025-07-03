@@ -26,8 +26,8 @@ using Mapsui;
 
 namespace TripView.ViewModels.Messages
 {
-    public sealed class NewDataLoaded : ValueChangedMessage<Tuple<MPoint, MPoint>>
+    public sealed class CenterOnPointMessage : ValueChangedMessage<MPoint>
     {
-        public NewDataLoaded(Tuple<Mapsui.MPoint, Mapsui.MPoint> value) : base(value) { }
+        public CenterOnPointMessage(MPoint point): base(point) { }
     }
 }

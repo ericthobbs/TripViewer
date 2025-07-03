@@ -17,7 +17,7 @@
     <Description>Leafspy Trip Viewer</Description>
     <Copyright>Copyright © 2025</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <FileVersion>0.0.0.2</FileVersion>
     <PackageVersion>1.0.0</PackageVersion>
     <UserSecretsId>4ac31c2f-d979-40fb-9d38-4920f355fac0</UserSecretsId>
   </PropertyGroup>

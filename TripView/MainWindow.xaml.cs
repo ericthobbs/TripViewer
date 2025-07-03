@@ -41,6 +41,7 @@ using Microsoft.Extensions.Options;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using TripView.ViewModels;
 using TripView.ViewModels.Messages;
@@ -58,6 +59,7 @@ namespace TripView
 
         private readonly StartupConfiguration _startupConfig;
         private readonly ILogger<MainWindow> _logger;
+        private EventViewerWindow? _logEventViewer;
 
         public static readonly DependencyProperty MapLayersMenuItemsProperty =
         DependencyProperty.Register(
@@ -84,6 +86,12 @@ namespace TripView
             get => (ObservableCollection<MenuItemViewModel>)GetValue(MapWidgetsMenuItemsProperty);
             set => SetValue(MapWidgetsMenuItemsProperty, value);
         }
+
+        public static readonly RoutedUICommand ShowEventWindowCommand = new("_Show Event Window...", "ShowEventWindowCommand", typeof(MainWindow));
+        public static readonly RoutedUICommand ExportToKmlFileCommand = new("E_xport to KML File...", "ExportToKmlCommand", typeof(MainWindow));
+        public static readonly RoutedUICommand ExitCommand = new("Exit TripView", "ExitCommand", typeof(MainWindow));
+        public static readonly RoutedUICommand ShowAboutCommand = new("_About...", "ShowAboutCommand", typeof(MainWindow));
+        public static readonly RoutedUICommand SaveMapAsImageCommand = new("Save as Image...", "SaveMapAsImageCommand", typeof(MainWindow));
 
         public MainWindow(TripDataViewModel vm, ILogger<MainWindow> logger, IOptions<StartupConfiguration> startupConfigOptions)
         {
@@ -122,6 +130,172 @@ namespace TripView
 
             WeakReferenceMessenger.Default.RegisterAll(this);
         }
+
+        #region Command Handlers
+
+        public void ShowEventWindowCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (_logEventViewer == null || !_logEventViewer.IsLoaded)
+            {
+                _logEventViewer = new();
+                _logEventViewer.DataContext = DataContext;
+                _logEventViewer.Owner = System.Windows.Application.Current.MainWindow;
+            }
+            if (_logEventViewer.IsVisible)
+                _logEventViewer.Hide();
+            else
+                _logEventViewer.Show();
+        }
+
+        private void ShowEventWindowCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = CurrentData.Events.Count > 0;
+        }
+
+        private void ExportToKmlFileCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (CurrentData.Events.Count == 0)
+            {
+                System.Windows.MessageBox.Show(this, $"You must open a file before you can export it.", "Export to KML");
+                e.Handled = true;
+                return;
+            }
+
+            var dialog = new Microsoft.Win32.SaveFileDialog
+            {
+                Title = "Save CSV as KML...",
+                Filter = "KML file (*.kml)|*.kml|All Files (*.*)|*.*",
+                DefaultExt = ".kml"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                string selectedFile = dialog.FileName;
+                _logger.LogDebug("Selected file: {selectedFile}", selectedFile);
+                if (System.IO.File.Exists(selectedFile))
+                {
+                    _logger.LogInformation("Selected file already exists. Overwriting.");
+                }
+                try
+                {
+                    LeafSpyKMLExporter.LeafSpyKmlExporter.ExportToKml(CurrentData._leafSpyImportConfig, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
+                    System.Windows.MessageBox.Show(this, $"Success. Saved to {selectedFile}.", "Export to KML");
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show(this, $"Failed to export KML to {selectedFile}\nError:\n{ex.Message}", "Export to KML file");
+                }
+            }
+        }
+
+        private void ExportToKmlFileCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = CurrentData.Events.Count > 0;
+        }
+
+        private void ExitCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void ExitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void ShowAboutCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            var about = new About();
+            about.ShowDialog();
+        }
+
+        private void ShowAboutCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private async void AppCommandOpen_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        {
+            ActiveChart.IsEnabled = false; //Works around a crash while the collection is being modified
+
+            var dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Title = "Select a file",
+                Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*",
+                CheckFileExists = true,
+                Multiselect = false,
+                ReadOnlyChecked = true,
+                ShowReadOnly = true,
+                DefaultExt = ".csv"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                string selectedFile = dialog.FileName;
+                _logger.LogDebug("Selected file: {FileName}", selectedFile);
+                if (System.IO.File.Exists(selectedFile))
+                {
+                    try
+                    {
+                        await CurrentData.LoadLeafSpyLogFile(selectedFile);
+                    }
+                    catch (CsvHelper.HeaderValidationException ex) //This should be handled better by the VM, but for now lets catch it
+                    {
+                        _logger.LogError(ex, "CSV Header Validation Error: {Message}", ex.Message);
+                        System.Windows.MessageBox.Show($"Unable to process the file, please choose another.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
+        private void AppCommandHelp_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.badpointer.net/",
+                UseShellExecute = true,
+            });
+        }
+
+        private void SaveMapAsImageCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void SaveMapAsImageCommand_Executed(object sender, RoutedEventArgs e)
+        {
+            var bitmap = new MapRenderer().RenderToBitmapStream(TripMap.Map.Navigator.Viewport, TripMap.Map.Layers, TripMap.Map.BackColor, renderFormat: Mapsui.Rendering.RenderFormat.Png);
+
+            var dialog = new Microsoft.Win32.SaveFileDialog
+            {
+                Title = "Save Map as Image...",
+                Filter = "PNG Image files (*.png)|*.png|All Files (*.*)|*.*",
+                DefaultExt = ".png"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                string selectedFile = dialog.FileName;
+                _logger.LogDebug("Selected file: {selectedFile}", selectedFile);
+                if (System.IO.File.Exists(selectedFile))
+                {
+                    _logger.LogInformation("Selected file already exists. Overwriting.");
+                }
+                try
+                {
+                    using var file = System.IO.File.OpenWrite(selectedFile);
+                    bitmap.Seek(0, System.IO.SeekOrigin.Begin);
+                    bitmap.CopyTo(file);
+                    file.Close();
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show(this, $"Failed to save Image to {selectedFile}\nError:\n{ex.Message}", "Save Map Image");
+                }
+            }
+        }
+
+        #endregion
 
         private void BuildMapLayersMenu()
         {
@@ -327,107 +501,11 @@ namespace TripView
             BuildWidgetsMenu();
         }
 
-        private void AppCommandOpen_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
-        {
-            ActiveChart.IsEnabled = false; //Works around a crash while the collection is being modified
-            CurrentData.OpenCSVFileCommand.Execute(null);
-        }
 
-        private void AppCommandHelp_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://www.badpointer.net/",
-                UseShellExecute = true,
-            });
-        }
-
-        private void AppCommandAbout_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
-        {
-            var about = new About();
-            about.ShowDialog();
-        }
 
         private void Chart_ContextMenuItemOpening(object sender, System.Windows.Controls.ContextMenuEventArgs e)
         {
             CurrentData?.ActiveChart?.BuildContextMenuItems();
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            var bitmap = new MapRenderer().RenderToBitmapStream(TripMap.Map.Navigator.Viewport, TripMap.Map.Layers, TripMap.Map.BackColor, renderFormat: Mapsui.Rendering.RenderFormat.Png);
-
-            var dialog = new Microsoft.Win32.SaveFileDialog
-            {
-                Title = "Save Map as Image...",
-                Filter = "PNG Image files (*.png)|*.png|All Files (*.*)|*.*",
-                DefaultExt = ".png"
-            };
-
-            if (dialog.ShowDialog() == true)
-            {
-                string selectedFile = dialog.FileName;
-                _logger.LogDebug("Selected file: {selectedFile}", selectedFile);
-                if (System.IO.File.Exists(selectedFile))
-                {
-                    _logger.LogInformation("Selected file already exists. Overwriting.");
-                }
-                try
-                {
-                    using var file = System.IO.File.OpenWrite(selectedFile);
-                    bitmap.Seek(0, System.IO.SeekOrigin.Begin);
-                    bitmap.CopyTo(file);
-                    file.Close();
-                }
-                catch (Exception ex)
-                {
-                    System.Windows.MessageBox.Show(this, $"Failed to save Image to {selectedFile}\nError:\n{ex.Message}", "Save Map Image");
-                }
-            }
-        }
-
-        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            var about = new About();
-            about.ShowDialog();
-        }
-
-        private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
-        }
-
-        private void ExportToKML_Click(object sender, RoutedEventArgs e)
-        {
-            if(CurrentData.Events.Count == 0) {
-                System.Windows.MessageBox.Show(this, $"You must open a file before you can export it.", "Export to KML");
-            }
-
-            var dialog = new Microsoft.Win32.SaveFileDialog
-            {
-                Title = "Save CSV as KML...",
-                Filter = "KML file (*.kml)|*.kml|All Files (*.*)|*.*",
-                DefaultExt = ".kml"
-            };
-
-            if (dialog.ShowDialog() == true)
-            {
-                string selectedFile = dialog.FileName;
-                _logger.LogDebug("Selected file: {selectedFile}", selectedFile);
-                if (System.IO.File.Exists(selectedFile))
-                {
-                    _logger.LogInformation("Selected file already exists. Overwriting.");
-                }
-                try
-                {
-                    LeafSpyKMLExporter.LeafSpyKmlExporter.ExportToKml(CurrentData._leafSpyImportConfig, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
-                    System.Windows.MessageBox.Show(this, $"Success. Saved to {selectedFile}.", "Export to KML");
-                }
-                catch (Exception ex)
-                {
-                    System.Windows.MessageBox.Show(this, $"Failed to export KML to {selectedFile}\nError:\n{ex.Message}", "Export to KML file");
-                }
-            }
         }
     }
 }
