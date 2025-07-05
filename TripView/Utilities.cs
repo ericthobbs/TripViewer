@@ -21,11 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using LeafSpy.DataParser;
 using LeafSpy.DataParser.ValueTypes;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Reflection;
 
 namespace TripView
 {
@@ -119,44 +116,9 @@ namespace TripView
 
     }
 
-    public static class EnumExtensions
+    public static class MathExtensions
     {
-        /// <summary>
-        /// Gets the human readable enum value from a enum.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static string GetDisplayName(this Enum value)
-        {
-            var field = value.GetType().GetField(value.ToString());
-            var attribute = field?.GetCustomAttribute<DisplayAttribute>();
-            return attribute?.Name ?? value.ToString();
-        }
-
-        public static string ToAbbrevationOverTime(this DistanceUnit unit)
-        {
-            switch (unit)
-            {
-                case DistanceUnit.METER:
-                    return "kmh";
-                case DistanceUnit.FEET:
-                    return "mph";
-                default:
-                    return string.Empty;
-            }
-        }
-
-        public static string ToShortAbbrevation(this TemperatureUnit unit)
-        {
-            switch (unit)
-            {
-                case TemperatureUnit.FAHRENHEIT:
-                    return "F";
-                case TemperatureUnit.CELSIUS:
-                    return "C";
-                default:
-                    return string.Empty;
-            }
-        }
+        public static double ToRadians(this double degrees) => degrees * Math.PI / 180;
+        public static double ToDegrees(this double radians) => radians * 180 / Math.PI;
     }
 }

@@ -23,6 +23,7 @@
  */
 using LeafSpy.DataParser.ValueTypes;
 using System.ComponentModel;
+using System.Reflection;
 
 namespace LeafSpy.DataParser
 {
@@ -780,10 +781,30 @@ namespace LeafSpy.DataParser
 
         [Category("Vehicle")]
         [ReadOnly(true)]
-        public string TorqueNm { get; set; } = string.Empty;
+        public float TorqueNm { get; set; }
 
         [Category("Vehicle")]
         [ReadOnly(true)]
-        public string RPM { get; set; } = string.Empty;
+        public int RPM { get; set; }
+
+
+        public IEnumerable<Tuple<int, float>> GetAllCellPairs()
+        {
+            var properties =  GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Select(p => new
+                {
+                    Property = p,
+                    HasIndex = int.TryParse(p.Name.AsSpan(2), out int index) && p.Name.StartsWith("CP"),
+                    Index = int.TryParse(p.Name.AsSpan(2), out int idx) ? idx : -1
+                })
+                .Where(x => x.HasIndex && x.Index >= 1 && x.Index <= 96 && x.Property.PropertyType == typeof(float))
+                .OrderBy(x => x.Index)
+                .Select(x => (x.Index, x.Property));
+
+            foreach (var (index, prop) in properties)
+            {
+                yield return new Tuple<int, float>(index, (float)(prop.GetValue(this) ?? 0));
+            }
+        }
     }
 }

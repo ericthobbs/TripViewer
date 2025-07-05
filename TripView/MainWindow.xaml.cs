@@ -27,6 +27,7 @@ using BruTile.Web;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using LeafSpy.DataParser;
+using LiveChartsCore.Kernel.Sketches;
 using LiveChartsCore.SkiaSharpView.SKCharts;
 using Mapsui;
 using Mapsui.Extensions;
@@ -99,15 +100,43 @@ namespace TripView
             _logger = logger;
             DataContext = CurrentData = vm;
 
-            var resource = System.Windows.Application.Current.Resources["GenericEVWhite"];
-            if (resource is BitmapImage bi)
+            var carResource = System.Windows.Application.Current.Resources["GenericEVWhite"];
+            if (carResource is BitmapImage carImage)
             {
-                var resourceInfo = System.Windows.Application.GetResourceStream(bi.UriSource);
+                var resourceInfo = System.Windows.Application.GetResourceStream(carImage.UriSource);
                 CurrentData.CarImageAsBase64 = Utilities.StreamToBase64(resourceInfo.Stream);
             }
-            InitializeComponent();
 
-            Mapsui.Logging.Logger.LogDelegate += (level, message, ex) => {
+            var startingFlag = System.Windows.Application.Current.Resources["StartingFlag"];
+            if (startingFlag is BitmapImage startingFlagImage)
+            {
+                var resourceInfo = System.Windows.Application.GetResourceStream(startingFlagImage.UriSource);
+                CurrentData.RouteStartImageAsBase64 = Utilities.StreamToBase64(resourceInfo.Stream);
+            }
+
+            var finishingLine = System.Windows.Application.Current.Resources["FinishingLine"];
+            if (finishingLine is BitmapImage finishingLineImage)
+            {
+                var resourceInfo = System.Windows.Application.GetResourceStream(finishingLineImage.UriSource);
+                CurrentData.RouteEndImageAsBase64 = Utilities.StreamToBase64(resourceInfo.Stream);
+            }
+
+            InitializeComponent();
+            ConfigureMapsuiLogger();
+            TripMap.MapTapped += TripMap_MapTapped;
+
+            //TripMap.Map.Navigator.ViewportChanged += (s, e) =>
+            //{
+                //_logger.LogDebug("map viewport changed: {e.PropertyName}", e.PropertyName);
+            //};
+
+            WeakReferenceMessenger.Default.RegisterAll(this);
+        }
+
+        private void ConfigureMapsuiLogger()
+        {
+            Mapsui.Logging.Logger.LogDelegate += (level, message, ex) =>
+            {
                 var mapsuiPrefix = "[MAPSUI]";
                 if (level == Mapsui.Logging.LogLevel.Error)
                     _logger.LogError(ex, "{mapsuiPrefix} {message}", mapsuiPrefix, message);
@@ -120,15 +149,6 @@ namespace TripView
                 else if (level == Mapsui.Logging.LogLevel.Trace)
                     _logger.LogTrace(ex, "{mapsuiPrefix} {message}", mapsuiPrefix, message);
             };
-
-            TripMap.MapTapped += TripMap_MapTapped;
-
-            //TripMap.Map.Navigator.ViewportChanged += (s, e) =>
-            //{
-                //_logger.LogDebug("map viewport changed: {e.PropertyName}", e.PropertyName);
-            //};
-
-            WeakReferenceMessenger.Default.RegisterAll(this);
         }
 
         #region Command Handlers
@@ -137,9 +157,11 @@ namespace TripView
         {
             if (_logEventViewer == null || !_logEventViewer.IsLoaded)
             {
-                _logEventViewer = new();
-                _logEventViewer.DataContext = DataContext;
-                _logEventViewer.Owner = System.Windows.Application.Current.MainWindow;
+                _logEventViewer = new()
+                {
+                    DataContext = DataContext,
+                    Owner = System.Windows.Application.Current.MainWindow
+                };
             }
             if (_logEventViewer.IsVisible)
                 _logEventViewer.Hide();
@@ -264,8 +286,6 @@ namespace TripView
 
         private void SaveMapAsImageCommand_Executed(object sender, RoutedEventArgs e)
         {
-            var bitmap = new MapRenderer().RenderToBitmapStream(TripMap.Map.Navigator.Viewport, TripMap.Map.Layers, TripMap.Map.BackColor, renderFormat: Mapsui.Rendering.RenderFormat.Png);
-
             var dialog = new Microsoft.Win32.SaveFileDialog
             {
                 Title = "Save Map as Image...",
@@ -283,6 +303,7 @@ namespace TripView
                 }
                 try
                 {
+                    var bitmap = new MapRenderer().RenderToBitmapStream(TripMap.Map.Navigator.Viewport, TripMap.Map.Layers, TripMap.Map.BackColor, renderFormat: Mapsui.Rendering.RenderFormat.Png);
                     using var file = System.IO.File.OpenWrite(selectedFile);
                     bitmap.Seek(0, System.IO.SeekOrigin.Begin);
                     bitmap.CopyTo(file);
@@ -388,6 +409,7 @@ namespace TripView
 
                 TripMap.Map.Navigator.ZoomToBox(new MRect(minX, minY, maxX, maxY), MBoxFit.FitWidth, _startupConfig.ZoomTimeInSeconds * 1000);
                 ActiveChart.IsEnabled = true; //Work around a collection modified exception inside of the LiveCharts2 control.
+                ActiveChart.Dispatcher.Invoke( () => { ActiveChart.InvalidateMeasure(); } );
                 BuildMapLayersMenu();
             });
         }
@@ -420,7 +442,7 @@ namespace TripView
                     {
                         Title = "Save Chart as Image...",
                         Filter = "PNG Image files (*.png)|*.png|JPEG Image files (*.jpg)|*.jpg|All Files (*.*)|*.*",
-                        DefaultExt = message.Value.SaveAsFormat.ToExtension()
+                        DefaultExt = message.Value.SaveAsFormat.ToFileExtension()
                     };
 
                     if(saveDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)

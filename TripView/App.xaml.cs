@@ -96,6 +96,9 @@ namespace TripView
                     services.AddTransient<GidsChartViewModel>();
                     services.AddTransient<HVoltChartViewModel>();
                     services.AddTransient<GearPositionChartViewModel>();
+                    services.AddTransient<MotorTorqueRpmChartViewModel>();
+                    services.AddTransient<V12BatteryChartViewModel>();
+                    services.AddTransient<HVPackVoltsAmpsChartViewModel>();
                     services.AddTransient<CellPairHeatMapViewData>();
                 })
                 .Build();

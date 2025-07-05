@@ -192,8 +192,8 @@
                            Loaded="TripMap_Loaded"
                            VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <mapsui:MapControl.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Command="local:MainWindow.SaveMapAsImageCommand"/>
+                <ContextMenu >
+                    <MenuItem Command="local:MainWindow.SaveMapAsImageCommand" CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
                 </ContextMenu>
             </mapsui:MapControl.ContextMenu>
         </mapsui:MapControl>

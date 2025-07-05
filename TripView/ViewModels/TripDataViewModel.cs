@@ -38,6 +38,7 @@ using SkiaSharp;
 using System.Collections.ObjectModel;
 using TripView.ViewModels.Charts;
 using TripView.ViewModels.Messages;
+using WinRT;
 
 
 namespace TripView.ViewModels
@@ -66,7 +67,7 @@ namespace TripView.ViewModels
         private ObservableCollection<BaseChartViewModel> charts;
 
         [ObservableProperty]
-        private BaseChartViewModel activeChart;
+        private BaseChartViewModel? activeChart;
 
         [ObservableProperty]
         private ObservableCollection<MenuItemViewModel> chartMenuItems;
@@ -89,6 +90,12 @@ namespace TripView.ViewModels
 
         [ObservableProperty]
         private string? carImageAsBase64;
+
+        [ObservableProperty]
+        private string? routeStartImageAsBase64;
+
+        [ObservableProperty]
+        private string? routeEndImageAsBase64;
 
         public string StartDate
         {
@@ -201,18 +208,28 @@ namespace TripView.ViewModels
 
             Reset();
 
+            //Temperature
             Charts.Add(new TemperatureChartViewModel(colorConfig, chartConfig));
-            Charts.Add(new ElevationChartViewModel(colorConfig, chartConfig));
-            Charts.Add(new SpeedChartViewModel(colorConfig, chartConfig));
-            Charts.Add(new SocChartViewModel(colorConfig, chartConfig));
-            Charts.Add(new AccPowerUsageChartViewModel(colorConfig, chartConfig));
-            Charts.Add(new GpsAccuracyChartViewModel(colorConfig, chartConfig));
             Charts.Add(new TirePressureChartViewModel(colorConfig, chartConfig));
+
+            //Power / Battery
+            Charts.Add(new AccPowerUsageChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new SocChartViewModel(colorConfig, chartConfig));
             Charts.Add(new GidsChartViewModel(colorConfig, chartConfig));
             Charts.Add(new HVoltChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new HVPackVoltsAmpsChartViewModel(colorConfig, chartConfig));
+
+            //Postional data
+            Charts.Add(new SpeedChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new ElevationChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new GpsAccuracyChartViewModel(colorConfig, chartConfig));
+
+            //Vehicle data
+            charts.Add(new MotorTorqueRpmChartViewModel(colorConfig, chartConfig));
             Charts.Add(new GearPositionChartViewModel(colorConfig, chartConfig));
-            //Charts.Add(new CellPairHeatMapViewData(colorConfig, lsConfig));
-            ActiveChart = Charts.First(); //Set the active model to the first one as a sane default. we should read this from the config.
+            Charts.Add(new V12BatteryChartViewModel(colorConfig, chartConfig));
+
+            //Charts.Add(new CellPairHeatMapViewData(colorConfig, lsConfig)); //Not functional yet
             BuildChartMenuItems();
 
             Events.CollectionChanged += (s, e) =>
@@ -273,6 +290,7 @@ namespace TripView.ViewModels
             MPoint? thePoint = null;
             foreach (var item in Points.Features)
             {
+                //TODO: Set the Selected Item to the car symbol, unset all other symbols except for the end
                 if (item.Styles.First() is SymbolStyle s)
                 {
                     if (item[FeatureRecordKeyName] is TripLog log)
@@ -289,7 +307,7 @@ namespace TripView.ViewModels
                         }
                         else
                         {
-                            s.Fill = new Mapsui.Styles.Brush(Utilities.GetColorFromString(_colorConfig.MapRouteColor, SkiaSharp.SKColors.Purple).ToMapsui());
+                            s.Fill = new Mapsui.Styles.Brush(Utilities.GetColorFromString(_colorConfig.MapRouteColor, SKColors.Purple).ToMapsui());
                             s.SymbolType = SymbolType.Ellipse;
                             s.SymbolScale = 0.5;
                         }
@@ -304,6 +322,9 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Experimental Command
+        /// </summary>
         [RelayCommand]
         private void JudgementCheck()
         {
@@ -368,7 +389,6 @@ namespace TripView.ViewModels
                 var gpsAccFeatures = new List<IFeature>();
               
                 var pointColor = Utilities.GetColorFromString(_colorConfig.MapRouteColor, SKColors.MediumPurple);
-                var firstRecordProcessed = false;
                 foreach (var record in records)
                 {
                     if (record.GpsPhoneCoordinates.IsZero())
@@ -383,23 +403,22 @@ namespace TripView.ViewModels
 
                     var vehPoint = new PointFeature(record.GpsPhoneCoordinates.ToMPoint());
                     vehPoint[FeatureRecordKeyName] = record;
-                    if (!firstRecordProcessed)
+                    if (record == Events.First())
                     {
                         var carStyle = new ImageStyle
                         {
-                            Image = $"base64-content://{CarImageAsBase64}",
+                            Image = $"base64-content://{RouteStartImageAsBase64}",
                             SymbolScale = 0.05,
                             SymbolRotation = records.Count > 1 ? Utilities.CalculateHeading(record.GpsPhoneCoordinates, records[1].GpsPhoneCoordinates) : 0,
                         };
                         vehPoint.Styles.Add(carStyle);
-                        firstRecordProcessed = true;
                     } 
                     else
-                    {                       
-                        var pointStyle = new SymbolStyle { 
-                            SymbolScale = 0.4, 
-                            Fill = new Mapsui.Styles.Brush(pointColor.ToMapsui()), 
-                            Opacity = 0.4f 
+                    {
+                        var pointStyle = new SymbolStyle {
+                            SymbolScale = 0.4,
+                            Fill = new Mapsui.Styles.Brush(pointColor.ToMapsui()),
+                            Opacity = 0.4f
                         };
                         vehPoint.Styles.Add(pointStyle);
                     }
@@ -408,26 +427,39 @@ namespace TripView.ViewModels
                     //
                     //Add GPS Uncert
                     //
-                    var acc = record.GPSStatus.GetAccuracy();
-                    if (acc == 0)
+                    var accInMeters = record.GPSStatus.GetAccuracy();
+                    if (accInMeters == 0)
                         continue;
 
                     var geoFactory = new NetTopologySuite.Geometries.GeometryFactory();
-                    var circle = geoFactory.CreatePoint(record.GpsPhoneCoordinates.ToMPoint().ToCoordinate()).Buffer(acc);
-
-                    var feature = new Mapsui.Nts.GeometryFeature() { Geometry = circle };
+                    var feature = new Mapsui.Nts.GeometryFeature() { Geometry = geoFactory.CreatePoint(record.GpsPhoneCoordinates.ToMPoint().ToCoordinate()).Buffer(accInMeters) };
                     feature[FeatureRecordKeyName] = record;
                     feature.Styles.Add(new VectorStyle()
                     {
-                        Fill = new Mapsui.Styles.Brush(Utilities.GetColorFromString(_colorConfig.GpsAccuracyColor, Mapsui.Styles.Color.FromArgb(64, 0, 120, 215).ToSkia()).ToMapsui())
+                        Fill = new Mapsui.Styles.Brush(Utilities.GetColorFromString(_colorConfig.GpsAccuracyColor, SKColors.LightBlue).ToMapsui())
                     });
                     gpsAccFeatures.Add(feature);
                 }
+
+                var lastFeature = features.Last().As<PointFeature>();
+                lastFeature.Styles.Clear();
+                lastFeature.Styles.Add(new ImageStyle
+                {
+                    Image = $"base64-content://{RouteEndImageAsBase64}",
+                    SymbolScale = 0.025,
+                    SymbolRotation = features.Count > 1 ? Utilities.CalculateHeading(
+                        features[^2][FeatureRecordKeyName].As<TripLog>().GpsPhoneCoordinates, 
+                        lastFeature[FeatureRecordKeyName].As<TripLog>().GpsPhoneCoordinates) : 0,
+                });
 
                 foreach (var chart in Charts)
                 {
                     chart.LoadData(Events, _configuration.MinutesBetweenTrips);
                 }
+
+                //Note: Moved this from the ctor to LoadCSVData to prevent an issue with XAxes being squished
+                //ActiveChart = Charts.First(); //Set the active model to the first one as a sane default. we should read this from the config.
+                ActiveChart ??= Charts.First();
 
                 this.Points.Name = $"Trip-{System.IO.Path.GetFileNameWithoutExtension(fileName)}";
                 this.Points.Style = null;

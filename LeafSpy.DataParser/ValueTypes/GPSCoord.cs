@@ -39,18 +39,19 @@ namespace LeafSpy.DataParser.ValueTypes
             if (sep == -1)
                 return 0;
 
-            // Parse degrees (can be negative)
             int degrees = int.Parse(RawValue[..sep].Trim());
 
-            // Parse minutes (trim space after the separator)
             double minutes = double.Parse(RawValue[(sep + 1)..].Trim());
 
-            // Handle sign correctly
             double decimalDegrees = Math.Abs(degrees) + minutes / 60.0;
             return degrees < 0 ? -decimalDegrees : decimalDegrees;
         }
 
-        public double ToRadians()
+        /// <summary>
+        /// Helper method to convert Degrees into Radians
+        /// </summary>
+        /// <returns>radians from degrees</returns>
+        private double ToRadians()
         {
             return ToDecimalDegrees() * (Math.PI / 180.0);
         }
@@ -72,7 +73,7 @@ namespace LeafSpy.DataParser.ValueTypes
                 Math.Cos(lat1) * Math.Cos(lat2) *
                 Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
             double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            const int RadiusOfEarthInMeters = 6371000; // Radius of the Earth in meters (Mean Earth Radius)
+            const int RadiusOfEarthInMeters = 6_371_000; // Radius of the Earth in meters (Mean Earth Radius)
             return RadiusOfEarthInMeters * c; // Distance in meters
         }
     }

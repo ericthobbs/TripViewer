@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <None Remove="assets\cars\GenericEV.png" />
+    <None Remove="assets\objects\StartingFlag.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +53,8 @@
     <Resource Include="assets\cars\GenericEV.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="assets\objects\FinishingLine.png" />
+    <Resource Include="assets\objects\StartingFlag.png" />
   </ItemGroup>
 
   <ItemGroup>

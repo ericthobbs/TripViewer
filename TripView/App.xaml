@@ -6,6 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <BitmapImage x:Key="GenericEVWhite" UriSource="pack://application:,,,/assets/cars/GenericEV.png"/>
+            <BitmapImage x:Key="FinishingLine" UriSource="pack://application:,,,/assets/objects/FinishingLine.png"/>
+            <BitmapImage x:Key="StartingFlag" UriSource="pack://application:,,,/assets/objects/StartingFlag.png"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
