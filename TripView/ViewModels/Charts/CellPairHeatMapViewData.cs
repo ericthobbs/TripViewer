@@ -27,6 +27,7 @@ using LiveChartsCore.SkiaSharpView;
 using Microsoft.Extensions.Options;
 using SkiaSharp;
 using System.Collections.ObjectModel;
+using TripView.Configuration;
 
 namespace TripView.ViewModels.Charts
 {

@@ -36,6 +36,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SkiaSharp;
 using System.Collections.ObjectModel;
+using TripView.Configuration;
 using TripView.ViewModels.Charts;
 using TripView.ViewModels.Messages;
 using WinRT;
@@ -170,10 +171,9 @@ namespace TripView.ViewModels
             {
                 if (Events.Count > 0)
                 {
-                    var start = Events.First().Odokm;
-                    var end = Events.Last().Odokm;
-                    var KILOMETERS_TO_MILES = 0.621371;
-                    return $"{(end-start) * KILOMETERS_TO_MILES:N2} miles (Odo)";
+                    var start = Events.First().Odometer;
+                    var end = Events.Last().Odometer;
+                    return $"{end-start}";
                 }
                 else
                 {
@@ -246,6 +246,8 @@ namespace TripView.ViewModels
             //Power / Battery
             Charts.Add(new PowerUsageChartViewModel(colorConfig, chartConfig));
             Charts.Add(new SocChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new SohChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new RegenWhChartViewModel(colorConfig, chartConfig));
             Charts.Add(new GidsChartViewModel(colorConfig, chartConfig));
             Charts.Add(new HVoltChartViewModel(colorConfig, chartConfig));
             Charts.Add(new HVPackVoltsAmpsChartViewModel(colorConfig, chartConfig));

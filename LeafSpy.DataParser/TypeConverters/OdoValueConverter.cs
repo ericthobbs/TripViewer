@@ -21,18 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using System.ComponentModel.DataAnnotations;
+using CsvHelper.Configuration;
+using CsvHelper;
+using CsvHelper.TypeConversion;
+using LeafSpy.DataParser.ValueTypes;
 
-namespace LeafSpy.DataParser
+namespace LeafSpy.DataParser.TypeConverters
 {
-    /// <summary>
-    /// This needs to be refactored
-    /// </summary>
-    public enum DistanceUnit
+    internal class OdoValueConverter : DefaultTypeConverter
     {
-        [Display(Name = "feet")]
-        FEET,
-        [Display(Name = "meters")]
-        METER,
+        private DistanceUnit SourceUnit { get; set; }
+        public OdoValueConverter(DistanceUnit unit)
+        {
+            SourceUnit = unit;
+        }
+
+        public override object? ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
+        {
+            return new OdoValue(SourceUnit, text ?? "0");
+        }
     }
 }

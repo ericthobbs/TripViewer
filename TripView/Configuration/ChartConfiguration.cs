@@ -21,18 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using System.ComponentModel.DataAnnotations;
+using LeafSpy.DataParser;
 
-namespace LeafSpy.DataParser
+namespace TripView.Configuration
 {
     /// <summary>
-    /// This needs to be refactored
+    /// Chart Unit and label configuration settings
     /// </summary>
-    public enum DistanceUnit
+    public class ChartConfiguration
     {
-        [Display(Name = "feet")]
-        FEET,
-        [Display(Name = "meters")]
-        METER,
+        /// <summary>
+        /// Unit of air pressure to use for display
+        /// </summary>
+        public AirPressureUnit AirPressureUnit { get; set; } = AirPressureUnit.PSI;
+
+        /// <summary>
+        /// Unit of distance to use for display
+        /// </summary>
+        public DistanceUnit DistanceUnit { get; set; } = DistanceUnit.FEET;
+
+        /// <summary>
+        /// Unit of temperature to display
+        /// </summary>
+        public TemperatureUnit TemperatureUnit { get; set; } = TemperatureUnit.FAHRENHEIT;
+
+        /// <summary>
+        /// Time Axis label rotation angle
+        /// </summary>
+        public int TimeAxisLabelRotation { get; set; } = 15;
     }
 }

@@ -631,9 +631,9 @@ namespace LeafSpy.DataParser
         public float Bat12vVolts { get; set; }
 
         [Category("General")]
-        [DisplayName("Odometer (km)")]
+        [DisplayName("Odometer")]
         [ReadOnly(true)]
-        public float Odokm { get; set; }
+        public required OdoValue Odometer { get; set; }
 
         [Category("Charging")]
         [DisplayName("DCFC Counts")]

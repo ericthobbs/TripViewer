@@ -36,6 +36,7 @@ using SkiaSharp;
 using SkiaSharp.Views.WPF;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using TripView.Configuration;
 using TripView.ViewModels.Messages;
 
 namespace TripView.ViewModels.Charts
@@ -221,9 +222,9 @@ namespace TripView.ViewModels.Charts
         }
 
         protected static List<DateTimePoint> BuildDateTimePoints(
-                    IEnumerable<TripLog> events,
-                    Func<TripLog, double> valueSelector,
-                    int minMinutesBetweenTrip)
+            IEnumerable<TripLog> events,
+            Func<TripLog, double> valueSelector,
+            int minMinutesBetweenTrip)
         {
             var points = events.Select(e => new DateTimePoint(e.DateTime, valueSelector(e))).ToList();
             var tsMaxdiff = TimeSpan.FromMinutes(minMinutesBetweenTrip);
@@ -234,6 +235,32 @@ namespace TripView.ViewModels.Charts
                     points.Insert(i, new DateTimePoint(points[i].DateTime.AddSeconds(5), null));
                     i++;
                 }
+            }
+            return points;
+        }
+
+        protected static List<DateTimePoint> BuildDeltaDateTimePoints(
+            IEnumerable<TripLog> events,
+            Func<TripLog, double> valueSelector,
+            int minMinutesBetweenTrip)
+        {
+            var eventList = events.ToList();
+            var points = new List<DateTimePoint>();
+
+            var tsMaxdiff = TimeSpan.FromMinutes(minMinutesBetweenTrip);
+
+            for (int i = 1; i < eventList.Count; i++)
+            {
+                var current = eventList[i];
+                var previous = eventList[i - 1];
+                var delta = valueSelector(current) - valueSelector(previous);
+                if ((current.DateTime - previous.DateTime) > tsMaxdiff)
+                {
+                    points.Add(new DateTimePoint(current.DateTime.AddSeconds(-5), null));
+                    i++;
+                }
+
+                points.Add(new DateTimePoint(current.DateTime, delta));
             }
             return points;
         }

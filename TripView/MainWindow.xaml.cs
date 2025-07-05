@@ -44,6 +44,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using TripView.Configuration;
 using TripView.ViewModels;
 using TripView.ViewModels.Messages;
 namespace TripView

@@ -21,21 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+using System.Collections.ObjectModel;
 using LeafSpy.DataParser;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using Microsoft.Extensions.Options;
-using System.Collections.ObjectModel;
 using TripView.Configuration;
 
 namespace TripView.ViewModels.Charts
 {
-    public partial class HVPackVoltsAmpsChartViewModel : BaseChartViewModel
+    public class RegenWhChartViewModel : BaseChartViewModel
     {
-        public HVPackVoltsAmpsChartViewModel(
+        public RegenWhChartViewModel(
             IOptionsMonitor<ColorConfiguration> colorConfiguration,
-            IOptionsMonitor<ChartConfiguration> chartConfig) : base(colorConfiguration, chartConfig)
+            IOptionsMonitor<ChartConfiguration> chartConfig)
+            : base(colorConfiguration, chartConfig)
         {
             Reset();
         }
@@ -56,25 +57,36 @@ namespace TripView.ViewModels.Charts
                 LabelsRotation = _chartConfiguration.CurrentValue.TimeAxisLabelRotation,
             });
 
-            YAxes.Add(new Axis
+            YAxes.Add(new Axis()
             {
-                Name = "HV Battery Volts",
+                Labeler = (value) => $"{value:N2}",
+                Name = "Cumulative Regen (wh)",
+                CrosshairSnapEnabled = true,
+                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                UnitWidth = 5,
+                MinStep = 1,
                 Position = LiveChartsCore.Measure.AxisPosition.Start
             });
-            YAxes.Add(new Axis
+
+            YAxes.Add(new Axis()
             {
-                Name = "HV Battery Amps",
+                Labeler = (value) => $"{value:N2}",
+                Name = "Delta Regen (wh)",
+                CrosshairSnapEnabled = true,
+                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                UnitWidth = 5,
+                MinStep = 1,
                 Position = LiveChartsCore.Measure.AxisPosition.End
             });
-            Name = $"{YAxes[0].Name}/{YAxes[1].Name} x {XAxes[0].Name}";
-        }
 
+            Name = $"{YAxes[0].Name} x {XAxes[0].Name}";
+        }
         public override void LoadData(ObservableCollection<TripLog> Events, int minMinutesBetweenTrip)
         {
             Series.Add(new LineSeries<DateTimePoint>
             {
-                Values = BuildDateTimePoints(Events, e => e.PackVolts, minMinutesBetweenTrip),
-                Name = "Volts",
+                Values = BuildDateTimePoints(Events, e => e.RegenWh * -1, minMinutesBetweenTrip),
+                Name = "Cumulative Regen (wh)",
                 Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
@@ -82,9 +94,9 @@ namespace TripView.ViewModels.Charts
             });
             Series.Add(new LineSeries<DateTimePoint>
             {
-                Values = BuildDateTimePoints(Events, e => e.PackAmps, minMinutesBetweenTrip),
-                Name = "Amps",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Values = BuildDeltaDateTimePoints(Events, e => e.RegenWh * -1, minMinutesBetweenTrip),
+                Name = "Delta Regen (wh)",
+                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,

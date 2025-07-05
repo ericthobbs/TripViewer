@@ -21,18 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using System.ComponentModel.DataAnnotations;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace LeafSpy.DataParser
+namespace TripView
 {
-    /// <summary>
-    /// This needs to be refactored
-    /// </summary>
-    public enum DistanceUnit
+    public static class ServiceCollectionExtensions
     {
-        [Display(Name = "feet")]
-        FEET,
-        [Display(Name = "meters")]
-        METER,
+        public static IServiceCollection AddAllDerivedFromAsTransients<T>(this IServiceCollection services)
+        {
+            var derivedTypes = typeof(T).Assembly.GetTypes()
+                .Where(t => t.IsClass && !t.IsAbstract && typeof(T).IsAssignableFrom(t));
+
+            foreach (var type in derivedTypes)
+            {
+                services.AddTransient(type);
+            }
+
+            return services;
+        }
     }
 }

@@ -26,9 +26,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using SkiaSharp;
 using System.Reflection;
 using System.Windows;
+using TripView.Configuration;
 using TripView.ViewModels;
 using TripView.ViewModels.Charts;
 
@@ -83,23 +83,14 @@ namespace TripView
                     services.Configure<ColorConfiguration>(context.Configuration.GetSection("Colors"));
                     services.Configure<ChartConfiguration>(context.Configuration.GetSection("ChartConfiguration"));
                     services.AddSingleton<MainWindow>();
+                    services.AddSingleton<About>();
+                    services.AddSingleton<AboutViewModel>();
+                    services.AddTransient<EventViewerWindow>();
 
                     services.AddTransient<TripDataViewModel>();
 
-                    services.AddTransient<TemperatureChartViewModel>();
-                    services.AddTransient<ElevationChartViewModel>();
-                    services.AddTransient<SpeedChartViewModel>();
-                    services.AddTransient<PowerUsageChartViewModel>();
-                    services.AddTransient<SocChartViewModel>();
-                    services.AddTransient<GpsAccuracyChartViewModel>();
-                    services.AddTransient<TirePressureChartViewModel>();
-                    services.AddTransient<GidsChartViewModel>();
-                    services.AddTransient<HVoltChartViewModel>();
-                    services.AddTransient<GearPositionChartViewModel>();
-                    services.AddTransient<MotorTorqueRpmChartViewModel>();
-                    services.AddTransient<V12BatteryChartViewModel>();
-                    services.AddTransient<HVPackVoltsAmpsChartViewModel>();
-                    services.AddTransient<CellPairHeatMapViewData>();
+                    //Add all chart view models dynamically via reflection
+                    services.AddAllDerivedFromAsTransients<BaseChartViewModel>();
                 })
                 .Build();
 
@@ -120,73 +111,5 @@ namespace TripView
             }
             base.OnExit(e);
         }
-    }
-
-    /// <summary>
-    /// Represents the configuration settings for initializing and managing the behavior of TripView.
-    /// </summary>
-    public class StartupConfiguration
-    {
-        /// <summary>
-        /// Initial map starting position Latitude (in degrees)
-        /// </summary>
-        public double InitialPositionLatitude { get; set; } = 34.01596;
-        /// <summary>
-        /// Initial map starting position Longitude (in degrees)
-        /// </summary>
-        public double InitialPositionLongitude { get; set; } = -118.28498;
-
-        /// <summary>
-        /// Initial map zoom level (0-9)
-        /// </summary>
-        public int InitialZoomLevel { get; set; } = 9;
-
-        /// <summary>
-        /// How long in seconds to take to zoom in to the specified zoom level
-        /// </summary>
-        public int ZoomTimeInSeconds { get; set; } = 2;
-
-        /// <summary>
-        /// Open Street Maps tile server url. If you want to self-host OSM, change this to point to your instance.
-        /// </summary>
-        public string OpenStreetMapUrl { get; set; } = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
-
-        /// <summary>
-        /// Max time in minutes to consider a point to be part of the same trip.
-        /// </summary>
-        public int MinutesBetweenTrips { get; set; } = 5;
-
-
-        /// <summary>
-        /// Set to false to store OSM tiles on the filesystem instead of an SQLite database.
-        /// </summary>
-        public bool UseSqlAsCache { get; set; } = true;
-    }
-
-    public class ColorConfiguration
-    {
-        public string? MapRouteColor { get; set; }
-        public string? ChartCrosshairColor { get; set; }
-        public int ChartLineThickness { get; set; } = 3;
-        public string? ChartBackgroundColor { get; set; } = SKColors.White.ToString();
-        public string? ChartPrimaryColor { get; set; }
-        public string? ChartSecondaryColor { get; set; }
-        public string? ChartTertiaryColor { get; set; }
-        public string? ChartQuaternaryColor { get; set; }
-        public string? ChartQuinaryColor { get; set; }
-        public string? ChartSenaryColor { get; set; }
-        public string? ChartSeptenaryColor { get; set; }
-        public string? ChartOctonaryColor { get; set; }
-        public string? ChartNonaryColor { get; set; }
-        public string? ChartDenaryColor { get; set; } //10
-        public string? GpsAccuracyColor { get; set; }
-    }
-
-    public class ChartConfiguration
-    {
-        public AirPressureUnit AirPressureUnit { get; set; } = AirPressureUnit.PSI;
-        public DistanceUnit DistanceUnit { get; set; } = DistanceUnit.FEET;
-        public TemperatureUnit TemperatureUnit { get; set; } = TemperatureUnit.FAHRENHEIT;
-        public int TimeAxisLabelRotation { get; set; } = 15;
     }
 }
