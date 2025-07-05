@@ -353,6 +353,7 @@ namespace TripView.ViewModels
                 {
                     if (log.DateTime == newValue?.DateTime)
                     {
+                        thePoint = item.Extent?.Centroid.ToPoint().ToMPoint();
                         item.Styles.Add(new ImageStyle
                         {
                             Image = carBase64ImageContent,

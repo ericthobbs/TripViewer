@@ -96,7 +96,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDeltaDateTimePoints(Events, e => e.RegenWh * -1, minMinutesBetweenTrip),
                 Name = "Delta Regen (wh)",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,

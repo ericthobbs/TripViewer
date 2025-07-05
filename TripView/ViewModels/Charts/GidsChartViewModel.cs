@@ -63,8 +63,19 @@ namespace TripView.ViewModels.Charts
                 Name = "Gids",
                 CrosshairSnapEnabled = true,
                 CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                Position = LiveChartsCore.Measure.AxisPosition.End
             });
-            Name = $"{YAxes[0].Name} x {XAxes[0].Name}";
+
+            YAxes.Add(new Axis()
+            {
+                Labeler = (value) => $"{value:N2}",
+                Name = "Kwh",
+                CrosshairSnapEnabled = true,
+                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                Position = LiveChartsCore.Measure.AxisPosition.Start
+            });
+
+            Name = $"{YAxes[0].Name}/{YAxes[1].Name} x {XAxes[0].Name}";
         }
 
         public override void LoadData(ObservableCollection<TripLog> Events, int minMinutesBetweenTrip)
@@ -77,6 +88,16 @@ namespace TripView.ViewModels.Charts
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,
+            });
+            Series.Add(new LineSeries<DateTimePoint>
+            {
+                Values = BuildDateTimePoints(Events, e => e.Gids.Energy, minMinutesBetweenTrip),
+                Name = "Kwh Remaining",
+                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Fill = null,
+                GeometryFill = null,
+                GeometryStroke = null,
+                ScalesYAt = 1
             });
         }
     }
