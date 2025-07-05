@@ -86,8 +86,6 @@ namespace TripView.ViewModels
         [ObservableProperty]
         private string title = "TripView: No Data Loaded";
 
-        public const string FeatureRecordKeyName = "tripdata";
-
         [ObservableProperty]
         private string? carImageAsBase64;
 
@@ -190,6 +188,9 @@ namespace TripView.ViewModels
         [ObservableProperty]
         private TripLog? selectedEvent;
 
+        public const string FeatureRecordKeyName = "tripdata";
+
+        public const string FeatureHeadingToNextPoint = "heading";
         public TripDataViewModel(
                     ILogger<TripDataViewModel> logger,
                     IOptionsMonitor<StartupConfiguration> startupConfigOptions,
@@ -288,28 +289,31 @@ namespace TripView.ViewModels
         partial void OnSelectedEventChanged(TripLog? oldValue, TripLog? newValue)
         {
             MPoint? thePoint = null;
+            var carBase64ImageContent = $"base64-content://{CarImageAsBase64}";
             foreach (var item in Points.Features)
             {
-                //TODO: Set the Selected Item to the car symbol, unset all other symbols except for the end
-                if (item.Styles.First() is SymbolStyle s)
+                //If this point doesn't contain a trip log event, then skip it
+                if (item[FeatureRecordKeyName] is TripLog log)
                 {
-                    if (item[FeatureRecordKeyName] is TripLog log)
+                    if (log.DateTime == newValue?.DateTime)
                     {
-                        if (log.DateTime == newValue?.DateTime)
+                        item.Styles.Add(new ImageStyle
                         {
-                            if(item.Extent != null)
-                            {
-                                thePoint = new MPoint(item.Extent.Centroid.X, item.Extent.Centroid.Y);
-                            }
-                            s.Fill = new Mapsui.Styles.Brush(Mapsui.Styles.Color.FireBrick);
-                            s.SymbolType = SymbolType.Triangle;
-                            s.SymbolScale = 1.0;
-                        }
-                        else
+                            Image = carBase64ImageContent,
+                            SymbolScale = 0.05,
+                            SymbolRotation = item[FeatureHeadingToNextPoint] != null ? item[FeatureHeadingToNextPoint].As<double>() : 0,
+                        });
+                    }
+                    else
+                    {
+                        var stylesToRemove = item.Styles
+                            .OfType<ImageStyle>()
+                            .Where(im => im?.Image?.Source == carBase64ImageContent)
+                            .ToList();
+
+                        foreach (var style in stylesToRemove)
                         {
-                            s.Fill = new Mapsui.Styles.Brush(Utilities.GetColorFromString(_colorConfig.MapRouteColor, SKColors.Purple).ToMapsui());
-                            s.SymbolType = SymbolType.Ellipse;
-                            s.SymbolScale = 0.5;
+                            item.Styles.Remove(style);
                         }
                     }
                 }
@@ -389,6 +393,7 @@ namespace TripView.ViewModels
                 var gpsAccFeatures = new List<IFeature>();
               
                 var pointColor = Utilities.GetColorFromString(_colorConfig.MapRouteColor, SKColors.MediumPurple);
+                PointFeature? lastPoint = null;
                 foreach (var record in records)
                 {
                     if (record.GpsPhoneCoordinates.IsZero())
@@ -403,15 +408,23 @@ namespace TripView.ViewModels
 
                     var vehPoint = new PointFeature(record.GpsPhoneCoordinates.ToMPoint());
                     vehPoint[FeatureRecordKeyName] = record;
+
+                    if(lastPoint != null)
+                    {
+                        lastPoint[FeatureHeadingToNextPoint] = Utilities.CalculateHeading(
+                            lastPoint[FeatureRecordKeyName].As<TripLog>().GpsPhoneCoordinates, 
+                            record.GpsPhoneCoordinates);
+                    }
+
                     if (record == Events.First())
                     {
-                        var carStyle = new ImageStyle
+                        var startStyle = new ImageStyle
                         {
                             Image = $"base64-content://{RouteStartImageAsBase64}",
                             SymbolScale = 0.05,
                             SymbolRotation = records.Count > 1 ? Utilities.CalculateHeading(record.GpsPhoneCoordinates, records[1].GpsPhoneCoordinates) : 0,
                         };
-                        vehPoint.Styles.Add(carStyle);
+                        vehPoint.Styles.Add(startStyle);
                     } 
                     else
                     {
@@ -425,7 +438,7 @@ namespace TripView.ViewModels
                     features.Add(vehPoint);
 
                     //
-                    //Add GPS Uncert
+                    //Add GPS Accuracy layer
                     //
                     var accInMeters = record.GPSStatus.GetAccuracy();
                     if (accInMeters == 0)
@@ -439,6 +452,7 @@ namespace TripView.ViewModels
                         Fill = new Mapsui.Styles.Brush(Utilities.GetColorFromString(_colorConfig.GpsAccuracyColor, SKColors.LightBlue).ToMapsui())
                     });
                     gpsAccFeatures.Add(feature);
+                    lastPoint = vehPoint;
                 }
 
                 var lastFeature = features.Last().As<PointFeature>();
