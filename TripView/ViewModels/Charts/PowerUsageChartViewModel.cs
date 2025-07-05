@@ -31,9 +31,11 @@ using SkiaSharp;
 
 namespace TripView.ViewModels.Charts
 {
-    public class AccPowerUsageChartViewModel : BaseChartViewModel
+    public class PowerUsageChartViewModel : BaseChartViewModel
     {
-        public AccPowerUsageChartViewModel(IOptionsMonitor<ColorConfiguration> colorConfiguration, IOptionsMonitor<ChartConfiguration> chartConfig) : base(colorConfiguration, chartConfig)
+        public PowerUsageChartViewModel(
+            IOptionsMonitor<ColorConfiguration> colorConfiguration, 
+            IOptionsMonitor<ChartConfiguration> chartConfig) : base(colorConfiguration, chartConfig)
         {
             Reset();
         }
@@ -66,12 +68,12 @@ namespace TripView.ViewModels.Charts
 
         public override void LoadData(ObservableCollection<TripLog> Events, int minMinutesBetweenTrip)
         {
-            if (Events.Any(e => e.ACPwr250w != 0)) {
+            if (Events.Any(e => e.ACPwr != 0)) {
                 Series.Add(new LineSeries<DateTimePoint>
                 {
-                    Values = BuildDateTimePoints(Events, e => e.ACPwr250w, minMinutesBetweenTrip),
+                    Values = BuildDateTimePoints(Events, e => e.ACPwr, minMinutesBetweenTrip),
                     DataLabelsFormatter = (point) => $"{point.Coordinate} watts",
-                    Name = "A/C Power (250 W)",
+                    Name = "A/C Power (w)",
                     Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                     Fill = null,
                     GeometryFill = null,
@@ -80,12 +82,12 @@ namespace TripView.ViewModels.Charts
                     IsVisibleAtLegend = true,
                 });
             }
-            if (Events.Any(e => e.EstPwrAC50w != 0)) {
+            if (Events.Any(e => e.EstPwrAC != 0)) {
                 Series.Add(new LineSeries<DateTimePoint>
                 {
-                    Values = BuildDateTimePoints(Events, e => e.EstPwrAC50w, minMinutesBetweenTrip),
+                    Values = BuildDateTimePoints(Events, e => e.EstPwrAC, minMinutesBetweenTrip),
                     DataLabelsFormatter = (point) => $"{point.Coordinate} watts",
-                    Name = "Estimated A/C Power (50 W)",
+                    Name = "Estimated A/C Power (w)",
                     Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                     Fill = null,
                     GeometryFill = null,
@@ -95,13 +97,13 @@ namespace TripView.ViewModels.Charts
                 });
             }
 
-            if (Events.Any(e => e.EstPwrHtr250w != 0))
+            if (Events.Any(e => e.EstPwrHtr != 0))
             {
                 Series.Add(new LineSeries<DateTimePoint>
                 {
-                    Values = BuildDateTimePoints(Events, e => e.EstPwrHtr250w, minMinutesBetweenTrip),
+                    Values = BuildDateTimePoints(Events, e => e.EstPwrHtr, minMinutesBetweenTrip),
                     DataLabelsFormatter = (point) => $"{point.Coordinate} watts",
-                    Name = "Estimated Heater Power (250 W)",
+                    Name = "Estimated Heater Power (w)",
                     Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartTertiaryColor, ChartDefaults.Series3Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                     Fill = null,
                     GeometryFill = null,
@@ -111,13 +113,13 @@ namespace TripView.ViewModels.Charts
                 });
             }
 
-            if (Events.Any(e => e.AuxPwr100w != 0))
+            if (Events.Any(e => e.AuxPwr != 0))
             {
                 Series.Add(new LineSeries<DateTimePoint>
                 {
-                    Values = BuildDateTimePoints(Events, e => e.AuxPwr100w, minMinutesBetweenTrip),
+                    Values = BuildDateTimePoints(Events, e => e.AuxPwr, minMinutesBetweenTrip),
                     DataLabelsFormatter = (point) => $"{point.Coordinate} watts",
-                    Name = "Aux Power (100 W)",
+                    Name = "Aux Power (w)",
                     Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartQuaternaryColor, ChartDefaults.Series4Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                     Fill = null,
                     GeometryFill = null,

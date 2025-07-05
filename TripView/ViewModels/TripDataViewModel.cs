@@ -43,19 +43,13 @@ using WinRT;
 
 namespace TripView.ViewModels
 {
-    public partial class LeafSpyImportConfigViewModel : ObservableObject 
-    {
-        private readonly ILogger<LeafSpyImportConfigViewModel> _logger;
-
-        [ObservableProperty]
-        public LeafspyImportConfiguration leafspyImportConfiguration;
-
-        public LeafSpyImportConfigViewModel(ILogger<LeafSpyImportConfigViewModel> logger, IOptionsMonitor<LeafspyImportConfiguration> lsConfig)
-        {
-            _logger = logger;
-            LeafspyImportConfiguration = lsConfig.CurrentValue;
-        }
-    }
+    /// <summary>
+    /// Represents a view model for managing trip-related data, charts, and configuration settings.
+    /// </summary>
+    /// <remarks>This class provides functionality for loading and managing trip data, including charts,
+    /// events, and map layers. It also supports operations such as resetting trip data, building chart menu items, and
+    /// handling event changes. The view model integrates with various configurations, such as startup, color, and
+    /// LeafSpy import settings.</remarks>
     public partial class TripDataViewModel : ObservableObject
     {
         private readonly ILogger<TripDataViewModel> _logger;
@@ -95,6 +89,9 @@ namespace TripView.ViewModels
         [ObservableProperty]
         private string? routeEndImageAsBase64;
 
+        /// <summary>
+        /// Trip Start Date
+        /// </summary>
         public string StartDate
         {
             get
@@ -108,6 +105,9 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Trip Start Time
+        /// </summary>
         public string StartTime
         {
             get
@@ -121,6 +121,10 @@ namespace TripView.ViewModels
             }
         }
 
+
+        /// <summary>
+        /// Trip End Time
+        /// </summary>
         public string EndTime
         {
             get
@@ -134,6 +138,12 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the total distance of the trip, calculated using the Haversine formula, in miles.
+        /// </summary>
+        /// <remarks>The distance is calculated based on the first and last non-zero GPS coordinates in
+        /// the trip's event list. The Haversine formula is used to compute the great-circle distance between two points
+        /// on the Earth's surface.</remarks>
         public string TripHaversineDistance
         {
             get
@@ -151,6 +161,9 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the total trip distance in miles, calculated from the odometer readings of the first and last events.
+        /// </summary>
         public string TripMilesDistance
         {
             get
@@ -169,6 +182,9 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the Vehicle Identification Number (VIN) associated with the first event in the collection.
+        /// </summary>
         public string VIN
         {
             get
@@ -191,6 +207,20 @@ namespace TripView.ViewModels
         public const string FeatureRecordKeyName = "tripdata";
 
         public const string FeatureHeadingToNextPoint = "heading";
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TripDataViewModel"/> class, which manages trip-related data,
+        /// charts, and configuration settings.
+        /// </summary>
+        /// <remarks>This constructor initializes the view model with default chart configurations, menu
+        /// items, and event handlers.  It also sets up a collection of predefined charts, such as temperature, power
+        /// usage, and vehicle data charts,  and subscribes to collection change events to update relevant properties
+        /// when the event collection is reset.</remarks>
+        /// <param name="logger">The logger instance used for logging diagnostic and operational information.</param>
+        /// <param name="startupConfigOptions">The options monitor for accessing the application's startup configuration settings.</param>
+        /// <param name="colorConfig">The options monitor for accessing color configuration settings used in charts and UI elements.</param>
+        /// <param name="lsConfig">The options monitor for accessing LeafSpy import configuration settings.</param>
+        /// <param name="chartConfig">The options monitor for accessing chart configuration settings.</param>
         public TripDataViewModel(
                     ILogger<TripDataViewModel> logger,
                     IOptionsMonitor<StartupConfiguration> startupConfigOptions,
@@ -214,13 +244,13 @@ namespace TripView.ViewModels
             Charts.Add(new TirePressureChartViewModel(colorConfig, chartConfig));
 
             //Power / Battery
-            Charts.Add(new AccPowerUsageChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new PowerUsageChartViewModel(colorConfig, chartConfig));
             Charts.Add(new SocChartViewModel(colorConfig, chartConfig));
             Charts.Add(new GidsChartViewModel(colorConfig, chartConfig));
             Charts.Add(new HVoltChartViewModel(colorConfig, chartConfig));
             Charts.Add(new HVPackVoltsAmpsChartViewModel(colorConfig, chartConfig));
 
-            //Postional data
+            //Positional data
             Charts.Add(new SpeedChartViewModel(colorConfig, chartConfig));
             Charts.Add(new ElevationChartViewModel(colorConfig, chartConfig));
             Charts.Add(new GpsAccuracyChartViewModel(colorConfig, chartConfig));
@@ -255,9 +285,15 @@ namespace TripView.ViewModels
         protected void ChartMenuItemClick(MenuItemViewModel item)
         {
             ActiveChart = Charts.First(e => e.Name == item.Header);
-            BuildChartMenuItems(); //TODO: Fix this.
+            BuildChartMenuItems();
         }
 
+        /// <summary>
+        /// Builds and populates the collection of menu items for the available charts.
+        /// </summary>
+        /// <remarks>This method clears the existing menu items and creates a new menu item for each chart
+        /// in the  <c>Charts</c> collection. Each menu item reflects the chart's name and indicates whether it is  the
+        /// currently active chart.</remarks>
         public void BuildChartMenuItems()
         {
             ChartMenuItems.Clear();
@@ -266,6 +302,12 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Resets the state of the ViewModel to its default values.
+        /// </summary>
+        /// <remarks>This method clears all data, resets properties to their initial states, and updates
+        /// associated components. After calling this method, the object will be in a state as if no data has been
+        /// loaded.</remarks>
         public void Reset()
         {
             Points.Features = [];
@@ -286,6 +328,18 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Handles changes to the selected trip log event and updates the associated map features accordingly.
+        /// </summary>
+        /// <remarks>This method updates the styles of map features to reflect the newly selected trip log
+        /// event.  If a feature corresponds to the new event, it is styled with an image representing the car. 
+        /// Features corresponding to the old event have the car image style removed.  Additionally, the map is notified
+        /// of feature modifications and data changes, and a message is sent to center the map on a specific point if
+        /// applicable.</remarks>
+        /// <param name="oldValue">The previously selected <see cref="TripLog"/> instance, or <see langword="null"/> if no event was previously
+        /// selected.</param>
+        /// <param name="newValue">The newly selected <see cref="TripLog"/> instance, or <see langword="null"/> if no event is currently
+        /// selected.</param>
         partial void OnSelectedEventChanged(TripLog? oldValue, TripLog? newValue)
         {
             MPoint? thePoint = null;
@@ -358,6 +412,14 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Loads a LeafSpy log file and processes its data.
+        /// </summary>
+        /// <remarks>If the specified file exists, the method resets the current state, updates the title
+        /// to reflect the file name,  and attempts to load the CSV data from the file. If the file does not exist, the
+        /// method does nothing.</remarks>
+        /// <param name="filename">The full path to the LeafSpy log file to load. Must be a valid file path.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         public async Task LoadLeafSpyLogFile(string filename)
         {
             _logger.LogDebug("Selected file: {FileName}", filename);
@@ -379,6 +441,18 @@ namespace TripView.ViewModels
             }
         }
 
+        /// <summary>
+        /// Asynchronously loads and processes trip data from a CSV file.
+        /// </summary>
+        /// <remarks>This method parses the specified CSV file, processes the trip data, and updates
+        /// various layers and properties related to the trip, such as map features, GPS accuracy, and trip statistics.
+        /// It also raises property change notifications for UI updates and sends a message with the first and last
+        /// valid GPS coordinates of the trip.  The method skips records with invalid GPS coordinates and applies styles
+        /// to map features, such as start and end points, route points, and GPS accuracy areas. Additionally, it
+        /// initializes charts with the loaded data and sets the active chart to the first one if not already set.  The
+        /// GPS accuracy layer is hidden by default after processing.</remarks>
+        /// <param name="fileName">The full path to the CSV file containing trip data.</param>
+        /// <returns></returns>
         private async Task LoadCSVData(string fileName)
         {
             await Task.Run(() =>

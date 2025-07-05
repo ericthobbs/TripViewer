@@ -693,11 +693,11 @@ namespace LeafSpy.DataParser
 
         [Category("Power")]
         [ReadOnly(true)]
-        public int AuxPwr100w { get; set; }
+        public int AuxPwr { get; set; }
 
         [Category("Power")]
         [ReadOnly(true)]
-        public int ACPwr250w { get; set; }
+        public int ACPwr { get; set; }
 
         [Category("Power")]
         [ReadOnly(true)]
@@ -705,11 +705,11 @@ namespace LeafSpy.DataParser
 
         [Category("Power")]
         [ReadOnly(true)]
-        public int EstPwrAC50w { get; set; }
+        public int EstPwrAC { get; set; }
 
         [Category("Power")]
         [ReadOnly(true)]
-        public int EstPwrHtr250w { get; set; }
+        public int EstPwrHtr { get; set; }
 
         [Category("Charging")]
         [ReadOnly(true)]

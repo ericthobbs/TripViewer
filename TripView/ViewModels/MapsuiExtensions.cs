@@ -30,6 +30,11 @@ namespace TripView.ViewModels
 {
     public static class MapsuiExtensions
     {
+        /// <summary>
+        /// Gets the Mapsui MPoint from GPS Lat/Long
+        /// </summary>
+        /// <param name="coords">GPS Lat/Log</param>
+        /// <returns>Lat/Long to map MPoint</returns>
         public static MPoint ToMPoint(this GPSCoordinates coords)
         {
             return SphericalMercator.FromLonLat(coords.Longitude.ToDecimalDegrees(), coords.Latitude.ToDecimalDegrees()).ToMPoint();

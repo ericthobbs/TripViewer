@@ -104,14 +104,14 @@ namespace LeafSpy.DataParser.ClassMaps
             Map(m => m.EpochTime).Name("epoch time")
                 .TypeConverter<EpochConverter>();                   //epoch time
             Map(m => m.MotorPwrw).Name("Motor Pwr(w)");             //Motor Pwr(w)
-            Map(m => m.AuxPwr100w).Name("Aux Pwr(100w)")
+            Map(m => m.AuxPwr).Name("Aux Pwr(100w)")
                 .TypeConverter<MultiplyBy100Converter>();           //Aux Pwr(100w)
-            Map(m => m.ACPwr250w).Name("A/C Pwr(250w)")
+            Map(m => m.ACPwr).Name("A/C Pwr(250w)")
                 .TypeConverter<MultiplyBy250Converter>();           //A/C Pwr(250w)
             Map(m => m.ACComp01MPa).Name("A/C Comp(0.1MPa)");       //A/C Comp(0.1MPa)
-            Map(m => m.EstPwrAC50w).Name("Est Pwr A/C(50w)")
+            Map(m => m.EstPwrAC).Name("Est Pwr A/C(50w)")
                 .TypeConverter<MultiplyBy50Converter>();            //Est Pwr A/C(50w)
-            Map(m => m.EstPwrHtr250w).Name("Est Pwr Htr(250w)")
+            Map(m => m.EstPwrHtr).Name("Est Pwr Htr(250w)")
                 .TypeConverter<MultiplyBy250Converter>();           //Est Pwr Htr(250w)
             Map(m => m.PlugState).Name("Plug State")
                 .TypeConverter<EnumConverter<PlugState>>();         //Plug State

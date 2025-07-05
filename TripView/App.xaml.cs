@@ -89,7 +89,7 @@ namespace TripView
                     services.AddTransient<TemperatureChartViewModel>();
                     services.AddTransient<ElevationChartViewModel>();
                     services.AddTransient<SpeedChartViewModel>();
-                    services.AddTransient<AccPowerUsageChartViewModel>();
+                    services.AddTransient<PowerUsageChartViewModel>();
                     services.AddTransient<SocChartViewModel>();
                     services.AddTransient<GpsAccuracyChartViewModel>();
                     services.AddTransient<TirePressureChartViewModel>();
