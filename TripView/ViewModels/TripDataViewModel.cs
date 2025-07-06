@@ -251,6 +251,7 @@ namespace TripView.ViewModels
             Charts.Add(new GidsChartViewModel(colorConfig, chartConfig));
             Charts.Add(new HVoltChartViewModel(colorConfig, chartConfig));
             Charts.Add(new HVPackVoltsAmpsChartViewModel(colorConfig, chartConfig));
+            Charts.Add(new HvCellPairVoltsChartViewModel(colorConfig, chartConfig));
 
             //Positional data
             Charts.Add(new SpeedChartViewModel(colorConfig, chartConfig));
@@ -553,7 +554,7 @@ namespace TripView.ViewModels
                 }
 
                 //Note: Moved this from the ctor to LoadCSVData to prevent an issue with XAxes being squished
-                //ActiveChart = Charts.First(); //Set the active model to the first one as a sane default. we should read this from the config.
+                //ActiveChart = Charts.First(); //Set the active model to the first one as a sane default. we should read this from the config.      
                 ActiveChart ??= Charts.First(x=> x.Name == "SOC (%) x Time"); //Set the default to SOC over time as suggested by Scott.
 
                 this.Points.Name = $"Trip-{System.IO.Path.GetFileNameWithoutExtension(fileName)}";

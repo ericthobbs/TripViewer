@@ -429,6 +429,7 @@ namespace TripView
                 TripMap.Map.Navigator.ZoomToBox(new MRect(minX, minY, maxX, maxY), MBoxFit.FitWidth, _startupConfig.ZoomTimeInSeconds * 1000);
                 ActiveChart.IsEnabled = true; //Work around a collection modified exception inside of the LiveCharts2 control.
                 BuildMapLayersMenu();
+                CurrentData.BuildChartMenuItems(); //Force a rebuild of the chart menu
             });
         }
 
