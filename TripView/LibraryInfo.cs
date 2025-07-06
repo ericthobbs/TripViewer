@@ -25,6 +25,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace TripView
 {
+    /// <summary>
+    /// Class used in Data binding to map 3rd party libraries to the UI
+    /// </summary>
     public partial class LibraryInfo : ObservableObject
     {
         [ObservableProperty]

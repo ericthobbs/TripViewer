@@ -37,7 +37,7 @@ Android/IOS support is not currently planned at this time.
 ## Quick Start
 Once you have loaded a log file, you will see data populate the window as shown below:
 ![Main Window data loaded](.github/images/data-loaded.png "Main Window (trip loaded)")
-The right panel is the individual data point (event) viewer. It will show you the details of each logged event. You can click on the chart or the map to select an event to view.
+The left panel is the individual data point (event) viewer. It will show you the details of each logged event. You can click on the chart or the map to select an event to view.
 The main panel is the map, this will show you your route (if gps information is available). The map currently has three layers (The map itself, event locations and gps accuracy (hidden by default)).
 The lower panel shows the currently active chart. The active chart type can be changed by going into the View menu and changing the chart type.
 You may export images of your trip by right clicking on the chart or map and selecting save.
