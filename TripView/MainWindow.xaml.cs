@@ -27,7 +27,6 @@ using BruTile.Web;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using LeafSpy.DataParser;
-using LiveChartsCore.Kernel.Sketches;
 using LiveChartsCore.SkiaSharpView.SKCharts;
 using Mapsui;
 using Mapsui.Extensions;
@@ -95,7 +94,11 @@ namespace TripView
         public static readonly RoutedUICommand ShowAboutCommand = new("_About...", "ShowAboutCommand", typeof(MainWindow));
         public static readonly RoutedUICommand SaveMapAsImageCommand = new("Save as Image...", "SaveMapAsImageCommand", typeof(MainWindow));
 
-        public MainWindow(TripDataViewModel vm, ILogger<MainWindow> logger, IOptions<StartupConfiguration> startupConfigOptions)
+        public MainWindow(
+            TripDataViewModel vm, 
+            ILogger<MainWindow> logger, 
+            IOptions<StartupConfiguration> startupConfigOptions, 
+            CommandLineOptions commandlineOptions)
         {
             _startupConfig = startupConfigOptions.Value;
             _logger = logger;
@@ -132,6 +135,21 @@ namespace TripView
             //};
 
             WeakReferenceMessenger.Default.RegisterAll(this);
+
+            if(!string.IsNullOrEmpty(commandlineOptions.Filename))
+            {
+                Dispatcher.Invoke( async () => { 
+                    await CurrentData.LoadLeafSpyLogFile(commandlineOptions.Filename);
+
+                    if(!string.IsNullOrEmpty(commandlineOptions.Graph))
+                    {
+                        var selectedChart = CurrentData.Charts.FirstOrDefault(x => x.Name == commandlineOptions.Graph);
+                        if (selectedChart != null) {
+                            CurrentData.ActiveChart = selectedChart;
+                        }
+                    }
+                } );
+            }
         }
 
         private void ConfigureMapsuiLogger()
@@ -228,7 +246,7 @@ namespace TripView
 
         private void ShowAboutCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            var about = new About();
+            var about = new AboutWindow();
             about.ShowDialog();
         }
 
@@ -410,7 +428,6 @@ namespace TripView
 
                 TripMap.Map.Navigator.ZoomToBox(new MRect(minX, minY, maxX, maxY), MBoxFit.FitWidth, _startupConfig.ZoomTimeInSeconds * 1000);
                 ActiveChart.IsEnabled = true; //Work around a collection modified exception inside of the LiveCharts2 control.
-                ActiveChart.Dispatcher.Invoke( () => { ActiveChart.InvalidateMeasure(); } );
                 BuildMapLayersMenu();
             });
         }
@@ -511,8 +528,8 @@ namespace TripView
             map.Layers.Add(CurrentData.Points);
             map.Layers.Add(CurrentData.GpsAccLayer);
 
-            //Add only the widgets we want.
             map.Widgets.Clear();
+            //Add only the widgets we want.
             map.Widgets.Add(new Mapsui.Widgets.ButtonWidgets.ZoomInOutWidget());
             map.Widgets.Add(new Mapsui.Widgets.ScaleBar.ScaleBarWidget(map));
             map.Widgets.Add(new Mapsui.Widgets.InfoWidgets.MouseCoordinatesWidget());

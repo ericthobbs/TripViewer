@@ -203,8 +203,8 @@
                       ShowsPreview="True" ResizeDirection="Rows" Style="{StaticResource HorizontalSplitterWithGrabber}"/>
 
         <lvc:CartesianChart x:Name="ActiveChart" Grid.Row="4" Grid.Column="2"
-                            MinHeight="100" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{Binding BackgroundColor, Converter={StaticResource SKColorBrushConverter}}"
-                            DataContext="{Binding ActiveChart}" Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" LegendPosition="Right"
+                            MinHeight="100" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DataContext="{Binding ActiveChart}"
+                            Background="{Binding BackgroundColor, Converter={StaticResource SKColorBrushConverter}}" Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" LegendPosition="Right"
                             ZoomMode="Both" FindingStrategy="CompareAllTakeClosest" PointerPressedCommand="{Binding PointerPressedCommand}"
                             ContextMenuOpening="Chart_ContextMenuItemOpening">
             <lvc:CartesianChart.ContextMenu>

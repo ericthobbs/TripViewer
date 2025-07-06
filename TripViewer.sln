@@ -30,6 +30,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{F0B1DD0B-D4DF-4844-9D45-D1E13D51149E}"
+	ProjectSection(SolutionItems) = preProject
+		examples\Log.csv = examples\Log.csv
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +65,7 @@ Global
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
 		{5D4F62C9-BF03-45A9-B29A-D7DC7B3C082C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{5FE9C007-B254-4A2A-916F-B106EB6E31A4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{F0B1DD0B-D4DF-4844-9D45-D1E13D51149E} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7FB1C12-1723-46B1-A29B-9CEDF1B290F1}

@@ -425,7 +425,11 @@ namespace TripView.ViewModels
         /// <returns>A task that represents the asynchronous operation.</returns>
         public async Task LoadLeafSpyLogFile(string filename)
         {
-            _logger.LogDebug("Selected file: {FileName}", filename);
+            if (!System.IO.Path.IsPathRooted(filename))
+            {
+                filename = System.IO.Path.GetFullPath(filename, Environment.CurrentDirectory);
+            }
+            _logger.LogDebug("Selected file: {FileName}", System.IO.Path.GetFullPath(filename, Environment.CurrentDirectory));
             if (System.IO.File.Exists(filename))
             {
                 Reset();
@@ -550,7 +554,7 @@ namespace TripView.ViewModels
 
                 //Note: Moved this from the ctor to LoadCSVData to prevent an issue with XAxes being squished
                 //ActiveChart = Charts.First(); //Set the active model to the first one as a sane default. we should read this from the config.
-                ActiveChart ??= Charts.First();
+                ActiveChart ??= Charts.First(x=> x.Name == "SOC (%) x Time"); //Set the default to SOC over time as suggested by Scott.
 
                 this.Points.Name = $"Trip-{System.IO.Path.GetFileNameWithoutExtension(fileName)}";
                 this.Points.Style = null;

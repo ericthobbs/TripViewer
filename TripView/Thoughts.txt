@@ -12,3 +12,10 @@
 		* Would need to be self-hosted
 		* could also spin up a OSM instance to test with at the same time
 	* Make LeafSpy.DataParser into a nuget package.
+
+	* Look into adding: 
+		https://github.com/Humanizr/Humanizer
+		For more friendly date and times
+	* https://github.com/dotnet/DataGridExtensions
+		Better DataGrid handling
+		

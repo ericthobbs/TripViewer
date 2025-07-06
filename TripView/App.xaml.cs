@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+using CommandLine;
 using LeafSpy.DataParser;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,6 +44,8 @@ namespace TripView
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);
+
             var userConfigPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Eric Hobbs", "TripView", "user-settings.json");
             var directory = System.IO.Path.GetDirectoryName(userConfigPath);
             if (!string.IsNullOrWhiteSpace(directory))
@@ -60,6 +63,17 @@ namespace TripView
                 }
             }
 
+            var parseResult = Parser.Default.ParseArguments<CommandLineOptions>(e.Args);
+            CommandLineOptions? options = null;
+            parseResult
+                .WithParsed(opts => { options = opts; })
+                .WithNotParsed(errors => {
+                    //This is just a placeholder window for the moment.
+                    var helpWindow = new HelpWindow(CommandLine.Text.HelpText.AutoBuild(parseResult, h => h, e => e));
+                    helpWindow.ShowDialog();
+                    Current.Shutdown();
+                });
+
             _host = Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
@@ -67,6 +81,7 @@ namespace TripView
                     config.AddJsonFile(userConfigPath, optional: true, reloadOnChange: true);
                     config.AddUserSecrets(Assembly.GetExecutingAssembly(), true);
                     config.AddEnvironmentVariables();
+                    config.AddCommandLine(e.Args);
                 })
                 .ConfigureLogging((hostingContext, logging) =>
                 {
@@ -82,8 +97,9 @@ namespace TripView
                     services.Configure<LeafspyImportConfiguration>(context.Configuration.GetSection("LeafspyImport"));
                     services.Configure<ColorConfiguration>(context.Configuration.GetSection("Colors"));
                     services.Configure<ChartConfiguration>(context.Configuration.GetSection("ChartConfiguration"));
+                    services.AddSingleton(options ?? new CommandLineOptions());
                     services.AddSingleton<MainWindow>();
-                    services.AddSingleton<About>();
+                    services.AddSingleton<AboutWindow>();
                     services.AddSingleton<AboutViewModel>();
                     services.AddTransient<EventViewerWindow>();
 
@@ -98,8 +114,6 @@ namespace TripView
 
             var mainWindow = _host.Services.GetRequiredService<MainWindow>();
             mainWindow.Show();
-
-            base.OnStartup(e);
         }
 
         protected override async void OnExit(ExitEventArgs e)
