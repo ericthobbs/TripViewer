@@ -25,7 +25,7 @@ using LeafSpy.DataParser;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace TripView
+namespace TripView.Extensions
 {
     public static class EnumExtensions
     {

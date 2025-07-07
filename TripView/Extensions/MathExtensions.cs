@@ -21,23 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using Microsoft.Extensions.DependencyInjection;
-
-namespace TripView
+namespace TripView.Extensions
 {
-    public static class ServiceCollectionExtensions
+    public static class MathExtensions
     {
-        public static IServiceCollection AddAllDerivedFromAsTransients<T>(this IServiceCollection services)
-        {
-            var derivedTypes = typeof(T).Assembly.GetTypes()
-                .Where(t => t.IsClass && !t.IsAbstract && typeof(T).IsAssignableFrom(t));
-
-            foreach (var type in derivedTypes)
-            {
-                services.AddTransient(type);
-            }
-
-            return services;
-        }
+        public static double ToRadians(this double degrees) => degrees * Math.PI / 180;
+        public static double ToDegrees(this double radians) => radians * 180 / Math.PI;
     }
 }

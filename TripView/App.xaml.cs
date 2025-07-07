@@ -30,6 +30,7 @@ using Microsoft.Extensions.Logging;
 using System.Reflection;
 using System.Windows;
 using TripView.Configuration;
+using TripView.Extensions;
 using TripView.ViewModels;
 using TripView.ViewModels.Charts;
 

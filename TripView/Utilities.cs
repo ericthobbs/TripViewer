@@ -23,6 +23,7 @@
  */
 using LeafSpy.DataParser.ValueTypes;
 using System.IO;
+using TripView.Extensions;
 
 namespace TripView
 {
@@ -113,12 +114,5 @@ namespace TripView
             var heading = Math.Atan2(y, x);
             return (heading.ToDegrees() + 360) % 360;
         }
-
-    }
-
-    public static class MathExtensions
-    {
-        public static double ToRadians(this double degrees) => degrees * Math.PI / 180;
-        public static double ToDegrees(this double radians) => radians * 180 / Math.PI;
     }
 }
