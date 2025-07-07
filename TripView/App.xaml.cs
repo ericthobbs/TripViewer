@@ -68,9 +68,18 @@ namespace TripView
             parseResult
                 .WithParsed(opts => { options = opts; })
                 .WithNotParsed(errors => {
-                    //This is just a placeholder window for the moment.
-                    var helpWindow = new HelpWindow(CommandLine.Text.HelpText.AutoBuild(parseResult, h => h, e => e));
-                    helpWindow.ShowDialog();
+
+                    if (errors.IsVersion())
+                    {
+                        var aboutWindow = new AboutWindow();
+                        aboutWindow.ShowDialog();
+                    }
+                    else
+                    {
+                        //This is just a placeholder window for the moment.
+                        var helpWindow = new HelpWindow(CommandLine.Text.HelpText.AutoBuild(parseResult, h => h, e => e));
+                        helpWindow.ShowDialog();
+                    }
                     Current.Shutdown();
                 });
 
