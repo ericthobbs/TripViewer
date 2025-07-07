@@ -37,6 +37,7 @@ using Microsoft.Extensions.Options;
 using SkiaSharp;
 using System.Collections.ObjectModel;
 using TripView.Configuration;
+using TripView.Extensions;
 using TripView.ViewModels.Charts;
 using TripView.ViewModels.Messages;
 using WinRT;

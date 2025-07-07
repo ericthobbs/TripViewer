@@ -25,8 +25,9 @@ using LeafSpy.DataParser.ValueTypes;
 using Mapsui;
 using Mapsui.Extensions;
 using Mapsui.Projections;
+using TripView.Extensions;
 
-namespace TripView.ViewModels
+namespace TripView.Extensions
 {
     public static class MapsuiExtensions
     {
