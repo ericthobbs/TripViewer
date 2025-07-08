@@ -23,7 +23,7 @@
  */
 using LeafSpy.DataParser.ValueTypes;
 
-namespace LeafSpyKMLExporter
+namespace TripView.KmlExporter
 {
     internal static class Extensions
     {

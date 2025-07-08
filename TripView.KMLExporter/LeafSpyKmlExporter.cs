@@ -21,17 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using System.Globalization;
 using LeafSpy.DataParser;
 using LeafSpy.DataParser.Parsers;
 using LeafSpy.DataParser.ValueTypes;
 
-
-namespace LeafSpyKMLExporter
+namespace TripView.KmlExporter
 {
-    public class LeafSpyKmlExporter
+    /// <summary>
+    /// Experimental Class
+    /// </summary>
+    public class KmlExporter
     {
-        private LeafSpyKmlExporter() { 
+        private KmlExporter() { 
         }
 
         /// <summary>

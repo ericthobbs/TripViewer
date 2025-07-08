@@ -219,7 +219,7 @@ namespace TripView
                 }
                 try
                 {
-                    LeafSpyKMLExporter.LeafSpyKmlExporter.ExportToKml(CurrentData._leafSpyImportConfig, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
+                    KmlExporter.KmlExporter.ExportToKml(CurrentData._leafSpyImportConfig, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
                     System.Windows.MessageBox.Show(this, $"Success. Saved to {selectedFile}.", "Export to KML");
                 }
                 catch (Exception ex)
