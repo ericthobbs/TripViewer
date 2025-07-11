@@ -31,6 +31,7 @@ namespace TripView.Controls
     public partial class PropertyGrid : System.Windows.Controls.UserControl
     {
         private readonly System.Windows.Forms.PropertyGrid _propertyGrid;
+        private int PrevScrollPos = -1;
         public PropertyGrid()
         {
             InitializeComponent();
@@ -59,7 +60,9 @@ namespace TripView.Controls
                 var vScroll = grid._propertyGrid.Controls.OfType<Control>().Where(ctl => ctl.AccessibilityObject.Role == AccessibleRole.Table).First().Controls.OfType<VScrollBar>().First();
                 var val = vScroll.Value;
                 grid._propertyGrid.SelectedObject = e.NewValue;
-                vScroll.Value = 0;
+                vScroll.Value = grid.PrevScrollPos == -1 ? 0 : grid.PrevScrollPos;
+                grid.PrevScrollPos = val;
+                System.Diagnostics.Debug.WriteLine($"OnSelectedObjectChanged() vScroll={vScroll.Value}, e.NewValue={e.NewValue}");
             }
         }
     }
