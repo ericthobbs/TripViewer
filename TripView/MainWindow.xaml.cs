@@ -59,7 +59,7 @@ namespace TripView
 
         public TripDataViewModel CurrentData { get; set;}
 
-        private readonly StartupConfiguration _startupConfig;
+        private readonly IOptionsMonitor<StartupConfiguration> _startupConfig;
         private readonly ILogger<MainWindow> _logger;
         private EventViewerWindow? _logEventViewer;
         private IServiceProvider _provider; 
@@ -100,12 +100,12 @@ namespace TripView
         public MainWindow(
             TripDataViewModel vm, 
             ILogger<MainWindow> logger, 
-            IOptions<StartupConfiguration> startupConfigOptions, 
+            IOptionsMonitor<StartupConfiguration> startupConfigOptions, 
             CommandLineOptions commandlineOptions, 
             IServiceProvider provider)
         {
             _provider = provider;
-            _startupConfig = startupConfigOptions.Value;
+            _startupConfig = startupConfigOptions;
             _logger = logger;
             DataContext = CurrentData = vm;
 
@@ -236,7 +236,7 @@ namespace TripView
                 }
                 try
                 {
-                    KmlExporter.KmlExporter.ExportToKml(CurrentData._leafSpyImportConfig, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
+                    KmlExporter.KmlExporter.ExportToKml(CurrentData._leafSpyImportConfig.CurrentValue, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
                     System.Windows.MessageBox.Show(this, $"Success. Saved to {selectedFile}.", "Export to KML");
                 }
                 catch (Exception ex)
@@ -443,7 +443,7 @@ namespace TripView
                 var maxX = Math.Max(message.Value.Item1.X, message.Value.Item2.X);
                 var maxY = Math.Max(message.Value.Item1.Y, message.Value.Item2.Y);
 
-                TripMap.Map.Navigator.ZoomToBox(new MRect(minX, minY, maxX, maxY), MBoxFit.FitWidth, _startupConfig.ZoomTimeInSeconds * 1000);
+                TripMap.Map.Navigator.ZoomToBox(new MRect(minX, minY, maxX, maxY), MBoxFit.FitWidth, _startupConfig.CurrentValue.ZoomTimeInSeconds * 1000);
                 ActiveChart.IsEnabled = true; //Work around a collection modified exception inside of the LiveCharts2 control.
                 BuildMapLayersMenu();
                 CurrentData.BuildChartMenuItems(); //Force a rebuild of the chart menu
@@ -510,7 +510,7 @@ namespace TripView
         {
             IPersistentCache<byte[]> cache;
             var cacheRoot = System.IO.Path.Combine(_cacheDir, "OpenStreetMaps");
-            if (_startupConfig.UseSqlAsCache)
+            if (_startupConfig.CurrentValue.UseSqlAsCache)
             {
                 cache = new SqlitePersistentCache(cacheRoot);
             }
@@ -520,7 +520,7 @@ namespace TripView
             }
             var tileSource = new HttpTileSource(
                 new GlobalSphericalMercator(),
-                _startupConfig.OpenStreetMapUrl,
+                _startupConfig.CurrentValue.OpenStreetMapUrl,
                 name: "OpenStreetMap",
                 persistentCache: cache ?? null,
                 attribution: new BruTile.Attribution("© OpenStreetMap contributors", "https://openstreetmap.org/copyright"));
@@ -537,13 +537,13 @@ namespace TripView
 
             map.Navigator.Limiter = new ViewportLimiterKeepWithinExtent();
 
-            var boundedZoomLevel = Math.Max(0, Math.Min(map.Navigator.Resolutions.Count - 1, _startupConfig.InitialZoomLevel));
+            var boundedZoomLevel = Math.Max(0, Math.Min(map.Navigator.Resolutions.Count - 1, _startupConfig.CurrentValue.InitialZoomLevel));
 
             map.Navigator.CenterOnAndZoomTo(
                 SphericalMercator.FromLonLat(
-                _startupConfig.InitialPositionLongitude,
-                _startupConfig.InitialPositionLatitude).ToMPoint(), 
-                map.Navigator.Resolutions[boundedZoomLevel], _startupConfig.ZoomTimeInSeconds * 1000);
+                _startupConfig.CurrentValue.InitialPositionLongitude,
+                _startupConfig.CurrentValue.InitialPositionLatitude).ToMPoint(), 
+                map.Navigator.Resolutions[boundedZoomLevel], _startupConfig.CurrentValue.ZoomTimeInSeconds * 1000);
 
             map.Layers.Add(CurrentData.Points);
             map.Layers.Add(CurrentData.GpsAccLayer);

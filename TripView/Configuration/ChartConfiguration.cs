@@ -30,6 +30,12 @@ namespace TripView.Configuration
     /// </summary>
     public class ChartConfiguration
     {
+
+        /// <summary>
+        /// Chart line thickness
+        /// </summary>
+        public int ChartLineThickness { get; set; } = 3;
+
         /// <summary>
         /// Unit of air pressure to use for display
         /// </summary>

@@ -46,11 +46,6 @@ namespace TripView.Configuration
         public string? ChartCrosshairColor { get; set; }
 
         /// <summary>
-        /// Chart line thickness
-        /// </summary>
-        public int ChartLineThickness { get; set; } = 3;
-
-        /// <summary>
         /// Chart background color
         /// </summary>
         public string? ChartBackgroundColor { get; set; }

@@ -84,7 +84,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.MinCPmV, minMinutesBetweenTrip),
                 Name = "Min",
-                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _chartConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,
@@ -93,7 +93,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.MaxCPmV, minMinutesBetweenTrip),
                 Name = "Max",
-                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _chartConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,
@@ -102,7 +102,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.MaxCPmV, minMinutesBetweenTrip),
                 Name = "Avg",
-                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartTertiaryColor, ChartDefaults.Series3Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartTertiaryColor, ChartDefaults.Series3Color)) { StrokeThickness = _chartConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,
@@ -111,7 +111,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.CPmVDiff, minMinutesBetweenTrip),
                 Name = "Diff",
-                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartQuaternaryColor, ChartDefaults.Series4Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartQuaternaryColor, ChartDefaults.Series4Color)) { StrokeThickness = _chartConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,

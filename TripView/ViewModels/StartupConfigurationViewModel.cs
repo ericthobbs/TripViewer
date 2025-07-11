@@ -41,13 +41,13 @@ namespace TripView.ViewModels
         private int zoomTimeInSeconds;
 
         [ObservableProperty]
-        public string? openStreetMapUrl;
+        private string? openStreetMapUrl;
 
         [ObservableProperty]
-        public int minutesBetweenTrips;
+        private int minutesBetweenTrips;
 
         [ObservableProperty]
-        public bool useSqlAsCache;
+        private bool useSqlAsCache;
 
         public StartupConfigurationViewModel(StartupConfiguration config)
         {

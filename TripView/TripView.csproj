@@ -16,8 +16,8 @@
     <Product>TripView</Product>
     <Description>Leafspy Trip Viewer</Description>
     <Copyright>Copyright © 2025 Eric Hobbs</Copyright>
-    <AssemblyVersion>0.0.0.2</AssemblyVersion>
-    <FileVersion>0.0.0.2</FileVersion>
+    <AssemblyVersion>0.0.0.3</AssemblyVersion>
+    <FileVersion>0.0.0.3</FileVersion>
     <PackageVersion>1.0.0</PackageVersion>
     <UserSecretsId>4ac31c2f-d979-40fb-9d38-4920f355fac0</UserSecretsId>
   </PropertyGroup>

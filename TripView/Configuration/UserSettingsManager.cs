@@ -36,8 +36,11 @@ namespace TripView.Configuration
         public const string LeafSpyConfigurationSectionName = "LeafspyImport";
         public const string StartupConfigurationSectionName = "Startup";
 
-        private readonly JsonSerializerOptions _serializerOptions = new() { 
-            WriteIndented = true, Converters = { new JsonStringEnumConverter() } };
+        private readonly JsonSerializerOptions _serializerOptions = new()
+        {
+            WriteIndented = true,
+            Converters = { new JsonStringEnumConverter() }
+        };
 
         public static string UserSettingsFile
         {
@@ -87,6 +90,21 @@ namespace TripView.Configuration
             }
 
             _logger.LogDebug("Wrote settings to {UserSettingsFile}", UserSettingsFile);
+            return true;
+        }
+
+        public bool DeleteUserSettings()
+        {
+            try
+            {
+                System.IO.File.Delete(UserSettingsFile);
+                _logger.LogDebug("Deleted file {UserSettingsFile}", UserSettingsFile);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to delete user settings file {UserSettingsFile}", UserSettingsFile);
+                return false;
+            }
             return true;
         }
     }

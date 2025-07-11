@@ -55,9 +55,9 @@ namespace TripView.ViewModels
     public partial class TripDataViewModel : ObservableObject
     {
         private readonly ILogger<TripDataViewModel> _logger;
-        private readonly StartupConfiguration _configuration;
-        private readonly ColorConfiguration _colorConfig;
-        public readonly LeafspyImportConfiguration _leafSpyImportConfig; //FIX THIS (public needed for KML Export)
+        private readonly IOptionsMonitor<StartupConfiguration> _configuration;
+        private readonly IOptionsMonitor<ColorConfiguration> _colorConfig;
+        public readonly IOptionsMonitor<LeafspyImportConfiguration> _leafSpyImportConfig; //FIX THIS (public needed for KML Export)
 
         [ObservableProperty]
         private ObservableCollection<BaseChartViewModel> charts;
@@ -230,9 +230,9 @@ namespace TripView.ViewModels
                     IOptionsMonitor<ChartConfiguration> chartConfig)
         {
             _logger = logger;
-            _configuration = startupConfigOptions.CurrentValue;
-            _colorConfig = colorConfig.CurrentValue;
-            _leafSpyImportConfig = lsConfig.CurrentValue;
+            _configuration = startupConfigOptions;
+            _colorConfig = colorConfig;
+            _leafSpyImportConfig = lsConfig;
 
             ChartMenuItems = [];
             MapLayersMenuItems = [];
@@ -466,7 +466,7 @@ namespace TripView.ViewModels
         {
             await Task.Run(() =>
             {
-                LeafSpySingleTripParser parser = new(_leafSpyImportConfig);
+                LeafSpySingleTripParser parser = new(_leafSpyImportConfig.CurrentValue);
                 parser.Open(fileName);
                 var records = parser.Read().ToList();
                 int skippedCount = 0;
@@ -475,7 +475,7 @@ namespace TripView.ViewModels
 
                 var gpsAccFeatures = new List<IFeature>();
               
-                var pointColor = ConfigurationUtilities.GetColorFromString(_colorConfig.MapRouteColor, SKColors.MediumPurple);
+                var pointColor = ConfigurationUtilities.GetColorFromString(_colorConfig.CurrentValue.MapRouteColor, SKColors.MediumPurple).ToMapsui();
                 PointFeature? lastPoint = null;
                 foreach (var record in records)
                 {
@@ -513,7 +513,7 @@ namespace TripView.ViewModels
                     {
                         var pointStyle = new SymbolStyle {
                             SymbolScale = 0.4,
-                            Fill = new Mapsui.Styles.Brush(pointColor.ToMapsui()),
+                            Fill = new Mapsui.Styles.Brush(pointColor),
                             Opacity = 0.4f
                         };
                         vehPoint.Styles.Add(pointStyle);
@@ -532,7 +532,7 @@ namespace TripView.ViewModels
                     feature[FeatureRecordKeyName] = record;
                     feature.Styles.Add(new VectorStyle()
                     {
-                        Fill = new Mapsui.Styles.Brush(ConfigurationUtilities.GetColorFromString(_colorConfig.GpsAccuracyColor, SKColors.LightBlue).ToMapsui())
+                        Fill = new Mapsui.Styles.Brush(ConfigurationUtilities.GetColorFromString(_colorConfig.CurrentValue.GpsAccuracyColor, SKColors.LightBlue).ToMapsui())
                     });
                     gpsAccFeatures.Add(feature);
                     lastPoint = vehPoint;
@@ -551,7 +551,7 @@ namespace TripView.ViewModels
 
                 foreach (var chart in Charts)
                 {
-                    chart.LoadData(Events, _configuration.MinutesBetweenTrips);
+                    chart.LoadData(Events, _configuration.CurrentValue.MinutesBetweenTrips);
                 }
 
                 //Note: Moved this from the ctor to LoadCSVData to prevent an issue with XAxes being squished

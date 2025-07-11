@@ -57,5 +57,26 @@ namespace TripView
                 ViewModel.ImportConfig.ToLeafSpyImportConfiguration());
             Close();
         }
+
+        [RelayCommand]
+        private void RestoreDefaults()
+        {
+            var result = System.Windows.MessageBox.Show(
+                $"Are you sure you wish to restore TripView to its default settings.\n\n"+
+                $"This will remove {System.IO.Path.GetFileName(UserSettingsManager.UserSettingsFile)}.\n"+
+                $"This operation cannot be undone.",
+                "Reset TripView",MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                _userSettings.DeleteUserSettings();
+                Close();
+            }
+        }
+
+        [RelayCommand]
+        private void CancelButton()
+        {
+            Close();
+        }
     }
 }

@@ -31,16 +31,19 @@ namespace TripView.ViewModels
     {
 
         [ObservableProperty]
-        public AirPressureUnit airPressureUnit;
+        private int chartLineThickness;
 
         [ObservableProperty]
-        public DistanceUnit distanceUnit;
+        private AirPressureUnit airPressureUnit;
 
         [ObservableProperty]
-        public TemperatureUnit temperatureUnit;
+        private DistanceUnit distanceUnit;
 
         [ObservableProperty]
-        public int timeAxisLabelRotation;
+        private TemperatureUnit temperatureUnit;
+
+        [ObservableProperty]
+        private int timeAxisLabelRotation;
 
         public ChartConfigurationViewModel(ChartConfiguration config) {
             Read(config);
@@ -48,6 +51,7 @@ namespace TripView.ViewModels
 
         public void Read(ChartConfiguration config)
         {
+            ChartLineThickness = config.ChartLineThickness;
             AirPressureUnit = config.AirPressureUnit;
             DistanceUnit = config.DistanceUnit;
             TemperatureUnit = config.TemperatureUnit;
@@ -58,6 +62,7 @@ namespace TripView.ViewModels
         {
             return new ChartConfiguration()
             {
+                ChartLineThickness = ChartLineThickness,
                 AirPressureUnit = AirPressureUnit,
                 DistanceUnit = DistanceUnit,
                 TemperatureUnit = TemperatureUnit,

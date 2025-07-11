@@ -12,7 +12,7 @@
         xmlns:lspydp="clr-namespace:LeafSpy.DataParser;assembly=LeafSpy.DataParser"
         mc:Ignorable="d"
         Icon="{StaticResource SettingsGearChecklist}"
-        Title="Trip View Settings" Height="550" Width="600" WindowStartupLocation="CenterOwner" WindowStyle="ThreeDBorderWindow"
+        Title="Settings" Height="475" Width="600" WindowStartupLocation="CenterOwner" WindowStyle="SingleBorderWindow" ShowInTaskbar="False" ResizeMode="NoResize"
         d:DataContext="{d:DesignInstance Type=vm:SettingsViewModel,IsDesignTimeCreatable=False}">
     <Window.Resources>
         <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type system:Enum}" x:Key="APUProvider">
@@ -33,7 +33,7 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -57,38 +57,35 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="Inital Latitude:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLatitude}" Margin="1"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Initial Latitude:" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLatitude}" Margin="1"  HorizontalAlignment="Left" Width="64" ToolTip="Decimal degrees" VerticalContentAlignment="Center"/>
 
-                    <Label Grid.Row="1" Grid.Column="0" Content="Inital Longitude:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLongitude}" Margin="1"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Initial Longitude:" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLongitude}" Margin="1"  HorizontalAlignment="Left" Width="64" ToolTip="Decimal degrees" VerticalContentAlignment="Center"/>
 
-                    <Label Grid.Row="2" Grid.Column="0" Content="Inital Zoom Level (0-9):" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding StartupConfig.InitialZoomLevel}" Margin="1"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Initial Zoom Level (0-19):" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding StartupConfig.InitialZoomLevel}" Margin="1"  HorizontalAlignment="Left" Width="32" VerticalContentAlignment="Center"/>
 
                     <Label Grid.Row="3" Grid.Column="0" Content="Zoom Time In Seconds:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding StartupConfig.ZoomTimeInSeconds}" Margin="1"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding StartupConfig.ZoomTimeInSeconds}" Margin="1" HorizontalAlignment="Left" Width="32" VerticalContentAlignment="Center"/>
 
                     <Label Grid.Row="4" Grid.Column="0" Content="Minutes Between Trips:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding StartupConfig.MinutesBetweenTrips}" Margin="1"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding StartupConfig.MinutesBetweenTrips}" Margin="1" HorizontalAlignment="Left" Width="32" VerticalContentAlignment="Center"/>
 
-                    <Label Grid.Row="5" Grid.Column="0" Content="Open Street Maps Url:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding StartupConfig.OpenStreetMapUrl}" Margin="1"/>
+                    <Label Grid.Row="5" Grid.Column="0" Content="Open Street Maps Url:" HorizontalAlignment="Right" />
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding StartupConfig.OpenStreetMapUrl}" Margin="1" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="5" Grid.Column="2" Foreground="Red" Content="*Restart Required" VerticalAlignment="Center"/>
 
-                    <Label Grid.Row="6" Grid.Column="0" Content="Use SQLlite as Cache:" HorizontalAlignment="Right"/>
-                    <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding StartupConfig.UseSqlAsCache}" VerticalAlignment="Center" Margin="1"/>
+                    <Label Grid.Row="6" Grid.Column="0" Content="Use SQLite for tile cache:" HorizontalAlignment="Right"/>
+                    <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding StartupConfig.UseSqlAsCache}" VerticalAlignment="Center" Margin="1" ToolTip="If false, will store the tiles on the filesystem."/>
+                    <Label Grid.Row="6" Grid.Column="2" Foreground="Red" Content="*Restart Required" VerticalAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Colors">
                 <StackPanel>
-                    <!-- {x:Static charts:ChartDefaults.Series1Color} -->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Line Size:" Width="136" HorizontalAlignment="Left" TextAlignment="Right" Margin="0 0 10 0" Padding="0 0 5 0"/>
-                        <TextBox Width="32" Text="{Binding ColorConfig.ChartLineThickness}" />
-                    </StackPanel>
-                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Map Route Color" SelectedColor="{Binding ColorConfig.MapRouteColor}"/>
-                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="GPS Accuracy Color" SelectedColor="{Binding ColorConfig.GpsAccuracyColor}"/>
-                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Crosshair Color" SelectedColor="{Binding ColorConfig.ChartCrosshairColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Map Route Color*" SelectedColor="{Binding ColorConfig.MapRouteColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="GPS Accuracy Color*" SelectedColor="{Binding ColorConfig.GpsAccuracyColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Chart Crosshair Color" SelectedColor="{Binding ColorConfig.ChartCrosshairColor}"/>
                     <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Background Color" SelectedColor="{Binding ColorConfig.ChartBackgroundColor}"/>
                     <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Primary Color" SelectedColor="{Binding ColorConfig.ChartPrimaryColor}"/>
                     <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Secondary Color" SelectedColor="{Binding ColorConfig.ChartSecondaryColor}"/>
@@ -100,6 +97,7 @@
                     <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Octonary Color" SelectedColor="{Binding ColorConfig.ChartOctonaryColor}"/>
                     <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Nonary Color" SelectedColor="{Binding ColorConfig.ChartNonaryColor}"/>
                     <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Denary Color" SelectedColor="{Binding ColorConfig.ChartDenaryColor}"/>
+                    <Label Grid.Row="5" Grid.Column="2" Foreground="Red" Content="*Restart Required" VerticalAlignment="Center"/>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Charts">
@@ -117,22 +115,26 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Tire Pressure Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.AirPressureUnit}" ItemsSource="{Binding Source={StaticResource APUProvider}}" />
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.AirPressureUnit}" ItemsSource="{Binding Source={StaticResource APUProvider}}" HorizontalAlignment="Left" Width="100" />
 
                     <Label Grid.Row="1" Grid.Column="0" Content="Distance Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" />
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
                     <Label Grid.Row="2" Grid.Column="0" Content="Temperature Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.TemperatureUnit}" ItemsSource="{Binding Source={StaticResource TUProvider}}" />
+                    <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.TemperatureUnit}" ItemsSource="{Binding Source={StaticResource TUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
                     <Label Grid.Row="3" Grid.Column="0" Content="Time Axis Label Rotation:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ChartConfig.TimeAxisLabelRotation}" Margin="1"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Width="32" Text="{Binding ChartConfig.TimeAxisLabelRotation}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="Line Size:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Width="32" Text="{Binding ChartConfig.ChartLineThickness}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Leaf Spy Import">
+            <TabItem Header="LeafSpy Import">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -150,19 +152,24 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="1" Grid.Column="0" Content="Distance Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ImportConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" />
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ImportConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
                     <Label Grid.Row="2" Grid.Column="0" Content="CSV Delimiter:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ImportConfig.CsvDelimiter}" Margin="1"/>                    
+                    <TextBox Grid.Row="2" Grid.Column="1" Width="32" HorizontalAlignment="Left" Text="{Binding ImportConfig.CsvDelimiter}" Margin="1" VerticalContentAlignment="Center"/>                    
                 </Grid>
             </TabItem>
         </TabControl>
         <Grid Margin="5" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Button Margin="5" Grid.Column="0" Grid.Row="0" Content="Ok" IsDefault="True" Command="{Binding OkButtonCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
+            <Button Margin="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Restore Defaults" IsDefault="False" Command="{Binding RestoreDefaultsCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
+            <Button Margin="5" Grid.Column="4" Grid.Row="0" Content="Cancel" IsDefault="False" Command="{Binding CancelButtonCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
         </Grid>
     </Grid>
 </Window>

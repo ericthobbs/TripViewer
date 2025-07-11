@@ -34,9 +34,6 @@ namespace TripView.ViewModels
         private SKColor chartCrosshairColor;
 
         [ObservableProperty]
-        private int chartLineThickness;
-
-        [ObservableProperty]
         private SKColor mapRouteColor;
 
         [ObservableProperty]
@@ -80,8 +77,7 @@ namespace TripView.ViewModels
         }
 
         public void Read(ColorConfiguration config) {
-            ChartCrosshairColor = ConfigurationUtilities.GetColorFromString(config.ChartCrosshairColor, Charts.ChartDefaults.CrosshairColor);
-            ChartLineThickness = 1;
+            ChartCrosshairColor = ConfigurationUtilities.GetColorFromString(config.ChartCrosshairColor, ChartDefaults.CrosshairColor);
             MapRouteColor = ConfigurationUtilities.GetColorFromString(config.MapRouteColor, SKColors.MediumPurple);
             GpsAccuracyColor = ConfigurationUtilities.GetColorFromString(config.GpsAccuracyColor, SKColors.LightBlue);
             ChartBackgroundColor = ConfigurationUtilities.GetColorFromString(config.ChartBackgroundColor, SKColors.White);
@@ -101,7 +97,6 @@ namespace TripView.ViewModels
         {
             return new ColorConfiguration() { 
                 ChartCrosshairColor = ChartCrosshairColor.ToString(),
-                ChartLineThickness = ChartLineThickness,
                 MapRouteColor = MapRouteColor.ToString(),
                 GpsAccuracyColor = GpsAccuracyColor.ToString(),
                 ChartBackgroundColor = ChartBackgroundColor.ToString(),
