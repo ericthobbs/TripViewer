@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:TripView"
         xmlns:vm="clr-namespace:TripView.ViewModels"
         xmlns:lcontrols="clr-namespace:TripView.Controls"
+        xmlns:lbehaviors="clr-namespace:TripView.Behaviors"
         xmlns:skia="clr-namespace:SkiaSharp;assembly=SkiaSharp"
         xmlns:charts="clr-namespace:TripView.ViewModels.Charts"
         xmlns:lspydp="clr-namespace:LeafSpy.DataParser;assembly=LeafSpy.DataParser"
@@ -58,19 +60,44 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Initial Latitude:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLatitude}" Margin="1"  HorizontalAlignment="Left" Width="64" ToolTip="Decimal degrees" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLatitude}" Margin="1"  HorizontalAlignment="Left" Width="64" ToolTip="Decimal degrees" VerticalContentAlignment="Center">
+                        <i:Interaction.Behaviors>
+                            <lbehaviors:ValidateNumericInputWithRangeBehavior 
+                                CommandParameter="{Binding LatitudeRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </i:Interaction.Behaviors>
+                    </TextBox>
 
                     <Label Grid.Row="1" Grid.Column="0" Content="Initial Longitude:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLongitude}" Margin="1"  HorizontalAlignment="Left" Width="64" ToolTip="Decimal degrees" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLongitude}" Margin="1"  HorizontalAlignment="Left" Width="64" ToolTip="Decimal degrees" VerticalContentAlignment="Center">
+                        <i:Interaction.Behaviors>
+                            <lbehaviors:ValidateNumericInputWithRangeBehavior 
+                                CommandParameter="{Binding LongitudeRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </i:Interaction.Behaviors>
+                    </TextBox>
 
                     <Label Grid.Row="2" Grid.Column="0" Content="Initial Zoom Level (0-19):" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding StartupConfig.InitialZoomLevel}" Margin="1"  HorizontalAlignment="Left" Width="32" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding StartupConfig.InitialZoomLevel}" Margin="1"  HorizontalAlignment="Left" Width="64" VerticalContentAlignment="Center">
+                        <i:Interaction.Behaviors>
+                            <lbehaviors:ValidateNumericInputWithRangeBehavior 
+                                CommandParameter="{Binding ZoomLevelRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </i:Interaction.Behaviors>
+                    </TextBox>
 
                     <Label Grid.Row="3" Grid.Column="0" Content="Zoom Time In Seconds:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding StartupConfig.ZoomTimeInSeconds}" Margin="1" HorizontalAlignment="Left" Width="32" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding StartupConfig.ZoomTimeInSeconds}" Margin="1" HorizontalAlignment="Left" Width="64" VerticalContentAlignment="Center">
+                        <i:Interaction.Behaviors>
+                            <lbehaviors:ValidateNumericInputWithRangeBehavior 
+                                CommandParameter="{Binding ZoomSecondsRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </i:Interaction.Behaviors>
+                    </TextBox>
 
                     <Label Grid.Row="4" Grid.Column="0" Content="Minutes Between Trips:" HorizontalAlignment="Right"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding StartupConfig.MinutesBetweenTrips}" Margin="1" HorizontalAlignment="Left" Width="32" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding StartupConfig.MinutesBetweenTrips}" Margin="1" HorizontalAlignment="Left" Width="64" VerticalContentAlignment="Center">
+                        <i:Interaction.Behaviors>
+                            <lbehaviors:ValidateNumericInputWithRangeBehavior 
+                                CommandParameter="{Binding MinutesBetweenRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </i:Interaction.Behaviors>                        
+                    </TextBox>
 
                     <Label Grid.Row="5" Grid.Column="0" Content="Open Street Maps Url:" HorizontalAlignment="Right" />
                     <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding StartupConfig.OpenStreetMapUrl}" Margin="1" VerticalContentAlignment="Center"/>
@@ -128,10 +155,20 @@
                     <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.TemperatureUnit}" ItemsSource="{Binding Source={StaticResource TUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
                     <Label Grid.Row="3" Grid.Column="0" Content="Time Axis Label Rotation:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Width="32" Text="{Binding ChartConfig.TimeAxisLabelRotation}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Width="64" Text="{Binding ChartConfig.TimeAxisLabelRotation}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center">
+                        <i:Interaction.Behaviors>
+                            <lbehaviors:ValidateNumericInputWithRangeBehavior 
+                                CommandParameter="{Binding LabelRotationRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </i:Interaction.Behaviors>                        
+                    </TextBox>
 
                     <Label Grid.Row="4" Grid.Column="0" Content="Line Size:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Width="32" Text="{Binding ChartConfig.ChartLineThickness}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Width="64" Text="{Binding ChartConfig.ChartLineThickness}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center">
+                        <i:Interaction.Behaviors>
+                            <lbehaviors:ValidateNumericInputWithRangeBehavior 
+                                CommandParameter="{Binding LineSizeRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </i:Interaction.Behaviors>                        
+                    </TextBox>
                 </Grid>
             </TabItem>
             <TabItem Header="LeafSpy Import">
@@ -155,7 +192,7 @@
                     <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ImportConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
                     <Label Grid.Row="2" Grid.Column="0" Content="CSV Delimiter:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Width="32" HorizontalAlignment="Left" Text="{Binding ImportConfig.CsvDelimiter}" Margin="1" VerticalContentAlignment="Center"/>                    
+                    <TextBox Grid.Row="2" Grid.Column="1" Width="64" HorizontalAlignment="Left" Text="{Binding ImportConfig.CsvDelimiter}" Margin="1" VerticalContentAlignment="Center"/>                    
                 </Grid>
             </TabItem>
         </TabControl>

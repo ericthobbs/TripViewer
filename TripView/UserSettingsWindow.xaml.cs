@@ -24,6 +24,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Windows;
+using TripView.Behaviors;
 using TripView.Configuration;
 using TripView.ViewModels;
 
@@ -39,6 +40,27 @@ namespace TripView
 
         [ObservableProperty]
         private SettingsViewModel viewModel;
+
+        [ObservableProperty]
+        private NumericRange latitudeRange = new(-90f,+90f);
+
+        [ObservableProperty]
+        private NumericRange longitudeRange = new(-180f, +180f);
+
+        [ObservableProperty]
+        private NumericRange zoomLevelRange = new(0, 19);
+
+        [ObservableProperty]
+        private NumericRange zoomSecondsRange = new(0, 10);
+
+        [ObservableProperty]
+        private NumericRange minutesBetweenRange = new(0, 1440);
+
+        [ObservableProperty]
+        private NumericRange labelRotationRange = new(-90, 90);
+
+        [ObservableProperty]
+        private NumericRange lineSizeRange = new(0, 100);
 
         public UserSettingsWindow(UserSettingsManager userSettingsManager, SettingsViewModel vm)
         {

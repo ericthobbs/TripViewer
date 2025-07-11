@@ -44,8 +44,7 @@ You may export images of your trip by right clicking on the chart or map and sel
 
 ## Configuration
 Please note currently you must configure the application to understand your leafspy log output, unless you are using my exact settings due to the way leafspy was designed.
-To do so, you must update the appsettings.json file section "LeafspyImport". Please make sure these settings match what you have in leafspy otherwise your data will appear to be incorrect.
-You may also customize the appearance somewhat by adjusting the settings in this file.
+Go to File -> Settings and adjust the LeafSpy Import settings. Please make sure these settings match what you have in leafspy otherwise your data will appear to be incorrect.
 
 ## Vehicle support
 This project has only been tested with a Nissan LEAF 2020 SV using LeafSpy Pro on Android 15.

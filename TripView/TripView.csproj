@@ -44,6 +44,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageReference Include="OpenTK.GLWpfControl" Version="5.0.0-pre.1" />
     <PackageReference Include="SkiaSharp.Views" Version="3.119.0" />
   </ItemGroup>
