@@ -475,7 +475,7 @@ namespace TripView.ViewModels
 
                 var gpsAccFeatures = new List<IFeature>();
               
-                var pointColor = Utilities.GetColorFromString(_colorConfig.MapRouteColor, SKColors.MediumPurple);
+                var pointColor = ConfigurationUtilities.GetColorFromString(_colorConfig.MapRouteColor, SKColors.MediumPurple);
                 PointFeature? lastPoint = null;
                 foreach (var record in records)
                 {
@@ -494,7 +494,7 @@ namespace TripView.ViewModels
 
                     if(lastPoint != null)
                     {
-                        lastPoint[FeatureHeadingToNextPoint] = Utilities.CalculateHeading(
+                        lastPoint[FeatureHeadingToNextPoint] = MapUtilities.CalculateHeading(
                             lastPoint[FeatureRecordKeyName].As<TripLog>().GpsPhoneCoordinates, 
                             record.GpsPhoneCoordinates);
                     }
@@ -505,7 +505,7 @@ namespace TripView.ViewModels
                         {
                             Image = $"base64-content://{RouteStartImageAsBase64}",
                             SymbolScale = 0.05,
-                            SymbolRotation = records.Count > 1 ? Utilities.CalculateHeading(record.GpsPhoneCoordinates, records[1].GpsPhoneCoordinates) : 0,
+                            SymbolRotation = records.Count > 1 ? MapUtilities.CalculateHeading(record.GpsPhoneCoordinates, records[1].GpsPhoneCoordinates) : 0,
                         };
                         vehPoint.Styles.Add(startStyle);
                     } 
@@ -532,7 +532,7 @@ namespace TripView.ViewModels
                     feature[FeatureRecordKeyName] = record;
                     feature.Styles.Add(new VectorStyle()
                     {
-                        Fill = new Mapsui.Styles.Brush(Utilities.GetColorFromString(_colorConfig.GpsAccuracyColor, SKColors.LightBlue).ToMapsui())
+                        Fill = new Mapsui.Styles.Brush(ConfigurationUtilities.GetColorFromString(_colorConfig.GpsAccuracyColor, SKColors.LightBlue).ToMapsui())
                     });
                     gpsAccFeatures.Add(feature);
                     lastPoint = vehPoint;
@@ -544,7 +544,7 @@ namespace TripView.ViewModels
                 {
                     Image = $"base64-content://{RouteEndImageAsBase64}",
                     SymbolScale = 0.025,
-                    SymbolRotation = features.Count > 1 ? Utilities.CalculateHeading(
+                    SymbolRotation = features.Count > 1 ? MapUtilities.CalculateHeading(
                         features[^2][FeatureRecordKeyName].As<TripLog>().GpsPhoneCoordinates, 
                         lastFeature[FeatureRecordKeyName].As<TripLog>().GpsPhoneCoordinates) : 0,
                 });

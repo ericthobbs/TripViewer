@@ -25,6 +25,8 @@
   <ItemGroup>
     <None Remove="assets\cars\GenericEV.png" />
     <None Remove="assets\objects\StartingFlag.png" />
+    <None Remove="assets\ui\ColorPickerDlg.png" />
+    <None Remove="assets\ui\SettingsGearChecklist.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,6 +59,8 @@
     </Resource>
     <Resource Include="assets\objects\FinishingLine.png" />
     <Resource Include="assets\objects\StartingFlag.png" />
+    <Resource Include="assets\ui\ColorPickerDlg.png" />
+    <Resource Include="assets\ui\SettingsGearChecklist.png" />
   </ItemGroup>
 
   <ItemGroup>

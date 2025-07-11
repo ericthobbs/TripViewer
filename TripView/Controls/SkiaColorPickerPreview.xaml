@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="TripView.Controls.SkiaColorPickerPreview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TripView"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.WPF;assembly=SkiaSharp.Views.WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="200">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding CaptionWidth, RelativeSource={RelativeSource AncestorType=UserControl}, FallbackValue=50}"/>
+            <ColumnDefinition Width="16"/>
+            <ColumnDefinition Width="32"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding Caption, RelativeSource={RelativeSource AncestorType=UserControl}, FallbackValue='Not Set:', TargetNullValue='Caption:', StringFormat='{}{0}:'}" HorizontalAlignment="Right"/>
+
+        <Border Grid.Row="0" Grid.Column="2" Margin="0 0 0 0" Style="{StaticResource SunkenBorderStyle}" MinWidth="16" MinHeight="16">
+            <skia:SKElement x:Name="PreviewColorElement" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Cursor="Hand"
+                            PaintSurface="PreviewColorElement_PaintSurface"
+                            MouseDown="PreviewColorElement_MouseDown"/>
+        </Border>
+    </Grid>
+</UserControl>

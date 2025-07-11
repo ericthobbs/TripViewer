@@ -36,6 +36,7 @@ using Mapsui.Projections;
 using Mapsui.Rendering.Skia;
 using Mapsui.Tiling.Layers;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Collections.ObjectModel;
@@ -61,6 +62,7 @@ namespace TripView
         private readonly StartupConfiguration _startupConfig;
         private readonly ILogger<MainWindow> _logger;
         private EventViewerWindow? _logEventViewer;
+        private IServiceProvider _provider; 
 
         public static readonly DependencyProperty MapLayersMenuItemsProperty =
         DependencyProperty.Register(
@@ -90,6 +92,7 @@ namespace TripView
 
         public static readonly RoutedUICommand ShowEventWindowCommand = new("_Show Event Window...", "ShowEventWindowCommand", typeof(MainWindow));
         public static readonly RoutedUICommand ExportToKmlFileCommand = new("E_xport to KML File...", "ExportToKmlCommand", typeof(MainWindow));
+        public static readonly RoutedUICommand ShowSettingsCommand = new("Settings...", "ShowSettingsWindowCommand", typeof(MainWindow));
         public static readonly RoutedUICommand ExitCommand = new("Exit TripView", "ExitCommand", typeof(MainWindow));
         public static readonly RoutedUICommand ShowAboutCommand = new("_About...", "ShowAboutCommand", typeof(MainWindow));
         public static readonly RoutedUICommand SaveMapAsImageCommand = new("Save as Image...", "SaveMapAsImageCommand", typeof(MainWindow));
@@ -98,8 +101,10 @@ namespace TripView
             TripDataViewModel vm, 
             ILogger<MainWindow> logger, 
             IOptions<StartupConfiguration> startupConfigOptions, 
-            CommandLineOptions commandlineOptions)
+            CommandLineOptions commandlineOptions, 
+            IServiceProvider provider)
         {
+            _provider = provider;
             _startupConfig = startupConfigOptions.Value;
             _logger = logger;
             DataContext = CurrentData = vm;
@@ -108,21 +113,21 @@ namespace TripView
             if (carResource is BitmapImage carImage)
             {
                 var resourceInfo = System.Windows.Application.GetResourceStream(carImage.UriSource);
-                CurrentData.CarImageAsBase64 = Utilities.StreamToBase64(resourceInfo.Stream);
+                CurrentData.CarImageAsBase64 = MapUtilities.StreamToBase64(resourceInfo.Stream);
             }
 
             var startingFlag = System.Windows.Application.Current.Resources["StartingFlag"];
             if (startingFlag is BitmapImage startingFlagImage)
             {
                 var resourceInfo = System.Windows.Application.GetResourceStream(startingFlagImage.UriSource);
-                CurrentData.RouteStartImageAsBase64 = Utilities.StreamToBase64(resourceInfo.Stream);
+                CurrentData.RouteStartImageAsBase64 = MapUtilities.StreamToBase64(resourceInfo.Stream);
             }
 
             var finishingLine = System.Windows.Application.Current.Resources["FinishingLine"];
             if (finishingLine is BitmapImage finishingLineImage)
             {
                 var resourceInfo = System.Windows.Application.GetResourceStream(finishingLineImage.UriSource);
-                CurrentData.RouteEndImageAsBase64 = Utilities.StreamToBase64(resourceInfo.Stream);
+                CurrentData.RouteEndImageAsBase64 = MapUtilities.StreamToBase64(resourceInfo.Stream);
             }
 
             InitializeComponent();
@@ -136,7 +141,7 @@ namespace TripView
 
             WeakReferenceMessenger.Default.RegisterAll(this);
 
-            if(!string.IsNullOrEmpty(commandlineOptions.Filename))
+            if (!string.IsNullOrEmpty(commandlineOptions.Filename))
             {
                 Dispatcher.Invoke( async () => { 
                     await CurrentData.LoadLeafSpyLogFile(commandlineOptions.Filename);
@@ -191,6 +196,18 @@ namespace TripView
         private void ShowEventWindowCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = CurrentData.Events.Count > 0;
+        }
+
+        private void ShowSettingsCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            var settings = _provider.GetRequiredService<UserSettingsWindow>();
+            settings.Owner = this;
+            settings.ShowDialog();
+        }
+
+        private void ShowSettingsCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
 
         private void ExportToKmlFileCommand_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -520,11 +537,13 @@ namespace TripView
 
             map.Navigator.Limiter = new ViewportLimiterKeepWithinExtent();
 
+            var boundedZoomLevel = Math.Max(0, Math.Min(map.Navigator.Resolutions.Count - 1, _startupConfig.InitialZoomLevel));
+
             map.Navigator.CenterOnAndZoomTo(
                 SphericalMercator.FromLonLat(
                 _startupConfig.InitialPositionLongitude,
                 _startupConfig.InitialPositionLatitude).ToMPoint(), 
-                map.Navigator.Resolutions[_startupConfig.InitialZoomLevel], _startupConfig.ZoomTimeInSeconds * 1000);
+                map.Navigator.Resolutions[boundedZoomLevel], _startupConfig.ZoomTimeInSeconds * 1000);
 
             map.Layers.Add(CurrentData.Points);
             map.Layers.Add(CurrentData.GpsAccLayer);
@@ -541,8 +560,6 @@ namespace TripView
             BuildMapLayersMenu();
             BuildWidgetsMenu();
         }
-
-
 
         private void Chart_ContextMenuItemOpening(object sender, System.Windows.Controls.ContextMenuEventArgs e)
         {

@@ -53,7 +53,7 @@ namespace TripView.ViewModels.Charts
                 UnitWidth = TimeSpan.FromSeconds(5).Ticks,
                 MinStep = TimeSpan.FromSeconds(5).Ticks,
                 CrosshairSnapEnabled = true,
-                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                CrosshairPaint = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
                 LabelsRotation = _chartConfiguration.CurrentValue.TimeAxisLabelRotation,
             });
 
@@ -62,7 +62,7 @@ namespace TripView.ViewModels.Charts
                 Labeler = (value) => $"{value:N2}",
                 Name = "Cumulative Regen (wh)",
                 CrosshairSnapEnabled = true,
-                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                CrosshairPaint = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
                 UnitWidth = 5,
                 MinStep = 1,
                 Position = LiveChartsCore.Measure.AxisPosition.Start
@@ -73,7 +73,7 @@ namespace TripView.ViewModels.Charts
                 Labeler = (value) => $"{value:N2}",
                 Name = "Delta Regen (wh)",
                 CrosshairSnapEnabled = true,
-                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                CrosshairPaint = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
                 UnitWidth = 5,
                 MinStep = 1,
                 Position = LiveChartsCore.Measure.AxisPosition.End
@@ -87,7 +87,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.RegenWh * -1, minMinutesBetweenTrip),
                 Name = "Cumulative Regen (wh)",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,
@@ -96,7 +96,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDeltaDateTimePoints(Events, e => e.RegenWh * -1, minMinutesBetweenTrip),
                 Name = "Delta Regen (wh)",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,

@@ -1,0 +1,168 @@
+﻿<Window x:Class="TripView.UserSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:TripView"
+        xmlns:vm="clr-namespace:TripView.ViewModels"
+        xmlns:lcontrols="clr-namespace:TripView.Controls"
+        xmlns:skia="clr-namespace:SkiaSharp;assembly=SkiaSharp"
+        xmlns:charts="clr-namespace:TripView.ViewModels.Charts"
+        xmlns:lspydp="clr-namespace:LeafSpy.DataParser;assembly=LeafSpy.DataParser"
+        mc:Ignorable="d"
+        Icon="{StaticResource SettingsGearChecklist}"
+        Title="Trip View Settings" Height="550" Width="600" WindowStartupLocation="CenterOwner" WindowStyle="ThreeDBorderWindow"
+        d:DataContext="{d:DesignInstance Type=vm:SettingsViewModel,IsDesignTimeCreatable=False}">
+    <Window.Resources>
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type system:Enum}" x:Key="APUProvider">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="lspydp:AirPressureUnit" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type system:Enum}" x:Key="DUProvider">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="lspydp:DistanceUnit" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type system:Enum}" x:Key="TUProvider">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="lspydp:TemperatureUnit" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.Row="0" Grid.Column="0">
+            <TabItem Header="Startup">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Inital Latitude:" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLatitude}" Margin="1"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Inital Longitude:" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding StartupConfig.InitialPositionLongitude}" Margin="1"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Inital Zoom Level (0-9):" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding StartupConfig.InitialZoomLevel}" Margin="1"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Zoom Time In Seconds:" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding StartupConfig.ZoomTimeInSeconds}" Margin="1"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="Minutes Between Trips:" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding StartupConfig.MinutesBetweenTrips}" Margin="1"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Content="Open Street Maps Url:" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding StartupConfig.OpenStreetMapUrl}" Margin="1"/>
+
+                    <Label Grid.Row="6" Grid.Column="0" Content="Use SQLlite as Cache:" HorizontalAlignment="Right"/>
+                    <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding StartupConfig.UseSqlAsCache}" VerticalAlignment="Center" Margin="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Colors">
+                <StackPanel>
+                    <!-- {x:Static charts:ChartDefaults.Series1Color} -->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Line Size:" Width="136" HorizontalAlignment="Left" TextAlignment="Right" Margin="0 0 10 0" Padding="0 0 5 0"/>
+                        <TextBox Width="32" Text="{Binding ColorConfig.ChartLineThickness}" />
+                    </StackPanel>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Map Route Color" SelectedColor="{Binding ColorConfig.MapRouteColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="GPS Accuracy Color" SelectedColor="{Binding ColorConfig.GpsAccuracyColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Crosshair Color" SelectedColor="{Binding ColorConfig.ChartCrosshairColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Background Color" SelectedColor="{Binding ColorConfig.ChartBackgroundColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Primary Color" SelectedColor="{Binding ColorConfig.ChartPrimaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Secondary Color" SelectedColor="{Binding ColorConfig.ChartSecondaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Tertiary Color" SelectedColor="{Binding ColorConfig.ChartTertiaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Quaternary Color" SelectedColor="{Binding ColorConfig.ChartQuaternaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Quinary Color" SelectedColor="{Binding ColorConfig.ChartQuinaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Senary Color" SelectedColor="{Binding ColorConfig.ChartSenaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Septenary Color" SelectedColor="{Binding ColorConfig.ChartSeptenaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Octonary Color" SelectedColor="{Binding ColorConfig.ChartOctonaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Nonary Color" SelectedColor="{Binding ColorConfig.ChartNonaryColor}"/>
+                    <lcontrols:SkiaColorPickerPreview HorizontalAlignment="Left" Caption="Denary Color" SelectedColor="{Binding ColorConfig.ChartDenaryColor}"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Charts">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Tire Pressure Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.AirPressureUnit}" ItemsSource="{Binding Source={StaticResource APUProvider}}" />
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Distance Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Temperature Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.TemperatureUnit}" ItemsSource="{Binding Source={StaticResource TUProvider}}" />
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Time Axis Label Rotation:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ChartConfig.TimeAxisLabelRotation}" Margin="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Leaf Spy Import">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Distance Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ImportConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="CSV Delimiter:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ImportConfig.CsvDelimiter}" Margin="1"/>                    
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Grid Margin="5" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="5" Grid.Column="0" Grid.Row="0" Content="Ok" IsDefault="True" Command="{Binding OkButtonCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
+        </Grid>
+    </Grid>
+</Window>

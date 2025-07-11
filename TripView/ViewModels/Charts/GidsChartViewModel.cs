@@ -53,7 +53,7 @@ namespace TripView.ViewModels.Charts
                 UnitWidth = TimeSpan.FromSeconds(5).Ticks,
                 MinStep = TimeSpan.FromSeconds(5).Ticks,
                 CrosshairSnapEnabled = true,
-                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                CrosshairPaint = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
                 LabelsRotation = _chartConfiguration.CurrentValue.TimeAxisLabelRotation,
             });
 
@@ -62,7 +62,7 @@ namespace TripView.ViewModels.Charts
                 Labeler = (value) => $"{value:N2}",
                 Name = "Gids",
                 CrosshairSnapEnabled = true,
-                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                CrosshairPaint = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
                 Position = LiveChartsCore.Measure.AxisPosition.End
             });
 
@@ -71,7 +71,7 @@ namespace TripView.ViewModels.Charts
                 Labeler = (value) => $"{value:N2}",
                 Name = "Kwh",
                 CrosshairSnapEnabled = true,
-                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                CrosshairPaint = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
                 Position = LiveChartsCore.Measure.AxisPosition.Start
             });
 
@@ -84,7 +84,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.Gids.Value, minMinutesBetweenTrip),
                 Name = "Gids",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,
@@ -93,7 +93,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.Gids.Energy, minMinutesBetweenTrip),
                 Name = "Kwh Remaining",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,

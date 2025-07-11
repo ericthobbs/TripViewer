@@ -47,7 +47,7 @@ namespace TripView
         {
             base.OnStartup(e);
 
-            var userConfigPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Eric Hobbs", "TripView", "user-settings.json");
+            var userConfigPath = UserSettingsManager.UserSettingsFile;
             var directory = System.IO.Path.GetDirectoryName(userConfigPath);
             if (!string.IsNullOrWhiteSpace(directory))
             {
@@ -103,20 +103,30 @@ namespace TripView
                 .ConfigureServices((context, services) =>
                 {
                     // Register your services and view models here
-                    services.Configure<StartupConfiguration>(context.Configuration.GetSection("Startup"));
-                    services.Configure<LeafspyImportConfiguration>(context.Configuration.GetSection("LeafspyImport"));
-                    services.Configure<ColorConfiguration>(context.Configuration.GetSection("Colors"));
-                    services.Configure<ChartConfiguration>(context.Configuration.GetSection("ChartConfiguration"));
-                    services.AddSingleton(options ?? new CommandLineOptions());
-                    services.AddSingleton<MainWindow>();
-                    services.AddSingleton<AboutWindow>();
-                    services.AddSingleton<AboutViewModel>();
-                    services.AddTransient<EventViewerWindow>();
+                    services.Configure<StartupConfiguration>(context.Configuration.GetSection(UserSettingsManager.StartupConfigurationSectionName));
+                    services.Configure<LeafspyImportConfiguration>(context.Configuration.GetSection(UserSettingsManager.LeafSpyConfigurationSectionName));
+                    services.Configure<ColorConfiguration>(context.Configuration.GetSection(UserSettingsManager.ColorConfigurationSectionName));
+                    services.Configure<ChartConfiguration>(context.Configuration.GetSection(UserSettingsManager.ChartConfigurationSectionName));
+                    services.AddSingleton<UserSettingsManager>();
 
-                    services.AddTransient<TripDataViewModel>();
+                    services.AddSingleton(options ?? new CommandLineOptions());
 
                     //Add all chart view models dynamically via reflection
                     services.AddAllDerivedFromAsTransients<BaseChartViewModel>();
+
+                    //About Window
+                    services.AddTransient<AboutWindow>();
+                    services.AddSingleton<AboutViewModel>();
+
+                    //Settings Window
+                    services.AddTransient<UserSettingsWindow>();
+                    services.AddSingleton<SettingsViewModel>();
+
+                    //Main Window
+                    services.AddSingleton<MainWindow>();
+                    services.AddTransient<EventViewerWindow>();
+                    services.AddTransient<TripDataViewModel>();
+
                 })
                 .Build();
 

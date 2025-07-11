@@ -52,7 +52,7 @@ namespace TripView.ViewModels.Charts
                 UnitWidth = TimeSpan.FromSeconds(5).Ticks,
                 MinStep = TimeSpan.FromSeconds(5).Ticks,
                 CrosshairSnapEnabled = true,
-                CrosshairPaint = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
+                CrosshairPaint = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartCrosshairColor, ChartDefaults.CrosshairColor), 1),
                 LabelsRotation = _chartConfiguration.CurrentValue.TimeAxisLabelRotation,
             });
 
@@ -75,7 +75,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.PackVolts, minMinutesBetweenTrip),
                 Name = "Volts",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,
@@ -84,7 +84,7 @@ namespace TripView.ViewModels.Charts
             {
                 Values = BuildDateTimePoints(Events, e => e.PackAmps, minMinutesBetweenTrip),
                 Name = "Amps",
-                Stroke = new SolidColorPaint(Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
+                Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = _colorConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
                 GeometryFill = null,
                 GeometryStroke = null,

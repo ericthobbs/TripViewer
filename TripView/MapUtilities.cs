@@ -27,39 +27,8 @@ using TripView.Extensions;
 
 namespace TripView
 {
-
-    /// <summary>
-    /// Misc utility methods.
-    /// </summary>
-    internal static class Utilities
+    internal static class MapUtilities
     {
-        /// <summary>
-        /// Converts a color string into a Skia SKColor
-        /// </summary>
-        /// <param name="mapRouteColor">the ARGB hex color code string</param>
-        /// <param name="fallback">Fallback color in case the color code is invalid.</param>
-        /// <returns>the color value from the provided string or the fallback color if conversion fails.</returns>
-        public static SkiaSharp.SKColor GetColorFromString(string? mapRouteColor, SkiaSharp.SKColor fallback)
-        {
-            if(mapRouteColor == null) 
-            { 
-                return fallback; 
-            }
-            try
-            {
-                var pointColor = fallback;
-                if (!SkiaSharp.SKColor.TryParse(mapRouteColor, out pointColor))
-                {
-                    pointColor = fallback;
-                }
-                return pointColor;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Failed to GetColorFromString ({mapRouteColor}): {ex.Message}");
-                return fallback;
-            }
-        }
 
         /// <summary>
         /// Converts the contents of a <see cref="Stream"/> to a Base64-encoded string.

@@ -43,20 +43,6 @@ namespace TripView.ViewModels.Charts
 {
     public abstract partial class BaseChartViewModel : ObservableObject
     {
-        internal static class ChartDefaults
-        {
-            public static SKColor CrosshairColor = SKColors.DarkGray;
-            public static SKColor Series1Color = SKColors.DarkOrange;
-            public static SKColor Series2Color = SKColors.SteelBlue;
-            public static SKColor Series3Color = SKColors.MediumSeaGreen;
-            public static SKColor Series4Color = SKColors.Goldenrod;
-            public static SKColor Series5Color = SKColors.SlateBlue;
-            public static SKColor Series6Color = SKColors.Crimson;
-            public static SKColor Series7Color = SKColors.DarkOrange;
-            public static SKColor Series8Color = SKColors.MediumBlue;
-            public static SKColor Series9Color = SKColors.LimeGreen;
-            public static SKColor Series10Color = SKColors.Magenta;
-        }
 
         [ObservableProperty]
         private ObservableCollection<ISeries> series;
@@ -118,53 +104,53 @@ namespace TripView.ViewModels.Charts
             XAxes = [];
             YAxes = [];
             ContextMenuItems = [];
-            BackgroundColor = Utilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartBackgroundColor, SKColors.White);
+            BackgroundColor = ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartBackgroundColor, SKColors.White);
 
             _colorConfiguration.OnChange( config => {
-                BackgroundColor = Utilities.GetColorFromString(config.ChartBackgroundColor, SKColors.White);
+                BackgroundColor = ConfigurationUtilities.GetColorFromString(config.ChartBackgroundColor, SKColors.White);
                 if(Series != null && Series.Count > 0)
                 {
                     if(Series != null && Series.Count > 0)
                     {
                         if (Series[0] is LineSeries<DateTimePoint> lsPrimary)
                         {
-                            lsPrimary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsPrimary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 1 && Series[1] is LineSeries<DateTimePoint> lsSecondary)
+                        if (Series.Count >= 2 && Series[1] is LineSeries<DateTimePoint> lsSecondary)
                         {
-                            lsSecondary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsSecondary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartSecondaryColor, ChartDefaults.Series2Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 2 && Series[2] is LineSeries<DateTimePoint> lsTertiary)
+                        if (Series.Count >= 3 && Series[2] is LineSeries<DateTimePoint> lsTertiary)
                         {
-                            lsTertiary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartTertiaryColor, ChartDefaults.Series3Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsTertiary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartTertiaryColor, ChartDefaults.Series3Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 3 && Series[3] is LineSeries<DateTimePoint> lsQuaternary)
+                        if (Series.Count >= 4 && Series[3] is LineSeries<DateTimePoint> lsQuaternary)
                         {
-                            lsQuaternary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartQuaternaryColor, ChartDefaults.Series4Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsQuaternary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartQuaternaryColor, ChartDefaults.Series4Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 4 && Series[4] is LineSeries<DateTimePoint> lsQuinary)
+                        if (Series.Count >= 5 && Series[4] is LineSeries<DateTimePoint> lsQuinary)
                         {
-                            lsQuinary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartQuinaryColor, ChartDefaults.Series5Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsQuinary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartQuinaryColor, ChartDefaults.Series5Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 5 && Series[5] is LineSeries<DateTimePoint> lsSenary)
+                        if (Series.Count >= 6 && Series[5] is LineSeries<DateTimePoint> lsSenary)
                         {
-                            lsSenary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartSenaryColor, ChartDefaults.Series6Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsSenary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartSenaryColor, ChartDefaults.Series6Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 6 && Series[6] is LineSeries<DateTimePoint> lsSeptenary)
+                        if (Series.Count >= 7 && Series[6] is LineSeries<DateTimePoint> lsSeptenary)
                         {
-                            lsSeptenary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartSeptenaryColor, ChartDefaults.Series7Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsSeptenary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartSeptenaryColor, ChartDefaults.Series7Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 7 && Series[7] is LineSeries<DateTimePoint> lsOctonary)
+                        if (Series.Count >= 8 && Series[7] is LineSeries<DateTimePoint> lsOctonary)
                         {
-                            lsOctonary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartOctonaryColor, ChartDefaults.Series8Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsOctonary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartOctonaryColor, ChartDefaults.Series8Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 8 && Series[8] is LineSeries<DateTimePoint> lsNonary)
+                        if (Series.Count >= 9 && Series[8] is LineSeries<DateTimePoint> lsNonary)
                         {
-                            lsNonary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartNonaryColor, ChartDefaults.Series9Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsNonary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartNonaryColor, ChartDefaults.Series9Color)) { StrokeThickness = config.ChartLineThickness };
                         }
-                        if (Series.Count >= 9 && Series[9] is LineSeries<DateTimePoint> lsDenary)
+                        if (Series.Count >= 10 && Series[9] is LineSeries<DateTimePoint> lsDenary)
                         {
-                            lsDenary.Stroke = new SolidColorPaint(Utilities.GetColorFromString(config.ChartDenaryColor, ChartDefaults.Series10Color)) { StrokeThickness = config.ChartLineThickness };
+                            lsDenary.Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(config.ChartDenaryColor, ChartDefaults.Series10Color)) { StrokeThickness = config.ChartLineThickness };
                         }
                     }
                 }
