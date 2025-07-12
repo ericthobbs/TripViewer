@@ -5,10 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TripView"
         mc:Ignorable="d"
-        Title="Commandline Help" Height="450" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowState="Normal">
-    <Grid>
-        <ScrollViewer Margin="10" VerticalScrollBarVisibility="Auto">
+        Title="TripView Help" Height="450" Width="600"
+        WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" WindowState="Normal">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" BorderBrush="LightGray" BorderThickness="1" CornerRadius="0" Margin="0,0,0,15" Padding="10">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" >
             <TextBlock TextWrapping="Wrap" FontSize="16" Text="{Binding HelpTextFromCommandLine}"/>
         </ScrollViewer>
+        </Border>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Button Content="Ok" Padding="5" Margin="5" MinWidth="40" HorizontalAlignment="Right" IsDefault="True" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
