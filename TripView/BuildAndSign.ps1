@@ -53,6 +53,9 @@ GPG Key Id to use to sign with. It will attempt to autodetect the correct key (f
 or revoked) that can sign to use if none is specified.
 Default: ""
 
+.PARAMETER DryRun
+set to true to show what would happen if actually run.
+
 .EXAMPLE
 .\publish-app.ps1 -Runtime win-x64 -SelfContained $false -SingleFile $true -ReadyToRun $true
 
@@ -67,17 +70,64 @@ If GIT or GPG are not found, they will be skipped.
 #>
 
 param (
+    [ValidateSet("win-x64", "win-x86", "win-arm64")]
 	[string]$Runtime = "win-x64",
-	[bool]$SelfContained = $true,
-	[bool]$SingleFile = $true,
-	[bool]$ReadyToRun = $true,
+
+    [ValidateSet("true", "false", "yes", "no", "on", "off")]
+	[string]$SelfContained = $true,
+
+    [ValidateSet("true", "false", "yes", "no", "on", "off")]
+	[string]$SingleFile = $true,
+
+    [ValidateSet("true", "false", "yes", "no", "on", "off")]
+	[string]$ReadyToRun = $true,
+
 	[string]$ProjectPath = ".",
+
 	[string]$Configuration = "Release",
+
 	[string]$DotnetPath = "C:\Program Files\dotnet\dotnet.exe",
+
 	[string]$GitPath = "c:\Program Files\git\bin\git.exe",
+
 	[string]$GpgPath = "c:\Program Files (x86)\GnuPG\bin\gpg.exe",
-    [string]$GpgKeyId = $null
+
+    [string]$GpgKeyId = $null,
+
+    [ValidateSet("true", "false", "yes", "no", "on", "off")]
+    [string]$DryRun = "false"
 )
+
+# Converts a string to bool -- powershell seems to have issues reading arguments as types other then strings from the command line
+function To-Bool($value) {
+    switch ($value.ToLowerInvariant()) {
+        "true"  { return $true }
+        "false" { return $false }
+        "yes"   { return $true }
+        "no"    { return $false }
+        "on"    { return $true }
+        "off"   { return $false }
+        default { return $false }
+    }
+}
+
+function Get-AssemblyVersionFromSdkProj {
+    param ($projectFile)
+    $versionLine = Select-String -Path $projectFile -Pattern "<AssemblyVersion>(.*?)</AssemblyVersion>" | Select-Object -First 1
+    if ($versionLine -and $versionLine.Matches[0].Groups[1].Value) {
+        return $versionLine.Matches[0].Groups[1].Value
+    }
+    return "Unknown"
+}
+
+function Get-GitShortHash {
+    if(Test-Path $GitPath) {
+    & $GitPath  rev-parse --short HEAD
+    }
+}
+
+$SelfContained = To-Bool $SelfContained
+$ReadyToRun = To-Bool $ReadyToRun
 
 # If GPG is in our path and the GpgKeyId is not set, we want to fetch the default key for our records.
 if (Test-Path $GpgPath) 
@@ -117,41 +167,36 @@ if (Test-Path $GpgPath)
     }
 }
 
-function Get-AssemblyVersionFromSdkProj {
-    param ($projectFile)
-    $versionLine = Select-String -Path $projectFile -Pattern "<AssemblyVersion>(.*?)</AssemblyVersion>" | Select-Object -First 1
-    if ($versionLine -and $versionLine.Matches[0].Groups[1].Value) {
-        return $versionLine.Matches[0].Groups[1].Value
-    }
-    return "Unknown"
-}
-
-function Get-GitShortHash {
-    if(Test-Path $GitPath) {
-    & $GitPath  rev-parse --short HEAD
-    }
-}
-
-$singleFileLabel = if ($SingleFile) { "SingleFile" } else { "MultiFile" }
-$readyToRunLabel = if ($ReadyToRun) { "ReadyToRun" } else { "NoRTR" }
+$singleFileLabel = if (To-Bool $SingleFile) { "SingleFile" } else { "MultiFile" }
+$readyToRunLabel = if (To-Bool $ReadyToRun) { "ReadyToRun" } else { "NoRTR" }
 
 $outputDir = Join-Path -Path "publish" -ChildPath "$singleFileLabel\$readyToRunLabel\$Runtime"
-$zipOutputDir = Join-Path -Path $PWD -ChildPath $outputDir
 
-Write-Host "Cleaning previous output... $outputDir"
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $outputDir
+if(To-Bool $DryRun) {
+Write-Host "DRYRUN: (not) Cleaning previous output... $outputDir"
+}
+else {
+    Write-Host "Cleaning previous output... $outputDir"
+    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $outputDir    
+}
 
 $publishArguments = @(
-    "-c", $Configuration,
-    "-r", $Runtime,
-    "-o", $outputDir,
-    "-p:PublishSingleFile=$SingleFile",
-    "-p:PublishReadyToRun=$ReadyToRun",
-    "-p:SelfContained=$SelfContained"
-)
+    "publish",
+    "`"$ProjectPath`"",
+    "--configuration", $Configuration,
+    "--runtime", $Runtime,
+    "--output", "`"$outputDir`"",
+    "/p:PublishSingleFile=$SingleFile",
+    "/p:PublishReadyToRun=$ReadyToRun",
+    "/p:SelfContained=$SelfContained"
+    )
 
-Write-Host "Publishing for $Runtime to $outputDir..."
-& $DotnetPath publish $ProjectPath @publishArguments
+if(To-Bool $DryRun) {
+    Write-Host "DRYRUN: $DotnetPath $($publishArguments -join ' ')"
+} else {
+    Write-Host "Publishing for $Runtime to $outputDir..."
+    & $DotnetPath @publishArguments    
+}
 
 # Gather metadata
 $csproj = Get-ChildItem $ProjectPath -Recurse -Filter *.csproj | Select-Object -First 1
@@ -162,25 +207,39 @@ $zipFileName = "${Runtime}_${dateStr}_v${version}_${shortHash}.zip"
 $zipFullPath = Join-Path -Path "publish" -ChildPath $zipFileName
 
 # Compress the output folder into a single zip archive
-Write-Host "Zipping $zipFullPath..."
-Compress-Archive -Path "$outputDir" -DestinationPath $zipFullPath -Force
+if(To-Bool $DryRun) {
+    Write-Host "DRYRUN: Zipping $zipFullPath..."
+} else {
+    Write-Host "Zipping $zipFullPath..."
+    Compress-Archive -Path "$outputDir" -DestinationPath $zipFullPath -Force
+}
 
 # GPG sign the zip archive for data validation
+$gpgSig = $null
 if (Test-Path $GpgPath) {
     $gpgSig = "$zipFullPath.sig"
-    Write-Host "Signing $zipFileName with GPG..."
-    & $GpgPath @(
+    $gpgArgs = @(
         if ($GpgKeyId) { "--default-key"; $GpgKeyId }
         "--armor"
         "--output"; $gpgSig
         "--detach-sign"; $zipFullPath
-    )
+        )
+    if(To-Bool $DryRun) {
+        Write-Host "DRYRUN: $GpgPath $($gpgArgs -join ' ')"
+    } else {
+        Write-Host "Signing $zipFileName with GPG Key = `"$GpgKeyId`"..."
+        & $GpgPath @gpgArgs
+    }
 }
 
 # Generate SHA256 hash of the zip archive
 $sha256 = "$zipFullPath.sha256"
-Write-Host "Generating SHA256 hash for $zipFullPath"
-Get-FileHash -Algorithm SHA256 $zipFullPath | ForEach-Object { $_.Hash } > $sha256
+if (To-Bool $DryRun) {
+    Write-Host "DRYRUN: Generating SHA256 hash for $zipFullPath"
+} else {
+    Write-Host "Generating SHA256 hash for $zipFullPath"
+    Get-FileHash -Algorithm SHA256 $zipFullPath | ForEach-Object { $_.Hash } > $sha256
+}
 
 #Return this object (so it can be used in other parts of the pipeline, if needed.)
 [PSCustomObject]@{
