@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TripView"
+        xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
         mc:Ignorable="d" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow"
-        Title="Logged Trip Events" Height="450" Width="800" d:DataContext="{d:DesignInstance local:TripDataViewModel}">
+        Title="Logged Trip Events" Height="450" Width="800">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -15,11 +16,168 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" Grid.Column="0" 
-                  ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent}" 
-                  IsReadOnly="True" EnableColumnVirtualization="True" EnableRowVirtualization="True" />
-        <StackPanel Margin="10" Grid.Row="1" Grid.Column="0" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button Margin="10" MinWidth="50" Content="Close" Click="Button_Click"></Button>
-        </StackPanel>
-
+                  ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent}" AutoGenerateColumns="False"
+                  dgx:DataGridFilter.IsAutoFilterEnabled="True"
+                  IsReadOnly="True" EnableColumnVirtualization="True" EnableRowVirtualization="True">
+            <DataGrid.Resources>
+                <Style x:Key="TextColumnTextBlockStyle" TargetType="TextBlock">
+                    <Setter Property="TextAlignment" Value="Right"/>
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                </Style>
+                <Style x:Key="TextColumnTextBoxStyle" TargetType="TextBox">
+                    <Setter Property="TextAlignment" Value="Right"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date / Time" Binding="{Binding DateTime}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Latutude / Longitude" Binding="{Binding GpsPhoneCoordinates}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Elevation" Binding="{Binding GpsPhoneElevation}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Speed" Binding="{Binding GpsPhoneSpeed}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Gids" Binding="{Binding Gids.Value}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Kwh Remaining" Binding="{Binding Gids.Energy, StringFormat='{}{0:N0}'}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="AHr" Binding="{Binding AHr}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="SOC (%)" Binding="{Binding StateOfChargePercent}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Hx" Binding="{Binding Hx}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="SOH (%)" Binding="{Binding SOH}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack Volts" Binding="{Binding PackVolts}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack Amps" Binding="{Binding PackAmps}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Max CP (mV)" Binding="{Binding MaxCPmV}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Min CP (mV)" Binding="{Binding MinCPmV}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Avg CP (mV)" Binding="{Binding AvgCPmV}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP Diff (mV)" Binding="{Binding CPmVDiff}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Judgment Value" Binding="{Binding JudgmentValue}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack T1 (F)" Binding="{Binding PackT1F}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack T1 (C)" Binding="{Binding PackT1C}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack T2 (F)" Binding="{Binding PackT2F}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack T2 (C)" Binding="{Binding PackT2C}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack T3 (F)" Binding="{Binding PackT3F}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack T3 (C)" Binding="{Binding PackT3C}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Pack T4 (F)" Binding="{Binding PackT4F}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 1" Binding="{Binding CP1}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 2" Binding="{Binding CP2}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 3" Binding="{Binding CP3}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 4" Binding="{Binding CP4}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 5" Binding="{Binding CP5}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 6" Binding="{Binding CP6}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 7" Binding="{Binding CP7}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 8" Binding="{Binding CP8}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 9" Binding="{Binding CP9}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 10" Binding="{Binding CP10}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 11" Binding="{Binding CP11}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 12" Binding="{Binding CP12}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 13" Binding="{Binding CP13}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 14" Binding="{Binding CP14}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 15" Binding="{Binding CP15}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 16" Binding="{Binding CP16}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 17" Binding="{Binding CP17}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 18" Binding="{Binding CP18}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 19" Binding="{Binding CP19}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 20" Binding="{Binding CP20}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 21" Binding="{Binding CP21}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 22" Binding="{Binding CP22}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 23" Binding="{Binding CP23}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 24" Binding="{Binding CP24}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 25" Binding="{Binding CP25}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 26" Binding="{Binding CP26}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 27" Binding="{Binding CP27}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 28" Binding="{Binding CP28}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 29" Binding="{Binding CP29}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 30" Binding="{Binding CP30}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 41" Binding="{Binding CP41}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 42" Binding="{Binding CP42}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 43" Binding="{Binding CP43}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 44" Binding="{Binding CP44}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 45" Binding="{Binding CP45}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 46" Binding="{Binding CP46}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 47" Binding="{Binding CP47}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 48" Binding="{Binding CP48}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 49" Binding="{Binding CP49}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 50" Binding="{Binding CP50}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 51" Binding="{Binding CP51}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 52" Binding="{Binding CP52}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 53" Binding="{Binding CP53}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 54" Binding="{Binding CP54}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 55" Binding="{Binding CP55}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 56" Binding="{Binding CP56}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 57" Binding="{Binding CP57}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 58" Binding="{Binding CP58}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 59" Binding="{Binding CP59}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 60" Binding="{Binding CP60}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 61" Binding="{Binding CP61}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 62" Binding="{Binding CP62}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 63" Binding="{Binding CP63}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 64" Binding="{Binding CP64}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 65" Binding="{Binding CP65}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 66" Binding="{Binding CP66}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 67" Binding="{Binding CP67}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 68" Binding="{Binding CP68}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 69" Binding="{Binding CP69}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 70" Binding="{Binding CP70}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 71" Binding="{Binding CP71}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 72" Binding="{Binding CP72}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 73" Binding="{Binding CP73}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 74" Binding="{Binding CP74}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 75" Binding="{Binding CP75}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 76" Binding="{Binding CP76}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 77" Binding="{Binding CP77}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 78" Binding="{Binding CP78}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 79" Binding="{Binding CP79}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 80" Binding="{Binding CP80}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 81" Binding="{Binding CP81}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 82" Binding="{Binding CP82}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 83" Binding="{Binding CP83}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 84" Binding="{Binding CP84}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 85" Binding="{Binding CP85}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 86" Binding="{Binding CP86}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 87" Binding="{Binding CP87}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 88" Binding="{Binding CP88}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 89" Binding="{Binding CP89}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 90" Binding="{Binding CP90}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 91" Binding="{Binding CP91}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 92" Binding="{Binding CP92}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 93" Binding="{Binding CP93}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 94" Binding="{Binding CP94}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 95" Binding="{Binding CP95}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="CP 96" Binding="{Binding CP96}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="12v Volts" Binding="{Binding Bat12vVolts}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="12v Amps" Binding="{Binding Bat12vAmps}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Odometer" Binding="{Binding Odometer}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="J1172 Count" Binding="{Binding L1L2Count}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="QC Count" Binding="{Binding QCCount}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="VIN" Binding="{Binding VIN}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="TP FL" Binding="{Binding TPFL}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="TP FR" Binding="{Binding TPFR}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="TP RR" Binding="{Binding TPRR}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="TP RL" Binding="{Binding TPRL}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Regen (Wh)" Binding="{Binding RegenWh}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="PhoneBattery (%)" Binding="{Binding PhoneBatteryLevelPercent}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="EpochTime" Binding="{Binding EpochTime}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="MotorPwrw" Binding="{Binding MotorPwrw, StringFormat='{}{0:N0}'}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="AuxPwr" Binding="{Binding AuxPwr}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="ACPwr" Binding="{Binding ACPwr}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="ACComp01MPa" Binding="{Binding ACComp01MPa}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="EstPwrAC" Binding="{Binding EstPwrAC}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="EstPwrHtr" Binding="{Binding EstPwrHtr}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="PlugState" Binding="{Binding PlugState}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="ChargeMode" Binding="{Binding ChargeMode}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="OBCOutPwr" Binding="{Binding OBCOutPwr}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Gear" Binding="{Binding Gear}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="HVolt 1" Binding="{Binding HVolt1}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="HVolt 2" Binding="{Binding HVolt2}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="GPS Status" Binding="{Binding GPSStatus}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="PowerSW" Binding="{Binding PowerSW}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="BMS" Binding="{Binding BMS}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="OBC" Binding="{Binding OBC}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Motor Temp" Binding="{Binding MotorTemp}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Inverter 2 Temp" Binding="{Binding Inverter2Temp}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Inverter 4 Temp" Binding="{Binding Inverter4Temp}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Speed 1" Binding="{Binding Speed1}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Speed 2" Binding="{Binding Speed2}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="WiperStatus" Binding="{Binding WiperStatus}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="Torque (Nm)" Binding="{Binding TorqueNm}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+                <DataGridTextColumn Header="RPM" Binding="{Binding RPM, StringFormat='{}{0:N0}'}" ElementStyle="{StaticResource TextColumnTextBlockStyle}" EditingElementStyle="{StaticResource TextColumnTextBoxStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

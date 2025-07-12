@@ -16,8 +16,6 @@
 	* Look into adding: 
 		https://github.com/Humanizr/Humanizer
 		For more friendly date and times
-	* https://github.com/dotnet/DataGridExtensions
-		Better DataGrid handling
 	* https://github.com/VerifyTests/Verify
 		More test coverage
 		
