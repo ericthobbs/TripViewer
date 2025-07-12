@@ -62,7 +62,6 @@ namespace TripView.Controls
                 grid._propertyGrid.SelectedObject = e.NewValue;
                 vScroll.Value = grid.PrevScrollPos == -1 ? 0 : grid.PrevScrollPos;
                 grid.PrevScrollPos = val;
-                System.Diagnostics.Debug.WriteLine($"OnSelectedObjectChanged() vScroll={vScroll.Value}, e.NewValue={e.NewValue}");
             }
         }
     }
