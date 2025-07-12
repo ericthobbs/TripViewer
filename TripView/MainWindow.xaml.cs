@@ -61,8 +61,9 @@ namespace TripView
 
         private readonly IOptionsMonitor<StartupConfiguration> _startupConfig;
         private readonly ILogger<MainWindow> _logger;
+        private readonly RecentFilesManager _recentFilesManager;
         private EventViewerWindow? _logEventViewer;
-        private IServiceProvider _provider; 
+        private readonly IServiceProvider _provider; 
 
         public static readonly DependencyProperty MapLayersMenuItemsProperty =
         DependencyProperty.Register(
@@ -90,25 +91,75 @@ namespace TripView
             set => SetValue(MapWidgetsMenuItemsProperty, value);
         }
 
-        public static readonly RoutedUICommand ShowEventWindowCommand = new("_Show Event Window...", "ShowEventWindowCommand", typeof(MainWindow));
-        public static readonly RoutedUICommand ExportToKmlFileCommand = new("E_xport to KML File...", "ExportToKmlCommand", typeof(MainWindow));
-        public static readonly RoutedUICommand ShowSettingsCommand = new("Settings...", "ShowSettingsWindowCommand", typeof(MainWindow));
-        public static readonly RoutedUICommand ExitCommand = new("Exit TripView", "ExitCommand", typeof(MainWindow));
+        public static readonly DependencyProperty RecentlyLoadedFilesProperty =
+        DependencyProperty.Register(
+            nameof(RecentlyLoadedFiles),
+            typeof(ObservableCollection<MenuItemViewModel>),
+            typeof(MainWindow),
+            new PropertyMetadata(new ObservableCollection<MenuItemViewModel>()));
+
+        public ObservableCollection<MenuItemViewModel> RecentlyLoadedFiles
+        {
+            get => (ObservableCollection<MenuItemViewModel>)GetValue(RecentlyLoadedFilesProperty);
+            set => SetValue(RecentlyLoadedFilesProperty, value);
+        }
+
+        public static readonly RoutedUICommand ShowEventWindowCommand = new("Show _Event Window...", "ShowEventWindowCommand", typeof(MainWindow), new InputGestureCollection(new[] { new KeyGesture(Key.E, ModifierKeys.Control, "CTRL+E") }));
+        public static readonly RoutedUICommand ExportToKmlFileCommand = new("E_xport to KML File...", "ExportToKmlCommand", typeof(MainWindow), new InputGestureCollection(new[] { new KeyGesture(Key.K, ModifierKeys.Control, "CTRL+K") }));
+        public static readonly RoutedUICommand ShowSettingsCommand = new("Settin_gs...", "ShowSettingsWindowCommand", typeof(MainWindow), new InputGestureCollection(new[] { new KeyGesture(Key.G, ModifierKeys.Control, "CTRL+G") }));
+        public static readonly RoutedUICommand ExitCommand = new("Exit TripView", "ExitCommand", typeof(MainWindow), new InputGestureCollection(new[] { new KeyGesture(Key.F4, ModifierKeys.Alt, "ALT+F4") }));
         public static readonly RoutedUICommand ShowAboutCommand = new("_About...", "ShowAboutCommand", typeof(MainWindow));
         public static readonly RoutedUICommand SaveMapAsImageCommand = new("Save as Image...", "SaveMapAsImageCommand", typeof(MainWindow));
 
         public MainWindow(
             TripDataViewModel vm, 
             ILogger<MainWindow> logger, 
-            IOptionsMonitor<StartupConfiguration> startupConfigOptions, 
+            IOptionsMonitor<StartupConfiguration> startupConfigOptions,
+            RecentFilesManager recentFilesManager,
             CommandLineOptions commandlineOptions, 
             IServiceProvider provider)
         {
+            DataContext = CurrentData = vm;
+            _logger = logger;
             _provider = provider;
             _startupConfig = startupConfigOptions;
-            _logger = logger;
-            DataContext = CurrentData = vm;
+            _recentFilesManager = recentFilesManager;
+            
+            InitializeComponent();
+            BuildRecentFilesListMenu();
+            ConfigureImagesForMap();
+            ConfigureMapsuiLogger();
 
+            TripMap.MapTapped += TripMap_MapTapped;
+
+            WeakReferenceMessenger.Default.RegisterAll(this);
+
+            if (!string.IsNullOrEmpty(commandlineOptions.Filename))
+            {
+                Dispatcher.Invoke(async () =>
+                {
+                    var success = await CurrentData.LoadLeafSpyLogFile(commandlineOptions.Filename);
+
+                    if (success)
+                    {
+                        _recentFilesManager.AddRecentFile(commandlineOptions.Filename);
+                        BuildRecentFilesListMenu();
+
+                        if (!string.IsNullOrEmpty(commandlineOptions.Graph))
+                        {
+                            var selectedChart = CurrentData.Charts.FirstOrDefault(x => x.Name == commandlineOptions.Graph);
+                            if (selectedChart != null)
+                            {
+                                CurrentData.ActiveChart = selectedChart;
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        private void ConfigureImagesForMap()
+        {
             var carResource = System.Windows.Application.Current.Resources["GenericEVWhite"];
             if (carResource is BitmapImage carImage)
             {
@@ -128,32 +179,6 @@ namespace TripView
             {
                 var resourceInfo = System.Windows.Application.GetResourceStream(finishingLineImage.UriSource);
                 CurrentData.RouteEndImageAsBase64 = MapUtilities.StreamToBase64(resourceInfo.Stream);
-            }
-
-            InitializeComponent();
-            ConfigureMapsuiLogger();
-            TripMap.MapTapped += TripMap_MapTapped;
-
-            //TripMap.Map.Navigator.ViewportChanged += (s, e) =>
-            //{
-                //_logger.LogDebug("map viewport changed: {e.PropertyName}", e.PropertyName);
-            //};
-
-            WeakReferenceMessenger.Default.RegisterAll(this);
-
-            if (!string.IsNullOrEmpty(commandlineOptions.Filename))
-            {
-                Dispatcher.Invoke( async () => { 
-                    await CurrentData.LoadLeafSpyLogFile(commandlineOptions.Filename);
-
-                    if(!string.IsNullOrEmpty(commandlineOptions.Graph))
-                    {
-                        var selectedChart = CurrentData.Charts.FirstOrDefault(x => x.Name == commandlineOptions.Graph);
-                        if (selectedChart != null) {
-                            CurrentData.ActiveChart = selectedChart;
-                        }
-                    }
-                } );
             }
         }
 
@@ -293,14 +318,21 @@ namespace TripView
                 _logger.LogDebug("Selected file: {FileName}", selectedFile);
                 if (System.IO.File.Exists(selectedFile))
                 {
+                    var success = true;
                     try
                     {
-                        await CurrentData.LoadLeafSpyLogFile(selectedFile);
+                        success = await CurrentData.LoadLeafSpyLogFile(selectedFile);
                     }
                     catch (CsvHelper.HeaderValidationException ex) //This should be handled better by the VM, but for now lets catch it
                     {
                         _logger.LogError(ex, "CSV Header Validation Error: {Message}", ex.Message);
                         System.Windows.MessageBox.Show($"Unable to process the file, please choose another.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                    if (success)
+                    {
+                        _recentFilesManager.AddRecentFile(selectedFile);
+                        BuildRecentFilesListMenu();
                     }
                 }
             }
@@ -379,6 +411,52 @@ namespace TripView
                         TripMap.Map.Refresh();
                     }
                 }) , null));
+            }
+        }
+
+        private void BuildRecentFilesListMenu()
+        {
+            RecentlyLoadedFiles.Clear();
+            foreach (var file in _recentFilesManager)
+            {
+                RecentlyLoadedFiles.Add(new MenuItemViewModel(
+                    header: file,
+                    isChecked: false,
+                    command: new AsyncRelayCommand<MenuItemViewModel>(async (ctx) => {
+                        if (ctx == null)
+                        {
+                            _logger.LogError("No menu item passed to BuildRecentFilesListMenu.");
+                            return;
+                        }
+
+                        var success = await CurrentData.LoadLeafSpyLogFile(file);
+
+                        if(!success)
+                        {
+                            if (!System.IO.File.Exists(file))
+                                _recentFilesManager.RemoveRecentFile(file);
+
+                            System.Windows.MessageBox.Show($"Unable to open csv file '{file}'.");
+                        } else
+                        {
+                            _recentFilesManager.AddRecentFile(file);
+                        }
+                        BuildRecentFilesListMenu(); //rebuild menu after change
+                    }),
+                    foreground: null,
+                    isEnabled: true
+                    ));
+            }
+
+            if(RecentlyLoadedFiles.Count == 0)
+            {
+                RecentlyLoadedFiles.Add(new MenuItemViewModel(
+                    header: "No Recent Files", 
+                    isChecked: false, 
+                    command: null, 
+                    foreground: null, 
+                    isEnabled: false
+                    ));
             }
         }
 

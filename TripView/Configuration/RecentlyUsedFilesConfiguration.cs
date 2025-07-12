@@ -21,35 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-
-namespace TripView
+namespace TripView.Configuration
 {
-    public partial class MenuItemViewModel : ObservableObject
+    /// <summary>
+    /// Represents the configuration for managing a list of recently used files.
+    /// </summary>
+    /// <remarks>This class provides a collection of file paths that can be used to track or display recently
+    /// accessed files. The list is initialized as empty by default.</remarks>
+    public class RecentlyUsedFilesConfiguration
     {
-        [ObservableProperty]
-        private string header;
-
-        [ObservableProperty]
-        private bool? isChecked;
-
-        [ObservableProperty]
-        private IRelayCommand? command;
-
-        [ObservableProperty]
-        private bool isEnabled;
-
-        [ObservableProperty]
-        private System.Windows.Media.Brush? foreground;
-
-        public MenuItemViewModel(string header, bool? isChecked, IRelayCommand? command, System.Windows.Media.Brush? foreground, bool isEnabled = true)
-        {
-            Header = header;
-            IsEnabled = isEnabled;
-            IsChecked = isChecked;
-            Command = command;
-            Foreground = foreground;
-        }
+        public List<string> Files { get; set; } = [];
     }
 }

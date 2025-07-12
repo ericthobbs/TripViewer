@@ -424,8 +424,8 @@ namespace TripView.ViewModels
         /// to reflect the file name,  and attempts to load the CSV data from the file. If the file does not exist, the
         /// method does nothing.</remarks>
         /// <param name="filename">The full path to the LeafSpy log file to load. Must be a valid file path.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        public async Task LoadLeafSpyLogFile(string filename)
+        /// <returns>A task that represents the asynchronous operation. true on success, false on failure.</returns>
+        public async Task<bool> LoadLeafSpyLogFile(string filename)
         {
             if (!System.IO.Path.IsPathRooted(filename))
             {
@@ -440,6 +440,7 @@ namespace TripView.ViewModels
                 {
                     await LoadCSVData(filename);
                     FileName = filename;
+                    return true;
                 }
                 catch (CsvHelper.HeaderValidationException ex)
                 {
@@ -447,6 +448,10 @@ namespace TripView.ViewModels
                     Reset();
                     throw;
                 }
+            }
+            else
+            {
+                return false;
             }
         }
 

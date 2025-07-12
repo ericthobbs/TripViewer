@@ -10,8 +10,8 @@
         xmlns:lc="clr-namespace:TripView.Controls"
         xmlns:local="clr-namespace:TripView"
         mc:Ignorable="d"
-        Icon="{StaticResource GenericEVWhite}"
-        Title="{Binding Title}" Height="900" Width="1600" d:DataContext="{d:DesignInstance localvm:TripDataViewModel}" WindowState="Maximized" x:Name="MainWin">
+        Icon="{StaticResource GenericEVWhite}" Title="{Binding Title}" Height="900" Width="1600" 
+        d:DataContext="{d:DesignInstance localvm:TripDataViewModel}" WindowState="Maximized" x:Name="MainWin">
     <Window.Resources>
         <lconv:NullVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <lconv:EmptyVisibilityConverter x:Key="EmptyToVisibilityConverter"/>
@@ -89,11 +89,24 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_Open Trip CSV..." Command="ApplicationCommands.Open" InputGestureText="CTRL+O"/>
                 <Separator/>
-                <MenuItem Command="local:MainWindow.ExportToKmlFileCommand" InputGestureText="CTRL+K"/>
+                <MenuItem Command="local:MainWindow.ExportToKmlFileCommand"/>
+                <Separator/>
+                <MenuItem Header="Recent Files" ItemsSource="{Binding RecentlyLoadedFiles, ElementName=MainWin}">
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Header" Value="{Binding Header}"/>
+                            <Setter Property="Command" Value="{Binding Command}"/>
+                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
+                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                            <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
+                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                </MenuItem>
                 <Separator/>
                 <MenuItem Command="local:MainWindow.ShowSettingsCommand"/>
                 <Separator/>
-                <MenuItem Command="local:MainWindow.ExitCommand" InputGestureText="ALT+F4"/>
+                <MenuItem Command="local:MainWindow.ExitCommand"/>
             </MenuItem>
             <MenuItem Header="_Charts" ItemsSource="{Binding ChartMenuItems}">
                 <MenuItem.ItemContainerStyle>
@@ -103,15 +116,18 @@
                         <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
                         <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                         <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
+                        <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
                     </Style>
                 </MenuItem.ItemContainerStyle>
             </MenuItem>
-            <MenuItem Header="_Diagnostics" IsEnabled="False" Visibility="Collapsed">
-                <MenuItem Header="Run Judgement Check..." Command="{Binding JudgementCheckCommand}" IsEnabled="False"/>
+            <!--
+            <MenuItem Header="_Diagnostics">
+                <MenuItem Header="Run Judgement Check..." Command="{Binding JudgementCheckCommand}"/>
+                <MenuItem Header="12v Battery Check..." Command="{Binding Battery12vCheck}"/>
             </MenuItem>
+            -->
             <MenuItem Header="_View">
                 <MenuItem Command="local:MainWindow.ShowEventWindowCommand"/>
-                <!-- ItemsSource="{Binding MapLayersMenuItems, RelativeSource={RelativeSource AncestorType=Window}}" -->
                 <MenuItem Header="Map Layers" ItemsSource="{Binding MapLayersMenuItems, ElementName=MainWin}">
                     <MenuItem.ItemContainerStyle>
                         <Style TargetType="MenuItem">
@@ -119,6 +135,7 @@
                             <Setter Property="Command" Value="{Binding Command}"/>
                             <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
                             <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
                         </Style>
                     </MenuItem.ItemContainerStyle>
                 </MenuItem>
@@ -129,6 +146,7 @@
                             <Setter Property="Command" Value="{Binding Command}"/>
                             <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
                             <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
                         </Style>
                     </MenuItem.ItemContainerStyle>
                 </MenuItem>                
@@ -221,6 +239,7 @@
                             <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
                             <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                             <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
+                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
                         </Style>
                     </ContextMenu.ItemContainerStyle>
                 </ContextMenu>

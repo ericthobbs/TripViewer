@@ -108,6 +108,7 @@ namespace TripView
                     services.Configure<ColorConfiguration>(context.Configuration.GetSection(UserSettingsManager.ColorConfigurationSectionName));
                     services.Configure<ChartConfiguration>(context.Configuration.GetSection(UserSettingsManager.ChartConfigurationSectionName));
                     services.AddSingleton<UserSettingsManager>();
+                    services.AddSingleton<RecentFilesManager>();
 
                     services.AddSingleton(options ?? new CommandLineOptions());
 
