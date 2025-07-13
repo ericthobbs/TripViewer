@@ -60,6 +60,7 @@ namespace TripView
         public TripDataViewModel CurrentData { get; set;}
 
         private readonly IOptionsMonitor<StartupConfiguration> _startupConfig;
+        private readonly IOptionsMonitor<LeafspyImportConfiguration> _leafspyImportConfig;
         private readonly ILogger<MainWindow> _logger;
         private readonly RecentFilesManager _recentFilesManager;
         private EventViewerWindow? _logEventViewer;
@@ -115,6 +116,7 @@ namespace TripView
             TripDataViewModel vm, 
             ILogger<MainWindow> logger, 
             IOptionsMonitor<StartupConfiguration> startupConfigOptions,
+            IOptionsMonitor<LeafspyImportConfiguration> leafspyImportConfigOptions,
             RecentFilesManager recentFilesManager,
             CommandLineOptions commandlineOptions, 
             IServiceProvider provider)
@@ -123,6 +125,7 @@ namespace TripView
             _logger = logger;
             _provider = provider;
             _startupConfig = startupConfigOptions;
+            _leafspyImportConfig = leafspyImportConfigOptions;
             _recentFilesManager = recentFilesManager;
             
             InitializeComponent();
@@ -261,7 +264,7 @@ namespace TripView
                 }
                 try
                 {
-                    KmlExporter.KmlExporter.ExportToKml(CurrentData._leafSpyImportConfig.CurrentValue, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
+                    KmlExporter.KmlExporter.ExportToKml(_leafspyImportConfig.CurrentValue, CurrentData.FileName, selectedFile, CurrentData.Events.First().DateTime.ToString("yyMMdd"));
                     System.Windows.MessageBox.Show(this, $"Success. Saved to {selectedFile}.", "Export to KML");
                 }
                 catch (Exception ex)

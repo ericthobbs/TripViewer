@@ -57,7 +57,7 @@ namespace TripView.ViewModels
         private readonly ILogger<TripDataViewModel> _logger;
         private readonly IOptionsMonitor<StartupConfiguration> _configuration;
         private readonly IOptionsMonitor<ColorConfiguration> _colorConfig;
-        public readonly IOptionsMonitor<LeafspyImportConfiguration> _leafSpyImportConfig; //FIX THIS (public needed for KML Export)
+        private readonly IOptionsMonitor<LeafspyImportConfiguration> _leafSpyImportConfig;
 
         [ObservableProperty]
         private ObservableCollection<BaseChartViewModel> charts;
