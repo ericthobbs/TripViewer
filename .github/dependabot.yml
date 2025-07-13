@@ -5,11 +5,6 @@
 
 version: 2
 updates:
- - package-ecosystem: "dotnet-sdk"
-   directory: "/TripView/"
-   schedule:
-    interval: "weekly"
-    day: "wednesday"
  - package-ecosystem: "nuget"
    directory: "/"
    schedule:
