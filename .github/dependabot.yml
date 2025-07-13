@@ -6,7 +6,15 @@
 version: 2
 updates:
   - package-ecosystem: "dotnet-sdk"
-    directory: "/TripViewer"
+    directory: "/"
     schedule:
-      interval: "monthly"
-    dependency-type: "direct"
+      interval: "weekly"
+      day: "wednesday"
+    ignore:
+      - dependency-name: "*"
+        update-types: 
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+  — package-ecosystem: “nuget”
+    directory: “/*/” 
+    interval: “weekly"
