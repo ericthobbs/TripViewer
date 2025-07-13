@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "dotnet-sdk" # See documentation for possible values
-    directory: "/*/" # Location of package manifests
+  - package-ecosystem: "dotnet-sdk"
+    directory: "/TripViewer"
     schedule:
       interval: "monthly"
     dependency-type: "direct"
