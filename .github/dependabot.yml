@@ -10,11 +10,6 @@ updates:
    schedule:
     interval: "weekly"
     day: "wednesday"
-    ignore:
-      - dependency-name: "*"
-        update-types: 
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
  - package-ecosystem: "nuget"
    directory: "/*/"
    interval: "weekly"
