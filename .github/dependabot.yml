@@ -11,5 +11,5 @@ updates:
     interval: "weekly"
     day: "wednesday"
  - package-ecosystem: "nuget"
-   directory: "/*/"
+   directory: "/"
    interval: "weekly"
