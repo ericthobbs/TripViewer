@@ -54,7 +54,7 @@ namespace TripView.ViewModels.Charts
         private ObservableCollection<ICartesianAxis> yAxes;
 
         [ObservableProperty]
-        private ObservableCollection<MenuItemViewModel>? contextMenuItems;
+        private ObservableCollection<IMenuItem>? contextMenuItems;
 
         [ObservableProperty]
         private string name = string.Empty;
@@ -202,6 +202,7 @@ namespace TripView.ViewModels.Charts
 
                     ContextMenuItems.Add(new MenuItemViewModel(item.Name ?? "Unknown", item.IsVisible, MenuItemClickCommand, textBrush) );
                 }
+                ContextMenuItems.Add(new SeperatorItemViewModel());
                 ContextMenuItems.Add(new MenuItemViewModel("Save as Image...", false, SaveAsImageContextMenuClickCommand, null));
                 ContextMenuItems.Add(new MenuItemViewModel("Copy to Clipboard...", false, CopyToClipboardContextMenuClickCommand, null));
             }

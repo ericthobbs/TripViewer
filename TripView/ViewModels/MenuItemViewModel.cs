@@ -23,10 +23,16 @@
  */
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
-namespace TripView
+namespace TripView.ViewModels
 {
-    public partial class MenuItemViewModel : ObservableObject
+    public interface IMenuItem
+    {
+
+    }
+
+    public partial class MenuItemViewModel : ObservableObject, IMenuItem
     {
         [ObservableProperty]
         private string header;
@@ -43,6 +49,9 @@ namespace TripView
         [ObservableProperty]
         private System.Windows.Media.Brush? foreground;
 
+        [ObservableProperty]
+        private ObservableCollection<IMenuItem>? items = [];
+
         public MenuItemViewModel(string header, bool? isChecked, IRelayCommand? command, System.Windows.Media.Brush? foreground, bool isEnabled = true)
         {
             Header = header;
@@ -51,5 +60,10 @@ namespace TripView
             Command = command;
             Foreground = foreground;
         }
+    }
+
+    public class SeperatorItemViewModel : IMenuItem
+    {
+
     }
 }

@@ -1,7 +1,10 @@
 ﻿<Application x:Class="TripView.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TripView">
+             xmlns:local="clr-namespace:TripView"
+             xmlns:conv="clr-namespace:TripView.ValueConverters"
+             xmlns:vm="clr-namespace:TripView.ViewModels"
+             xmlns:ldts="clr-namespace:TripView.DataTemplateSelectors">
     <Application.Resources>
         <ResourceDictionary>
             <BitmapImage x:Key="GenericEVWhite" UriSource="pack://application:,,,/assets/cars/GenericEV.png"/>
@@ -23,6 +26,32 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <conv:NullVisibilityConverter x:Key="NullToVisibilityConverter"/>
+            <conv:EmptyVisibilityConverter x:Key="EmptyToVisibilityConverter"/>
+            <conv:ColorToSKColorConverter x:Key="ColorToSKColorConverter"/>
+            <conv:OptionalBrushConverter x:Key="OptionalBrushConverter"/>
+            <conv:SKColorToBrushConverter x:Key="SKColorBrushConverter"/>
+
+            <ldts:MenuItemContainerTemplateSelector x:Key="MenuItemContainerTemplateSelector"/>
+                          
+            <HierarchicalDataTemplate DataType="{x:Type vm:MenuItemViewModel}" ItemsSource="{Binding Items}">
+                <MenuItem  
+                    Header="{Binding Header}"
+                    Command="{Binding Command}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"
+                    IsChecked="{Binding IsChecked}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Foreground="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}" 
+                    UsesItemContainerTemplate ="true"
+                    ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}"
+                    />
+            </HierarchicalDataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:SeperatorItemViewModel}">
+                <Separator />
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

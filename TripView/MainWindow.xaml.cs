@@ -47,6 +47,7 @@ using System.Windows.Media.Imaging;
 using TripView.Configuration;
 using TripView.ViewModels;
 using TripView.ViewModels.Messages;
+using WinRT;
 namespace TripView
 {
 
@@ -69,39 +70,39 @@ namespace TripView
         public static readonly DependencyProperty MapLayersMenuItemsProperty =
         DependencyProperty.Register(
             nameof(MapLayersMenuItems),
-            typeof(ObservableCollection<MenuItemViewModel>),
+            typeof(ObservableCollection<IMenuItem>),
             typeof(MainWindow),
-            new PropertyMetadata(new ObservableCollection<MenuItemViewModel>()));
+            new PropertyMetadata(new ObservableCollection<IMenuItem>()));
 
-        public ObservableCollection<MenuItemViewModel> MapLayersMenuItems
+        public ObservableCollection<IMenuItem> MapLayersMenuItems
         {
-            get => (ObservableCollection<MenuItemViewModel>)GetValue(MapLayersMenuItemsProperty);
+            get => (ObservableCollection<IMenuItem>)GetValue(MapLayersMenuItemsProperty);
             set => SetValue(MapLayersMenuItemsProperty, value);
         }
 
         public static readonly DependencyProperty MapWidgetsMenuItemsProperty =
         DependencyProperty.Register(
             nameof(MapWidgetsMenuItems),
-            typeof(ObservableCollection<MenuItemViewModel>),
+            typeof(ObservableCollection<IMenuItem>),
             typeof(MainWindow),
-            new PropertyMetadata(new ObservableCollection<MenuItemViewModel>()));
+            new PropertyMetadata(new ObservableCollection<IMenuItem>()));
 
-        public ObservableCollection<MenuItemViewModel> MapWidgetsMenuItems
+        public ObservableCollection<IMenuItem> MapWidgetsMenuItems
         {
-            get => (ObservableCollection<MenuItemViewModel>)GetValue(MapWidgetsMenuItemsProperty);
+            get => (ObservableCollection<IMenuItem>)GetValue(MapWidgetsMenuItemsProperty);
             set => SetValue(MapWidgetsMenuItemsProperty, value);
         }
 
         public static readonly DependencyProperty RecentlyLoadedFilesProperty =
         DependencyProperty.Register(
             nameof(RecentlyLoadedFiles),
-            typeof(ObservableCollection<MenuItemViewModel>),
+            typeof(ObservableCollection<IMenuItem>),
             typeof(MainWindow),
-            new PropertyMetadata(new ObservableCollection<MenuItemViewModel>()));
+            new PropertyMetadata(new ObservableCollection<IMenuItem>()));
 
-        public ObservableCollection<MenuItemViewModel> RecentlyLoadedFiles
+        public ObservableCollection<IMenuItem> RecentlyLoadedFiles
         {
-            get => (ObservableCollection<MenuItemViewModel>)GetValue(RecentlyLoadedFilesProperty);
+            get => (ObservableCollection<IMenuItem>)GetValue(RecentlyLoadedFilesProperty);
             set => SetValue(RecentlyLoadedFilesProperty, value);
         }
 
@@ -549,11 +550,12 @@ namespace TripView
         public void Receive(SaveChartAsImageMessage message)
         {
             System.Windows.Application.Current.Dispatcher.Invoke(() => {
+
                 if (message.Value.SaveAs == SaveAs.File)
                 {
                     var skChart = new SKCartesianChart(ActiveChart) { 
-                        Width = message.Value.Width == 0 ? (int)ActiveChart.Width : message.Value.Width, 
-                        Height = message.Value.Height == 0 ? (int)ActiveChart.Height : message.Value.Width, 
+                        Width = message.Value.Width == 0 ? (int)ActiveChart.ActualWidth : message.Value.Width, 
+                        Height = message.Value.Height == 0 ? (int)ActiveChart.ActualHeight : message.Value.Width, 
                     };
                     var saveDlg = new SaveFileDialog()
                     {

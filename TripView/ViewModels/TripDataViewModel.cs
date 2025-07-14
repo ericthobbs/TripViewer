@@ -66,10 +66,10 @@ namespace TripView.ViewModels
         private BaseChartViewModel? activeChart;
 
         [ObservableProperty]
-        private ObservableCollection<MenuItemViewModel> chartMenuItems;
+        private ObservableCollection<IMenuItem> chartMenuItems;
 
         [ObservableProperty]
-        private ObservableCollection<MenuItemViewModel> mapLayersMenuItems;
+        private ObservableCollection<IMenuItem> mapLayersMenuItems;
 
         [ObservableProperty]
         private MemoryLayer points = new();

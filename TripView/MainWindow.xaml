@@ -13,12 +13,6 @@
         Icon="{StaticResource GenericEVWhite}" Title="{Binding Title}" Height="900" Width="1600" 
         d:DataContext="{d:DesignInstance localvm:TripDataViewModel}" WindowState="Maximized" x:Name="MainWin">
     <Window.Resources>
-        <lconv:NullVisibilityConverter x:Key="NullToVisibilityConverter"/>
-        <lconv:EmptyVisibilityConverter x:Key="EmptyToVisibilityConverter"/>
-        <lconv:ColorToSKColorConverter x:Key="ColorToSKColorConverter"/>
-        <lconv:OptionalBrushConverter x:Key="OptionalBrushConverter"/>
-        <lconv:SKColorToBrushConverter x:Key="SKColorBrushConverter"/>
-
         <Style TargetType="GridSplitter" x:Key="HorizontalSplitterWithGrabber">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Template">
@@ -91,35 +85,13 @@
                 <Separator/>
                 <MenuItem Command="local:MainWindow.ExportToKmlFileCommand"/>
                 <Separator/>
-                <MenuItem Header="Recent Files" ItemsSource="{Binding RecentlyLoadedFiles, ElementName=MainWin}">
-                    <MenuItem.ItemContainerStyle>
-                        <Style TargetType="MenuItem">
-                            <Setter Property="Header" Value="{Binding Header}"/>
-                            <Setter Property="Command" Value="{Binding Command}"/>
-                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
-                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                            <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
-                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
-                        </Style>
-                    </MenuItem.ItemContainerStyle>
-                </MenuItem>
+                <MenuItem Header="Recent Files" ItemsSource="{Binding RecentlyLoadedFiles, ElementName=MainWin}" ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}" UsesItemContainerTemplate="True"/>
                 <Separator/>
                 <MenuItem Command="local:MainWindow.ShowSettingsCommand"/>
                 <Separator/>
                 <MenuItem Command="local:MainWindow.ExitCommand"/>
             </MenuItem>
-            <MenuItem Header="_Charts" ItemsSource="{Binding ChartMenuItems}">
-                <MenuItem.ItemContainerStyle>
-                    <Style TargetType="MenuItem">
-                        <Setter Property="Header" Value="{Binding Header}"/>
-                        <Setter Property="Command" Value="{Binding Command}"/>
-                        <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
-                        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                        <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
-                        <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
-                    </Style>
-                </MenuItem.ItemContainerStyle>
-            </MenuItem>
+            <MenuItem Header="_Charts" ItemsSource="{Binding ChartMenuItems}" ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}" UsesItemContainerTemplate="True"/>
             <!--
             <MenuItem Header="_Diagnostics">
                 <MenuItem Header="Run Judgement Check..." Command="{Binding JudgementCheckCommand}"/>
@@ -128,28 +100,8 @@
             -->
             <MenuItem Header="_View">
                 <MenuItem Command="local:MainWindow.ShowEventWindowCommand"/>
-                <MenuItem Header="Map Layers" ItemsSource="{Binding MapLayersMenuItems, ElementName=MainWin}">
-                    <MenuItem.ItemContainerStyle>
-                        <Style TargetType="MenuItem">
-                            <Setter Property="Header" Value="{Binding Header}"/>
-                            <Setter Property="Command" Value="{Binding Command}"/>
-                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
-                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
-                        </Style>
-                    </MenuItem.ItemContainerStyle>
-                </MenuItem>
-                <MenuItem Header="Map Widgets" ItemsSource="{Binding MapWidgetsMenuItems, ElementName=MainWin}">
-                    <MenuItem.ItemContainerStyle>
-                        <Style TargetType="MenuItem">
-                            <Setter Property="Header" Value="{Binding Header}"/>
-                            <Setter Property="Command" Value="{Binding Command}"/>
-                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
-                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
-                        </Style>
-                    </MenuItem.ItemContainerStyle>
-                </MenuItem>                
+                <MenuItem Header="Map Layers" ItemsSource="{Binding MapLayersMenuItems, ElementName=MainWin}" ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}" UsesItemContainerTemplate="True"/>
+                <MenuItem Header="Map Widgets" ItemsSource="{Binding MapWidgetsMenuItems, ElementName=MainWin}" ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}" UsesItemContainerTemplate="True"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_Help" Command="ApplicationCommands.Help" InputGestureText="F1"/>
@@ -215,7 +167,7 @@
                            Loaded="TripMap_Loaded"
                            VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <mapsui:MapControl.ContextMenu>
-                <ContextMenu >
+                <ContextMenu>
                     <MenuItem Command="local:MainWindow.SaveMapAsImageCommand" CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
                 </ContextMenu>
             </mapsui:MapControl.ContextMenu>
@@ -231,18 +183,7 @@
                             ZoomMode="Both" FindingStrategy="CompareAllTakeClosest" PointerPressedCommand="{Binding PointerPressedCommand}"
                             ContextMenuOpening="Chart_ContextMenuItemOpening">
             <lvc:CartesianChart.ContextMenu>
-                <ContextMenu ItemsSource="{Binding ContextMenuItems}">
-                    <ContextMenu.ItemContainerStyle>
-                        <Style TargetType="MenuItem">
-                            <Setter Property="Header" Value="{Binding Header}"/>
-                            <Setter Property="Command" Value="{Binding Command}"/>
-                            <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
-                            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                            <Setter Property="Foreground" Value="{Binding Foreground, Converter={StaticResource OptionalBrushConverter}}"/>
-                            <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
-                        </Style>
-                    </ContextMenu.ItemContainerStyle>
-                </ContextMenu>
+                <ContextMenu ItemsSource="{Binding ContextMenuItems}" ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}" UsesItemContainerTemplate="True"/>
             </lvc:CartesianChart.ContextMenu>
         </lvc:CartesianChart>
     </Grid>
