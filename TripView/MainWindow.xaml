@@ -112,7 +112,7 @@
         <lc:PropertyGrid Grid.Row="1" Grid.RowSpan="4" Grid.Column="0"  
                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                          SelectedObject="{Binding SelectedEvent}"/>
-
+        
         <GridSplitter Grid.Row="2" Grid.RowSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns"
                       ShowsPreview="True" Width="5" Style="{StaticResource VerticalSplitterWithGrabber}" />
 
@@ -186,5 +186,32 @@
                 <ContextMenu ItemsSource="{Binding ContextMenuItems}" ItemContainerTemplateSelector="{StaticResource MenuItemContainerTemplateSelector}" UsesItemContainerTemplate="True"/>
             </lvc:CartesianChart.ContextMenu>
         </lvc:CartesianChart>
+        <!-- Chart No Data Overlay -->
+        <Grid Grid.Row="4" Grid.Column="2" d:Visibility="Hidden" Visibility="{Binding HasData, Converter={StaticResource InverseBoolToVisibilityConverter}}" Background="#60FFFFFF" IsHitTestVisible="False" Panel.ZIndex="99">
+            <TextBlock Text="No Data"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="Gray"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        </Grid>
+        <!-- Loading Overlay -->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="3" Background="#80000000" d:Visibility="Hidden" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}" IsHitTestVisible="True" Panel.ZIndex="99">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <TextBlock Text="Loading..." FontSize="24" FontWeight="Bold" Foreground="White"/>
+                <ProgressBar IsIndeterminate="True"/>
+                <!-- todo: add a cancel btn -->
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

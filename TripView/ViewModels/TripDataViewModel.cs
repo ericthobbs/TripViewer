@@ -91,6 +91,17 @@ namespace TripView.ViewModels
         [ObservableProperty]
         private string? routeEndImageAsBase64;
 
+        [ObservableProperty]
+        private bool isLoading = false;
+
+        public bool HasData
+        {
+            get
+            {
+                return Events != null && Events.Any();
+            }
+        }
+
         /// <summary>
         /// Trip Start Date
         /// </summary>
@@ -277,6 +288,7 @@ namespace TripView.ViewModels
                     OnPropertyChanged(nameof(TripHaversineDistance));
                     OnPropertyChanged(nameof(TripMilesDistance));
                     OnPropertyChanged(nameof(VIN));
+                    OnPropertyChanged(nameof(HasData));
                     SelectedEvent = null;
                 }
             };
@@ -471,6 +483,7 @@ namespace TripView.ViewModels
         {
             await Task.Run(() =>
             {
+                IsLoading = true;
                 LeafSpySingleTripParser parser = new(_leafSpyImportConfig.CurrentValue);
                 parser.Open(fileName);
                 var records = parser.Read().ToList();
@@ -581,10 +594,12 @@ namespace TripView.ViewModels
                 OnPropertyChanged(nameof(TripHaversineDistance));
                 OnPropertyChanged(nameof(TripMilesDistance));
                 OnPropertyChanged(nameof(VIN));
+                OnPropertyChanged(nameof(HasData));
 
                 var firstValid = records.First(c => !c.GpsPhoneCoordinates.IsZero()).GpsPhoneCoordinates;
                 var lastValid = records.Last(c => !c.GpsPhoneCoordinates.IsZero()).GpsPhoneCoordinates;
                 _ = WeakReferenceMessenger.Default.Send(new NewDataLoaded(new Tuple<MPoint, MPoint>(firstValid.ToMPoint(), lastValid.ToMPoint())));
+                IsLoading = false;
                 _logger.LogDebug("Skipped Processing {skippedCount} of {records.Count} records.", skippedCount, records.Count);
             });
         }

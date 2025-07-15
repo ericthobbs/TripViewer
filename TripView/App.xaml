@@ -32,6 +32,8 @@
             <conv:ColorToSKColorConverter x:Key="ColorToSKColorConverter"/>
             <conv:OptionalBrushConverter x:Key="OptionalBrushConverter"/>
             <conv:SKColorToBrushConverter x:Key="SKColorBrushConverter"/>
+            <conv:BoolVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+            <conv:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter"/>
 
             <ldts:MenuItemContainerTemplateSelector x:Key="MenuItemContainerTemplateSelector"/>
                           
