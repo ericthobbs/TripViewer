@@ -1,0 +1,36 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" 
+     xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+  <?include ..\TripViewerPackage\variables.wxi?>
+    
+  <Bundle Id="EricHobbs.TripViewerBootstrapper" 
+          Name="$(var.ProductName)" 
+          Manufacturer="$(var.ProductManufacturer)" 
+          Version="$(var.ProductVersion)">
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication 
+        LicenseFile="..\TripViewerPackage\Mit License.rtf" 
+        Theme="rtfLicense"
+        SuppressOptionsUI="yes"/>
+    </BootstrapperApplication>
+    
+    <Chain>
+     
+      <MsiPackage SourceFile="..\TripViewerPackage\publish\win-x86-$(Configuration)-$(var.ProductVersion)\en-US\TripViewerPackage-x86.msi"
+                  InstallCondition="NOT VersionNT64 AND NOT ARM64"
+                  Compressed="yes" 
+                  bal:DisplayInternalUICondition="True"/>
+      
+      <MsiPackage SourceFile="..\TripViewerPackage\publish\win-x64-$(Configuration)-$(var.ProductVersion)\en-US\TripViewerPackage-x64.msi"
+            InstallCondition="VersionNT64 AND NOT ARM64"
+            Compressed="yes" />
+
+      <!--
+      <MsiPackage SourceFile="..\TripViewerPackage\publish\win-arm64-$(Configuration)-$(var.ProductVersion)\en-US\TripViewerPackage-arm64.msi"
+                  InstallCondition="ARM64"
+                  Compressed="yes" />
+                  -->
+    </Chain>
+
+  </Bundle>
+</Wix>

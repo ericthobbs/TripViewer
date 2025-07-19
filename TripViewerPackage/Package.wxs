@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <?include variables.wxi?>
+  <Package Id="EricHobbs.TripViewerPackage" 
+           Name="$(var.ProductName)" 
+           Manufacturer="$(var.ProductManufacturer)" 
+           Version="$(var.ProductVersion)" 
+           UpgradeCode="3F6F4687-9BAE-4053-9E6F-A55D20C4ED52" 
+           Scope="perMachine" 
+           Compressed="yes">
+    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)"/>
+    <MediaTemplate EmbedCab="yes"/>
+    
+    <Feature Id="MainFeature" Title="!(loc.FeatureMainTitle)" Description="!(loc.FeatureMainDesc)" Level="1" TypicalDefault="install" Display="expand" ConfigurableDirectory="INSTALLFOLDER">
+      <ComponentGroupRef Id="BuildFiles"/>
+      <Feature Id="DebugSymbolsFeature" Title="!(loc.FeatureDebugTitle)" Description="!(loc.FeatureDebugDesc)" Level="2" TypicalDefault="advertise">
+        <ComponentGroupRef Id="DebugSymbols"/>
+      </Feature>
+      <Feature Id="DocsFeature" Title="!(loc.FeatureDocsTitle)" Description="!(loc.FeatureDocsDesc)" Level="2" TypicalDefault="advertise" AllowAbsent="yes">
+        <ComponentGroupRef Id="DocumentationFiles"/>
+      </Feature>
+    </Feature>
+    
+    <Feature Id="ExamplesFeature" Title="!(loc.FeatureExamplesTitle)" Description="!(loc.FeatureExamplesDesc)" Level="1" TypicalDefault="install" >
+      <ComponentGroupRef Id="ExampleFiles"/>
+    </Feature>
+
+    <Icon Id="ProductIcon" SourceFile="$(var.PublishPath)TripView.exe"/>
+    <Property Id="ARPPRODUCTICON" Value="ProductIcon"/>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"/>
+    <ui:WixUI Id="WixUI_FeatureTree"/>
+    <WixVariable Id="WixUILicenseRtf" Value="MIT License.rtf"/>
+
+    <Property Id="ARPURLINFOABOUT" Value="$(var.ProjectUrl)" />
+    <Property Id="ARPCONTACT" Value="$(var.ProductManufacturer)" />
+    <Property Id="ARPCOMMENTS" Value="!(loc.FeatureMainDesc)" />
+
+    <Property Id="WINDOWSBUILD">
+      <RegistrySearch Id="BuildNumber"
+                      Root="HKLM"
+                      Key="SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+                      Name="CurrentBuild"
+                      Type="raw" />
+    </Property>
+
+    <Launch Condition="Installed OR (WINDOWSBUILD >= 19044)"
+            Message="$(var.ProductName) requires Windows 10 21H2 or newer." />
+  </Package>
+</Wix>

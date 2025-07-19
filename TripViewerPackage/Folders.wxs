@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <?include variables.wxi?>
+  <Fragment>
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="!(bind.Property.Manufacturer) !(bind.Property.ProductName)">
+        <Directory Id="EXAMPLEFOLDER" Name="examples"/>
+        <Directory Id="DOCSFOLDER" Name="docs"/>
+      </Directory>
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="TripViewMenuFolder" Name="$(var.ProductName)" />
+    </StandardDirectory>
+  </Fragment>
+</Wix>

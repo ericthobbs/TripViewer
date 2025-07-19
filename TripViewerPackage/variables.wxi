@@ -1,0 +1,11 @@
+<Include>
+  <?define ProductName="Trip Viewer" ?>
+  <?define ProductManufacturer="Eric Hobbs" ?>
+  <?define ProductVersion="0.0.5.0" ?>
+  <?define ProjectUrl="https://www.badpointer.net"?>
+  <?define PublishPath="$(ProjectDir)..\TripView\publish\MultiFile-NotSC\NoRTR\win-$(sys.BUILDARCH)\"?>
+  <?define ExamplesPath="$(ProjectDir)..\examples\"?>
+  <?define DocsPath="$(ProjectDir)..\documentation\"?>
+</Include>
+
+

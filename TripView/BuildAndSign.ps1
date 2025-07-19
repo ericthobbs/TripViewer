@@ -1,4 +1,28 @@
 <#
+MIT License
+
+Copyright (c) 2025 Eric Hobbs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+#>
+
+<#
 .SYNOPSIS
 Publishes a .NET Core application (e.g. TripView) for the specified runtime, optionally self-contained, single-file, and ready-to-run.
 Also generates a ZIP archive of the build and GPG signs the build with the default key (or one that you have specified). You may be 
@@ -95,7 +119,10 @@ param (
     [string]$GpgKeyId = $null,
 
     [ValidateSet("true", "false", "yes", "no", "on", "off")]
-    [string]$DryRun = "false"
+    [string]$DryRun = "false",
+
+    [ValidateSet("true", "false", "yes", "no", "on", "off")]
+    [string]$NoDeploy = "false"
 )
 
 # Converts a string to bool -- powershell seems to have issues reading arguments as types other then strings from the command line
@@ -169,8 +196,9 @@ if (Test-Path $GpgPath)
 
 $singleFileLabel = if (To-Bool $SingleFile) { "SingleFile" } else { "MultiFile" }
 $readyToRunLabel = if (To-Bool $ReadyToRun) { "ReadyToRun" } else { "NoRTR" }
+$selfContainedLabel = if (To-Bool $SelfContained) { "SC" } else { "NotSC" }
 
-$outputDir = Join-Path -Path "publish" -ChildPath "$singleFileLabel\$readyToRunLabel\$Runtime"
+$outputDir = Join-Path -Path "publish" -ChildPath "$singleFileLabel-$selfContainedLabel\$readyToRunLabel\$Runtime"
 
 if(To-Bool $DryRun) {
 Write-Host "DRYRUN: (not) Cleaning previous output... $outputDir"
@@ -196,6 +224,11 @@ if(To-Bool $DryRun) {
 } else {
     Write-Host "Publishing for $Runtime to $outputDir..."
     & $DotnetPath @publishArguments    
+}
+
+if(To-Bool $NoDeploy) {
+    Write-Host "Published to $outputDir";
+    return;
 }
 
 # Gather metadata
@@ -243,7 +276,8 @@ if (To-Bool $DryRun) {
 
 #Return this object (so it can be used in other parts of the pipeline, if needed.)
 [PSCustomObject]@{
-    ZipFile    = "$zipFullPath"
+    ZipFile     = "$zipFullPath"
+    PublishPath = "$outputDir"
     Signature   = "$gpgSig"
     SHA256      = "$sha256"
     Version     = "$version"

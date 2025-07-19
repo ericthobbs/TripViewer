@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <?include variables.wxi?>
+  <Fragment>
+    <ComponentGroup Id="BuildFiles" Directory="INSTALLFOLDER">
+      <Files Include="$(var.PublishPath)\**">
+        <Exclude Files="$(var.PublishPath)**\*.pdb"/>
+      </Files>
+      <Component Id="TripViewShortcut" Directory="TripViewMenuFolder">
+        <Shortcut Id="TripViewStartMenuShortcut"
+                  Name="$(var.ProductName)"
+                  Description="$(var.ProductName) Application"
+                  Target="[INSTALLFOLDER]TripView.exe"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software\$(var.ProductManufacturer)\$(var.ProductName)"
+                       Name="TripViewShortcut"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+        <RemoveFolder Id="RemoveTripViewMenuFolder" On="uninstall" />
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="ExampleFiles" Directory="EXAMPLEFOLDER">
+      <Files Include="$(var.ExamplesPath)**"/>
+    </ComponentGroup>
+    <ComponentGroup Id="DocumentationFiles" Directory="DOCSFOLDER">
+      <Files Include="$(var.DocsPath)**"/>
+    </ComponentGroup>
+    <ComponentGroup Id="DebugSymbols" Directory="INSTALLFOLDER">
+      <Files Include="$(var.PublishPath)**\*.pdb"/>
+    </ComponentGroup>
+    
+  </Fragment>
+</Wix>
