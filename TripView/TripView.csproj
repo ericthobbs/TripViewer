@@ -16,10 +16,11 @@
     <Product>TripView</Product>
     <Description>Leafspy Trip Viewer</Description>
     <Copyright>Copyright © 2025 Eric Hobbs</Copyright>
-    <AssemblyVersion>0.0.0.5</AssemblyVersion>
-    <FileVersion>0.0.0.5</FileVersion>
+    <AssemblyVersion>0.0.5.0</AssemblyVersion>
+    <FileVersion>0.0.5.0</FileVersion>
     <PackageVersion>1.0.0</PackageVersion>
     <UserSecretsId>4ac31c2f-d979-40fb-9d38-4920f355fac0</UserSecretsId>
+    <ApplicationIcon>TripView.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +28,10 @@
     <None Remove="assets\objects\StartingFlag.png" />
     <None Remove="assets\ui\ColorPickerDlg.png" />
     <None Remove="assets\ui\SettingsGearChecklist.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TripView.ico" />
   </ItemGroup>
 
   <ItemGroup>

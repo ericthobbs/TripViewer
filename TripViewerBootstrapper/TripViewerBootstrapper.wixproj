@@ -1,0 +1,15 @@
+﻿<Project Sdk="WixToolset.Sdk/6.0.1">
+  <PropertyGroup>
+    <OutputType>Bundle</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="BuildBootstrapper.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.BootstrapperApplications.wixext" Version="6.0.1" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="6.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TripViewerPackage\TripViewerPackage.wixproj" />
+  </ItemGroup>
+</Project>

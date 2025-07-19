@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file contains the declaration of all the localizable strings.
+-->
+<WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl" Culture="en-US">
+
+  <String Id="DowngradeError" Value="A newer version of [ProductName] is already installed." />
+  
+  <String Id="FeatureMainTitle" Value="Core Application"/>
+  <String Id="FeatureMainDesc" Value="Trip Viewer Application"/>
+  <String Id="FeatureExamplesTitle" Value="Examples"/>
+  <String Id="FeatureExamplesDesc" Value="Example log and exported files"/>
+  <String Id="FeatureDocsTitle" Value="Documentation"/>
+  <String Id="FeatureDocsDesc" Value="User Guide"/>
+  <String Id="FeatureDebugTitle" Value="Debug Symbols"/>
+  <String Id="FeatureDebugDesc" Value="Development/diagnostic debug symbols"/>
+</WixLocalization>
