@@ -25,7 +25,7 @@ jobs:
         dotnet-version: '9.0.x'
     - name: Create filtered solution for Linux
       run: |
-        # Create a copy of the solution file
+        # Create a copy of the solution file 
         cp TripViewer.sln TripViewer-Linux.sln
         # Remove Windows-only WiX installer projects
         dotnet sln TripViewer-Linux.sln remove TripView/TripView.csproj || true
