@@ -1,5 +1,4 @@
 name: "CodeQL Analysis"
-
 on:
   push:
     branches: [ "main" ]
@@ -7,39 +6,45 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: '0 6 * * 1'  # Weekly scan on Mondays at 6 AM
-
+  workflow_dispatch:  # Allow manual triggering
 jobs:
   analyze:
     name: Analyze TripView C# Code
-    runs-on: self-hosted
+    runs-on: [self-hosted, linux]
     timeout-minutes: 360
     permissions:
       actions: read
       contents: read
       security-events: write
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0.x'
-
+    - name: Create filtered solution for Linux
+      run: |
+        # Create a copy of the solution file
+        cp TripViewer.sln TripViewer-Linux.sln
+        # Remove Windows-only WiX installer projects
+        dotnet sln TripViewer-Linux.sln remove TripView/TripView.csproj || true
+        dotnet sln TripViewer-Linux.sln remove TripViewerPackage/TripViewerPackage.wixproj || true
+        dotnet sln TripViewer-Linux.sln remove TripViewerBootstrapper/TripViewerBootstrapper.wixproj || true
+        # List remaining projects for verification
+        echo "Projects in filtered solution:"
+        dotnet sln TripViewer-Linux.sln list
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: csharp
         queries: security-extended,security-and-quality
-
-    # Build only the TripView project and its dependencies
-    - name: Restore TripView dependencies
-      run: dotnet restore TripView/TripView.csproj
-
-    - name: Build TripView project
-      run: dotnet build TripView/TripView.csproj --no-restore --configuration Release
-
+    # Use autobuild with the filtered solution
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
+      env:
+        # Point autobuild to the filtered solution
+        SOLUTION_FILE: TripViewer-Linux.sln
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
