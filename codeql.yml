@@ -1,0 +1,46 @@
+name: "CodeQL Analysis"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 6 * * 1'  # Weekly scan on Mondays at 6 AM
+
+jobs:
+  analyze:
+    name: Analyze TripView C# Code
+    runs-on: self-hosted
+    timeout-minutes: 360
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: csharp
+        queries: security-extended,security-and-quality
+
+    # Build only the TripView project and its dependencies
+    - name: Restore TripView dependencies
+      run: dotnet restore TripView/TripView.csproj
+
+    - name: Build TripView project
+      run: dotnet build TripView/TripView.csproj --no-restore --configuration Release
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:csharp"
