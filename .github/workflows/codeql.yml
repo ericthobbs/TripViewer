@@ -1,14 +1,14 @@
 name: "CodeQL Analysis"
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
   schedule:
     - cron: '0 6 * * 1'  # Weekly scan on Mondays at 6 AM
   workflow_dispatch:  # Allow manual triggering
 jobs:
-  analyze:
+  analyze_linux_self_hosted:
     name: Analyze TripView C# Code
     runs-on: [self-hosted, linux]
     timeout-minutes: 360
