@@ -155,12 +155,11 @@ namespace LeafSpy.DataParser.Tests
         }
 
         [DataTestMethod]
-        [DataRow(DistanceUnit.FEET, "25", (DistanceUnit)4, 25.0f)]
-        [ExpectedException(typeof(InvalidEnumArgumentException))]
-        public void SpeedValue_ConverTo_InvalidValue_Tests(DistanceUnit sourceUnit, string rawValue, DistanceUnit outputUnit, float expectedValue)
+        [DataRow(DistanceUnit.FEET, "25", (DistanceUnit)4)]
+        public void SpeedValue_ConvertTo_InvalidValue_Tests(DistanceUnit sourceUnit, string rawValue, DistanceUnit outputUnit)
         {
             var alt = new SpeedValue(sourceUnit, rawValue);
-            Assert.AreEqual(expectedValue, alt.ConvertTo(outputUnit), 0.1f);
+            Assert.ThrowsException<InvalidEnumArgumentException>(() => alt.ConvertTo(outputUnit));
         }
     }
 }
