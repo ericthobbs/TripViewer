@@ -28,7 +28,10 @@ namespace LeafSpy.DataParser.ValueTypes
     public class OdoValue : BaseValue
     {
         public DistanceUnit SourceDistanceUnit { get; private set; }
-        public const float KmToMiles = 0.621371f;
+        
+        public const float MetersPerFoot = 0.3048f;
+        public const float MetersPerMile = 1609.344f;
+        public const float MetersPerKm = 1000f;
 
         public OdoValue(DistanceUnit unit, string rawValue) : base(rawValue)
         {
@@ -45,7 +48,12 @@ namespace LeafSpy.DataParser.ValueTypes
             return new OdoValue(x.SourceDistanceUnit, x.ConvertTo(x.SourceDistanceUnit) - y.ConvertTo(x.SourceDistanceUnit));
         }
 
-        public float ToMiles()
+        public static OdoValue operator+(OdoValue x, OdoValue y)
+        {
+            return new OdoValue(x.SourceDistanceUnit, x.ConvertTo(x.SourceDistanceUnit) + y.ConvertTo(x.SourceDistanceUnit));
+        }
+
+        public float ToFeet()
         {
             if (string.IsNullOrWhiteSpace(RawValue))
                 return 0;
@@ -55,7 +63,27 @@ namespace LeafSpy.DataParser.ValueTypes
             return ConvertTo(DistanceUnit.FEET);
         }
 
+        public float ToMiles()
+        {
+            if (string.IsNullOrWhiteSpace(RawValue))
+                return 0;
+
+            if (SourceDistanceUnit == DistanceUnit.MILES)
+                return float.Parse(RawValue);
+            return ConvertTo(DistanceUnit.MILES);
+        }
+
         public float ToKilometers()
+        {
+            if (string.IsNullOrWhiteSpace(RawValue))
+                return 0;
+
+            if (SourceDistanceUnit == DistanceUnit.KILOMETERS)
+                return float.Parse(RawValue);
+            return ConvertTo(DistanceUnit.KILOMETERS);
+        }
+
+        public float ToMeters()
         {
             if (string.IsNullOrWhiteSpace(RawValue))
                 return 0;
@@ -73,15 +101,26 @@ namespace LeafSpy.DataParser.ValueTypes
             if (SourceDistanceUnit == unit)
                 return float.Parse(RawValue);
 
-            switch (unit)
+            float value = float.Parse(RawValue);
+
+            //C# 8 Pattern matching makes the logic way simplier.
+            float valueInMeters = SourceDistanceUnit switch
             {
-                case DistanceUnit.FEET:
-                    return float.Parse(RawValue) * KmToMiles;
-                case DistanceUnit.METER:
-                    return float.Parse(RawValue) / KmToMiles;
-                default:
-                    throw new InvalidEnumArgumentException(nameof(unit));
-            }
+                DistanceUnit.FEET => value * MetersPerFoot,
+                DistanceUnit.MILES => value * MetersPerMile,
+                DistanceUnit.METER => value,
+                DistanceUnit.KILOMETERS => value * MetersPerKm,
+                _ => throw new InvalidEnumArgumentException(nameof(SourceDistanceUnit))
+            };
+
+            return unit switch
+            {
+                DistanceUnit.FEET => valueInMeters / MetersPerFoot,
+                DistanceUnit.MILES => valueInMeters / MetersPerMile,
+                DistanceUnit.METER => valueInMeters,
+                DistanceUnit.KILOMETERS => valueInMeters / MetersPerKm,
+                _ => throw new InvalidEnumArgumentException(nameof(unit))
+            };
         }
 
         /// <summary>

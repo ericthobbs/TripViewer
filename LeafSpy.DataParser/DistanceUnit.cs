@@ -34,5 +34,9 @@ namespace LeafSpy.DataParser
         FEET,
         [Display(Name = "meters")]
         METER,
+        [Display(Name = "miles")]
+        MILES,
+        [Display(Name = "kilometers")]
+        KILOMETERS,
     }
 }

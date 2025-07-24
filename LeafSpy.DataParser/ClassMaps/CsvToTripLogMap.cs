@@ -86,7 +86,7 @@ namespace LeafSpy.DataParser.ClassMaps
             Map(m => m.Bat12vVolts).Name("12v Bat Volts")
                 .TypeConverter<FloatOrNoneConverter>();             //12v Bat Volts
             Map(m => m.Odometer).Name("Odo(km)")
-                .TypeConverter(new OdoValueConverter(DistanceUnit.METER));                      //Odo(km)
+                .TypeConverter(new OdoValueConverter(DistanceUnit.KILOMETERS));                      //Odo(km)
             Map(m => m.QCCount).Name("QC");                         //QC
             Map(m => m.L1L2Count).Name("L1/L2");                    //L1/L2
             Map(m => m.TPFL).Name("TP-FL")

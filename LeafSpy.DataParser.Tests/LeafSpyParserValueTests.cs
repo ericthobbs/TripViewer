@@ -102,9 +102,9 @@ namespace LeafSpy.DataParser.Tests
         }
 
         [DataTestMethod]
-        [DataRow(DistanceUnit.FEET,      "1.0", DistanceUnit.FEET,        1f)]
-        [DataRow(DistanceUnit.FEET,      "1.0", DistanceUnit.METER, 1.60934f)]
-        [DataRow(DistanceUnit.METER, "1.60934", DistanceUnit.FEET,      1.0f)]
+        [DataRow(DistanceUnit.FEET,      "1.0", DistanceUnit.FEET,     1f)]
+        [DataRow(DistanceUnit.FEET,      "1.0", DistanceUnit.METER, 0.30f)]
+        [DataRow(DistanceUnit.METER, "1.60934", DistanceUnit.FEET,  5.27f)]
         public void OdoValue_ConvertToTests(DistanceUnit sourceUnit, string rawValue, DistanceUnit outputUnit, float expectedValue)
         {
             var odo = new OdoValue(sourceUnit, rawValue);
@@ -112,14 +112,32 @@ namespace LeafSpy.DataParser.Tests
         }
 
         [DataTestMethod]
-        [DataRow(DistanceUnit.FEET, "1.0", DistanceUnit.FEET, "16.0", DistanceUnit.FEET, 15f)]
-        [DataRow(DistanceUnit.FEET, "1.0", DistanceUnit.METER, "25.7495", DistanceUnit.FEET, 15f)]
+        [DataRow(DistanceUnit.FEET,  "16.0", DistanceUnit.FEET,  "1.0", DistanceUnit.FEET,    15f)]
+        [DataRow(DistanceUnit.METER,    "3", DistanceUnit.FEET,    "3", DistanceUnit.FEET,  6.84f)]
+        [DataRow(DistanceUnit.METER,  "2.0", DistanceUnit.METER, "3.0", DistanceUnit.METER, -1.0f)]
         public void OdoValue_OperatorSubtractTests(DistanceUnit sourceUnit1, string rawValue1, DistanceUnit sourceUnit2, string rawValue2, DistanceUnit expectedUnit, float expectedFinalValue)
         {
             var firstValue = new OdoValue(sourceUnit1, rawValue1);
             var secondValue = new OdoValue(sourceUnit2, rawValue2);
 
-            var output = secondValue - firstValue;
+            var output = firstValue - secondValue;
+
+            Assert.AreEqual(expectedFinalValue, output.ConvertTo(expectedUnit), 0.01f);
+        }
+
+        [DataTestMethod]
+        [DataRow(DistanceUnit.FEET,       "1.0", DistanceUnit.FEET,      " 1.0", DistanceUnit.FEET,      2f)]
+        [DataRow(DistanceUnit.FEET,      "1.64", DistanceUnit.FEET,      "1.64", DistanceUnit.METER,     1f)]
+        [DataRow(DistanceUnit.FEET,       "1.0", DistanceUnit.METER,     "4.75", DistanceUnit.FEET,  16.58f)]
+        [DataRow(DistanceUnit.METER,      "2.0", DistanceUnit.METER,      "3.0", DistanceUnit.METER,   5.0f)]
+        [DataRow(DistanceUnit.MILES,      "1.0", DistanceUnit.MILES,      "2.0", DistanceUnit.MILES,   3.0f)]
+        [DataRow(DistanceUnit.KILOMETERS, "1.0", DistanceUnit.KILOMETERS, "2.0", DistanceUnit.MILES,  1.86f)]
+        public void OdoValue_OperatorAddTests(DistanceUnit sourceUnit1, string rawValue1, DistanceUnit sourceUnit2, string rawValue2, DistanceUnit expectedUnit, float expectedFinalValue)
+        {
+            var firstValue = new OdoValue(sourceUnit1, rawValue1);
+            var secondValue = new OdoValue(sourceUnit2, rawValue2);
+
+            var output = firstValue + secondValue;
 
             Assert.AreEqual(expectedFinalValue, output.ConvertTo(expectedUnit), 0.01f);
         }
