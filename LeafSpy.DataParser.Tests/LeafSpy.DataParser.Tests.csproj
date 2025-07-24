@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSTest.Sdk/3.6.4">
+﻿<Project Sdk="MSTest.Sdk/3.9.3">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -7,6 +7,11 @@
     <Nullable>enable</Nullable>
     <UseVSTest>true</UseVSTest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Verify" Version="30.5.0" />
+    <PackageReference Include="Verify.MSTest" Version="30.5.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LeafSpy.DataParser\LeafSpy.DataParser.csproj" />
@@ -29,6 +34,14 @@
 
   <ItemGroup>
     <PackageReference Update="MSTest.TestFramework" Version="3.9.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\EricT\source\repos\TripViewer\LeafSpy.DataParser.Tests\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\EricT\source\repos\TripViewer\LeafSpy.DataParser.Tests\.editorconfig" />
   </ItemGroup>
 
 </Project>
