@@ -4,6 +4,9 @@ TripView is a program to visualize LeafSpy log information. You can see your rou
 To begin, you must load a LeafSpy Log file (these are located in <i>com.Turbo3.Leaf_Spy_Pro/files/LOG_FILES/</i> on your (android) device).
 Select File -> Open to load the file into TripView. If you do not have a log file, but wish to see TripView in action, please see the sample log file in the examples folder.
 
+For example, if you have adb installed and your device has been connected you run adb pull to fetch the log files from LeafSpy Pro.
+ <code>adb pull -a /storage/emulated/0/Android/data/com.Turbo3.Leaf_Spy_Pro c:\adb-temp\</code>
+
 # Privacy
 TripView only needs internet access to download map tiles. Your data never leaves your local machine. 
 If you wish, you can host your own instance of OpenStreetMaps and point TripViewer to it (check appsettings.json). 
