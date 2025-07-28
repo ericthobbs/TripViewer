@@ -6,17 +6,15 @@ namespace LeafSpy.DataParser.Tests
     [UsesVerify]
     public sealed partial class LeafSpyParserTests
     {
-        private readonly LeafspyImportConfiguration _config = new() { DistanceUnit = DistanceUnit.FEET, CsvDelimiter = "," };
-
         [TestMethod]
         public Task Run() => VerifyChecks.Run();
 
         [DataTestMethod]
-        [DataRow(@"..\\..\\..\\..\\examples\Log.csv")]
-        public async Task LeafSpyParser_SingleTrip_ExampleLog_Valid(string filename)
+        [DataRow(@"..\\..\\..\\..\\examples\Log.csv", DistanceUnit.MILES, DistanceUnit.FEET, ",")]
+        public async Task LeafSpyParser_SingleTrip_ExampleLog_Valid(string filename, DistanceUnit gpsSpeedUnit, DistanceUnit gpsElevUnit, string csvDelim)
         {
             var fullPath = System.IO.Path.GetFullPath(filename);
-            var parser = new LeafSpySingleTripParser(_config);
+            var parser = new LeafSpySingleTripParser(new LeafspyImportConfiguration() { GpsSpeedUnit = gpsSpeedUnit, GpsElevUnit = gpsElevUnit, CsvDelimiter = csvDelim });
             parser.Open(fullPath);
 
             var records = parser.Read();

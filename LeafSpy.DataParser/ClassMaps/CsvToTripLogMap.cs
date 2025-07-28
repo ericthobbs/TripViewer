@@ -31,31 +31,21 @@ namespace LeafSpy.DataParser.ClassMaps
     {
         public CsvToTripLogMap(LeafspyImportConfiguration config)
         {
-            var speedUnit = config.DistanceUnit;
-            if (speedUnit == DistanceUnit.FEET)
-            {
-                speedUnit = DistanceUnit.MILES;
-            }
-            else if (speedUnit == DistanceUnit.METER)
-            {
-                speedUnit = DistanceUnit.KILOMETERS;
-            }
-
-                Map(m => m.DateTime).Name("Date/Time");                 //Date/Time
+            Map(m => m.DateTime).Name("Date/Time");                 //Date/Time
 
             Map(m => m.GpsPhoneCoordinates)
                 .Convert(args =>
                 {
                     return new GPSCoordinates(
-                        new GPSCoord(args.Row.GetField("Lat") ?? ""),
-                        new GPSCoord(args.Row.GetField("Long") ?? "")
+                        new GPSCoord(args.Row.GetField("Lat") ?? string.Empty),
+                        new GPSCoord(args.Row.GetField("Long") ?? string.Empty)
                         );
                 }).Name("Lat, Long");                               //Lat, Long
 
             Map(m => m.GpsPhoneElevation).Name("Elv")
-                .TypeConverter(new AltitudeValueConverter(config.DistanceUnit));              //Elv
+                .TypeConverter(new AltitudeValueConverter(config.GpsElevUnit)); //Elv
             Map(m => m.GpsPhoneSpeed).Name("Speed")
-                .TypeConverter(new SpeedValueConverter(speedUnit)); //Speed
+                .TypeConverter(new SpeedValueConverter(config.GpsSpeedUnit)); //Speed
             Map(m => m.Gids).Name("Gids")
                 .TypeConverter<GidConverter>();                     //Gids
             Map(m => m.StateOfChargePercent).Name("SOC")

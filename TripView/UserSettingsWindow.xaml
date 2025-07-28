@@ -151,19 +151,22 @@
                     <Label Grid.Row="1" Grid.Column="0" Content="Distance Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
-                    <Label Grid.Row="2" Grid.Column="0" Content="Temperature Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.TemperatureUnit}" ItemsSource="{Binding Source={StaticResource TUProvider}}" HorizontalAlignment="Left" Width="100"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Elevation Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.ElevationUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>                    
+                    
+                    <Label Grid.Row="3" Grid.Column="0" Content="Temperature Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="3" Grid.Column="1" Margin="1" SelectedValue="{Binding ChartConfig.TemperatureUnit}" ItemsSource="{Binding Source={StaticResource TUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
-                    <Label Grid.Row="3" Grid.Column="0" Content="Time Axis Label Rotation:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Width="64" Text="{Binding ChartConfig.TimeAxisLabelRotation}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center">
+                    <Label Grid.Row="4" Grid.Column="0" Content="Time Axis Label Rotation:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Width="64" Text="{Binding ChartConfig.TimeAxisLabelRotation}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center">
                         <i:Interaction.Behaviors>
                             <lbehaviors:ValidateNumericInputWithRangeBehavior 
                                 CommandParameter="{Binding LabelRotationRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
                         </i:Interaction.Behaviors>                        
                     </TextBox>
 
-                    <Label Grid.Row="4" Grid.Column="0" Content="Line Size:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Width="64" Text="{Binding ChartConfig.ChartLineThickness}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center">
+                    <Label Grid.Row="5" Grid.Column="0" Content="Line Size:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Width="64" Text="{Binding ChartConfig.ChartLineThickness}" HorizontalAlignment="Left" Margin="1" VerticalContentAlignment="Center">
                         <i:Interaction.Behaviors>
                             <lbehaviors:ValidateNumericInputWithRangeBehavior 
                                 CommandParameter="{Binding LineSizeRange, RelativeSource={RelativeSource AncestorType=Window}}"/>
@@ -188,11 +191,14 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="1" Grid.Column="0" Content="Distance Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ImportConfig.DistanceUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="GPS Speed Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="1" SelectedValue="{Binding ImportConfig.GpsSpeedUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>
 
-                    <Label Grid.Row="2" Grid.Column="0" Content="CSV Delimiter:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Width="64" HorizontalAlignment="Left" Text="{Binding ImportConfig.CsvDelimiter}" Margin="1" VerticalContentAlignment="Center"/>                    
+                    <Label Grid.Row="2" Grid.Column="0" Content="Gps Elevation Unit:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Margin="1" SelectedValue="{Binding ImportConfig.GpsElevUnit}" ItemsSource="{Binding Source={StaticResource DUProvider}}" HorizontalAlignment="Left" Width="100"/>                    
+                    
+                    <Label Grid.Row="3" Grid.Column="0" Content="CSV Delimiter:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Width="64" HorizontalAlignment="Left" Text="{Binding ImportConfig.CsvDelimiter}" Margin="1" VerticalContentAlignment="Center"/>                    
                 </Grid>
             </TabItem>
         </TabControl>

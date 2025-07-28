@@ -40,6 +40,9 @@ namespace TripView.ViewModels
         private DistanceUnit distanceUnit;
 
         [ObservableProperty]
+        private DistanceUnit elevationUnit;
+
+        [ObservableProperty]
         private TemperatureUnit temperatureUnit;
 
         [ObservableProperty]
@@ -54,6 +57,7 @@ namespace TripView.ViewModels
             ChartLineThickness = config.ChartLineThickness;
             AirPressureUnit = config.AirPressureUnit;
             DistanceUnit = config.DistanceUnit;
+            ElevationUnit = config.ElevationUnit;
             TemperatureUnit = config.TemperatureUnit;
             TimeAxisLabelRotation = config.TimeAxisLabelRotation;
         }
@@ -65,6 +69,7 @@ namespace TripView.ViewModels
                 ChartLineThickness = ChartLineThickness,
                 AirPressureUnit = AirPressureUnit,
                 DistanceUnit = DistanceUnit,
+                ElevationUnit = ElevationUnit,
                 TemperatureUnit = TemperatureUnit,
                 TimeAxisLabelRotation = TimeAxisLabelRotation,
             };
