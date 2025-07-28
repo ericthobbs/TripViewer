@@ -74,7 +74,7 @@ namespace TripView.ViewModels.Charts
         {
             Series.Add(new LineSeries<DateTimePoint>
             {
-                Values = BuildDateTimePoints(Events, e => e.StateOfChargePercent, minMinutesBetweenTrip),
+                Values = BuildDateTimePoints(Events, e => e.SOH, minMinutesBetweenTrip),
                 Name = "State of Health",
                 Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _chartConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
