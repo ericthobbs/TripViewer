@@ -46,8 +46,12 @@ namespace TripView.Extensions
             switch (unit)
             {
                 case DistanceUnit.METER:
+                    return "mh";
+                case DistanceUnit.KILOMETERS:
                     return "kmh";
                 case DistanceUnit.FEET:
+                    return "fph";
+                case DistanceUnit.MILES:
                     return "mph";
                 default:
                     return string.Empty;

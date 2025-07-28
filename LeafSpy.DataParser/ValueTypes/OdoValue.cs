@@ -129,7 +129,7 @@ namespace LeafSpy.DataParser.ValueTypes
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{ConvertTo(DistanceUnit.FEET):N2} miles";
+            return $"{ConvertTo(DistanceUnit.MILES):N2} miles";
         }
     }
 }

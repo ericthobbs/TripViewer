@@ -13,6 +13,7 @@
       RawValue: 1932
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -225,6 +226,7 @@
       RawValue: 1938
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -436,6 +438,7 @@
       RawValue: 1938
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -650,6 +653,7 @@
       RawValue: 1942
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -864,6 +868,7 @@
       RawValue: 1942
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -1078,6 +1083,7 @@
       RawValue: 1938
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -1291,6 +1297,7 @@
       RawValue: 1929
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -1503,6 +1510,7 @@
       RawValue: 1919
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -1715,6 +1723,7 @@
       RawValue: 1909
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -1929,6 +1938,7 @@
       RawValue: 1889
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -2143,6 +2153,7 @@
       RawValue: 1873
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -2356,6 +2367,7 @@
       RawValue: 1866
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -2567,6 +2579,7 @@
       RawValue: 1856
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -2778,6 +2791,7 @@
       RawValue: 1843
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -2989,6 +3003,7 @@
       RawValue: 1827
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -3202,6 +3217,7 @@
       RawValue: 1814
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -3416,6 +3432,7 @@
       RawValue: 1801
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -3630,6 +3647,7 @@
       RawValue: 1788
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -3844,6 +3862,7 @@
       RawValue: 1774
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 69
     },
     Gids: {
@@ -4056,6 +4075,7 @@
       RawValue: 1755
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -4268,6 +4288,7 @@
       RawValue: 1742
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -4481,6 +4502,7 @@
       RawValue: 1725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -4694,6 +4716,7 @@
       RawValue: 1709
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -4908,6 +4931,7 @@
       RawValue: 1689
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -5119,6 +5143,7 @@
       RawValue: 1673
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -5330,6 +5355,7 @@
       RawValue: 1656
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -5541,6 +5567,7 @@
       RawValue: 1640
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -5754,6 +5781,7 @@
       RawValue: 1630
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -5968,6 +5996,7 @@
       RawValue: 1610
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 69
     },
     Gids: {
@@ -6182,6 +6211,7 @@
       RawValue: 1594
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 69
     },
     Gids: {
@@ -6393,6 +6423,7 @@
       RawValue: 1581
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -6604,6 +6635,7 @@
       RawValue: 1564
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 69
     },
     Gids: {
@@ -6816,6 +6848,7 @@
       RawValue: 1548
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -7030,6 +7063,7 @@
       RawValue: 1535
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -7243,6 +7277,7 @@
       RawValue: 1519
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -7456,6 +7491,7 @@
       RawValue: 1505
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -7668,6 +7704,7 @@
       RawValue: 1489
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -7880,6 +7917,7 @@
       RawValue: 1476
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -8092,6 +8130,7 @@
       RawValue: 1459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -8306,6 +8345,7 @@
       RawValue: 1443
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -8520,6 +8560,7 @@
       RawValue: 1433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -8734,6 +8775,7 @@
       RawValue: 1420
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -8948,6 +8990,7 @@
       RawValue: 1410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -9160,6 +9203,7 @@
       RawValue: 1394
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -9372,6 +9416,7 @@
       RawValue: 1384
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -9586,6 +9631,7 @@
       RawValue: 1374
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -9799,6 +9845,7 @@
       RawValue: 1364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -10013,6 +10060,7 @@
       RawValue: 1358
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -10227,6 +10275,7 @@
       RawValue: 1351
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -10439,6 +10488,7 @@
       RawValue: 1341
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -10651,6 +10701,7 @@
       RawValue: 1332
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -10864,6 +10915,7 @@
       RawValue: 1328
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -11077,6 +11129,7 @@
       RawValue: 1341
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -11290,6 +11343,7 @@
       RawValue: 1354
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 54
     },
     Gids: {
@@ -11504,6 +11558,7 @@
       RawValue: 1361
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 55
     },
     Gids: {
@@ -11716,6 +11771,7 @@
       RawValue: 1354
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -11928,6 +11984,7 @@
       RawValue: 1341
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -12142,6 +12199,7 @@
       RawValue: 1332
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 58
     },
     Gids: {
@@ -12356,6 +12414,7 @@
       RawValue: 1315
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 56
     },
     Gids: {
@@ -12568,6 +12627,7 @@
       RawValue: 1305
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -12782,6 +12842,7 @@
       RawValue: 1312
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -12994,6 +13055,7 @@
       RawValue: 1322
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -13206,6 +13268,7 @@
       RawValue: 1322
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -13420,6 +13483,7 @@
       RawValue: 1322
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -13634,6 +13698,7 @@
       RawValue: 1328
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -13848,6 +13913,7 @@
       RawValue: 1338
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -14061,6 +14127,7 @@
       RawValue: 1345
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -14273,6 +14340,7 @@
       RawValue: 1351
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -14485,6 +14553,7 @@
       RawValue: 1358
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -14699,6 +14768,7 @@
       RawValue: 1364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -14913,6 +14983,7 @@
       RawValue: 1374
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -15127,6 +15198,7 @@
       RawValue: 1381
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -15340,6 +15412,7 @@
       RawValue: 1384
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -15552,6 +15625,7 @@
       RawValue: 1384
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -15764,6 +15838,7 @@
       RawValue: 1387
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -15978,6 +16053,7 @@
       RawValue: 1391
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -16192,6 +16268,7 @@
       RawValue: 1394
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -16406,6 +16483,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -16619,6 +16697,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 56
     },
     Gids: {
@@ -16833,6 +16912,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 54
     },
     Gids: {
@@ -17046,6 +17126,7 @@
       RawValue: 1394
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 53
     },
     Gids: {
@@ -17259,6 +17340,7 @@
       RawValue: 1391
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 48
     },
     Gids: {
@@ -17472,6 +17554,7 @@
       RawValue: 1394
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 41
     },
     Gids: {
@@ -17683,6 +17766,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 29
     },
     Gids: {
@@ -17894,6 +17978,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 8
     },
     Gids: {
@@ -18107,6 +18192,7 @@
       RawValue: 1404
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 0
     },
     Gids: {
@@ -18320,6 +18406,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 0
     },
     Gids: {
@@ -18531,6 +18618,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 0
     },
     Gids: {
@@ -18742,6 +18830,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 0
     },
     Gids: {
@@ -18952,6 +19041,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 0
     },
     Gids: {
@@ -19161,6 +19251,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 13
     },
     Gids: {
@@ -19373,6 +19464,7 @@
       RawValue: 1407
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 23
     },
     Gids: {
@@ -19587,6 +19679,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 24
     },
     Gids: {
@@ -19800,6 +19893,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 8
     },
     Gids: {
@@ -20013,6 +20107,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 0
     },
     Gids: {
@@ -20226,6 +20321,7 @@
       RawValue: 1410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 0
     },
     Gids: {
@@ -20435,6 +20531,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 21
     },
     Gids: {
@@ -20647,6 +20744,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 45
     },
     Gids: {
@@ -20860,6 +20958,7 @@
       RawValue: 1407
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 53
     },
     Gids: {
@@ -21074,6 +21173,7 @@
       RawValue: 1410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 55
     },
     Gids: {
@@ -21288,6 +21388,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -21502,6 +21603,7 @@
       RawValue: 1417
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -21716,6 +21818,7 @@
       RawValue: 1417
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -21928,6 +22031,7 @@
       RawValue: 1417
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -22140,6 +22244,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -22354,6 +22459,7 @@
       RawValue: 1410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -22568,6 +22674,7 @@
       RawValue: 1407
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -22782,6 +22889,7 @@
       RawValue: 1404
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -22996,6 +23104,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -23208,6 +23317,7 @@
       RawValue: 1391
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -23420,6 +23530,7 @@
       RawValue: 1384
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -23634,6 +23745,7 @@
       RawValue: 1381
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -23848,6 +23960,7 @@
       RawValue: 1371
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -24062,6 +24175,7 @@
       RawValue: 1364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -24276,6 +24390,7 @@
       RawValue: 1351
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -24490,6 +24605,7 @@
       RawValue: 1341
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -24701,6 +24817,7 @@
       RawValue: 1335
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -24913,6 +25030,7 @@
       RawValue: 1332
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -25127,6 +25245,7 @@
       RawValue: 1332
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -25341,6 +25460,7 @@
       RawValue: 1328
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -25555,6 +25675,7 @@
       RawValue: 1325
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -25769,6 +25890,7 @@
       RawValue: 1325
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -25983,6 +26105,7 @@
       RawValue: 1325
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -26197,6 +26320,7 @@
       RawValue: 1328
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -26411,6 +26535,7 @@
       RawValue: 1328
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -26625,6 +26750,7 @@
       RawValue: 1325
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -26839,6 +26965,7 @@
       RawValue: 1322
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -27053,6 +27180,7 @@
       RawValue: 1318
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -27265,6 +27393,7 @@
       RawValue: 1312
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -27477,6 +27606,7 @@
       RawValue: 1309
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -27691,6 +27821,7 @@
       RawValue: 1302
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -27905,6 +28036,7 @@
       RawValue: 1299
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -28119,6 +28251,7 @@
       RawValue: 1295
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -28333,6 +28466,7 @@
       RawValue: 1302
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -28546,6 +28680,7 @@
       RawValue: 1305
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -28758,6 +28893,7 @@
       RawValue: 1312
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -28970,6 +29106,7 @@
       RawValue: 1315
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -29184,6 +29321,7 @@
       RawValue: 1315
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -29398,6 +29536,7 @@
       RawValue: 1318
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -29612,6 +29751,7 @@
       RawValue: 1322
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -29826,6 +29966,7 @@
       RawValue: 1322
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -30038,6 +30179,7 @@
       RawValue: 1325
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -30250,6 +30392,7 @@
       RawValue: 1332
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -30464,6 +30607,7 @@
       RawValue: 1338
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -30678,6 +30822,7 @@
       RawValue: 1348
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -30892,6 +31037,7 @@
       RawValue: 1354
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -31106,6 +31252,7 @@
       RawValue: 1364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -31320,6 +31467,7 @@
       RawValue: 1371
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -31532,6 +31680,7 @@
       RawValue: 1384
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -31744,6 +31893,7 @@
       RawValue: 1391
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -31958,6 +32108,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -32172,6 +32323,7 @@
       RawValue: 1410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -32386,6 +32538,7 @@
       RawValue: 1417
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -32600,6 +32753,7 @@
       RawValue: 1423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -32812,6 +32966,7 @@
       RawValue: 1427
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -33024,6 +33179,7 @@
       RawValue: 1430
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -33238,6 +33394,7 @@
       RawValue: 1427
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -33452,6 +33609,7 @@
       RawValue: 1423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -33666,6 +33824,7 @@
       RawValue: 1417
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -33880,6 +34039,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -34094,6 +34254,7 @@
       RawValue: 1407
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -34306,6 +34467,7 @@
       RawValue: 1404
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -34518,6 +34680,7 @@
       RawValue: 1404
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -34732,6 +34895,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -34946,6 +35110,7 @@
       RawValue: 1420
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -35160,6 +35325,7 @@
       RawValue: 1417
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -35374,6 +35540,7 @@
       RawValue: 1414
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -35588,6 +35755,7 @@
       RawValue: 1407
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -35802,6 +35970,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -36015,6 +36184,7 @@
       RawValue: 1391
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -36229,6 +36399,7 @@
       RawValue: 1384
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -36443,6 +36614,7 @@
       RawValue: 1377
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -36657,6 +36829,7 @@
       RawValue: 1368
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -36871,6 +37044,7 @@
       RawValue: 1364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -37085,6 +37259,7 @@
       RawValue: 1361
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -37299,6 +37474,7 @@
       RawValue: 1364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -37513,6 +37689,7 @@
       RawValue: 1361
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -37727,6 +37904,7 @@
       RawValue: 1368
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -37939,6 +38117,7 @@
       RawValue: 1377
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -38151,6 +38330,7 @@
       RawValue: 1384
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -38365,6 +38545,7 @@
       RawValue: 1391
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -38579,6 +38760,7 @@
       RawValue: 1394
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -38793,6 +38975,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -39007,6 +39190,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -39219,6 +39403,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -39431,6 +39616,7 @@
       RawValue: 1400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -39644,6 +39830,7 @@
       RawValue: 1410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -39858,6 +40045,7 @@
       RawValue: 1417
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 68
     },
     Gids: {
@@ -40072,6 +40260,7 @@
       RawValue: 1420
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -40286,6 +40475,7 @@
       RawValue: 1423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -40497,6 +40687,7 @@
       RawValue: 1423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -40709,6 +40900,7 @@
       RawValue: 1427
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -40923,6 +41115,7 @@
       RawValue: 1433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -41137,6 +41330,7 @@
       RawValue: 1446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -41351,6 +41545,7 @@
       RawValue: 1459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -41565,6 +41760,7 @@
       RawValue: 1469
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -41779,6 +41975,7 @@
       RawValue: 1476
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -41991,6 +42188,7 @@
       RawValue: 1479
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -42203,6 +42401,7 @@
       RawValue: 1489
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -42417,6 +42616,7 @@
       RawValue: 1496
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -42631,6 +42831,7 @@
       RawValue: 1499
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -42845,6 +43046,7 @@
       RawValue: 1502
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -43059,6 +43261,7 @@
       RawValue: 1509
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -43271,6 +43474,7 @@
       RawValue: 1528
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -43483,6 +43687,7 @@
       RawValue: 1545
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -43697,6 +43902,7 @@
       RawValue: 1558
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -43911,6 +44117,7 @@
       RawValue: 1568
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -44125,6 +44332,7 @@
       RawValue: 1574
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -44339,6 +44547,7 @@
       RawValue: 1578
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -44552,6 +44761,7 @@
       RawValue: 1578
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -44764,6 +44974,7 @@
       RawValue: 1578
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -44976,6 +45187,7 @@
       RawValue: 1571
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -45190,6 +45402,7 @@
       RawValue: 1561
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -45403,6 +45616,7 @@
       RawValue: 1548
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -45617,6 +45831,7 @@
       RawValue: 1532
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -45830,6 +46045,7 @@
       RawValue: 1519
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -46041,6 +46257,7 @@
       RawValue: 1512
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -46253,6 +46470,7 @@
       RawValue: 1509
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -46467,6 +46685,7 @@
       RawValue: 1519
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -46681,6 +46900,7 @@
       RawValue: 1525
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -46895,6 +47115,7 @@
       RawValue: 1535
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -47109,6 +47330,7 @@
       RawValue: 1545
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -47321,6 +47543,7 @@
       RawValue: 1555
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -47533,6 +47756,7 @@
       RawValue: 1564
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -47746,6 +47970,7 @@
       RawValue: 1574
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -47960,6 +48185,7 @@
       RawValue: 1581
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -48174,6 +48400,7 @@
       RawValue: 1587
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -48388,6 +48615,7 @@
       RawValue: 1597
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -48602,6 +48830,7 @@
       RawValue: 1607
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -48814,6 +49043,7 @@
       RawValue: 1614
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -49026,6 +49256,7 @@
       RawValue: 1617
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -49240,6 +49471,7 @@
       RawValue: 1624
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -49454,6 +49686,7 @@
       RawValue: 1624
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -49668,6 +49901,7 @@
       RawValue: 1624
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -49882,6 +50116,7 @@
       RawValue: 1617
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -50094,6 +50329,7 @@
       RawValue: 1607
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -50306,6 +50542,7 @@
       RawValue: 1594
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -50520,6 +50757,7 @@
       RawValue: 1584
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -50735,6 +50973,7 @@
       RawValue: 1574
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -50950,6 +51189,7 @@
       RawValue: 1561
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -51165,6 +51405,7 @@
       RawValue: 1555
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -51379,6 +51620,7 @@
       RawValue: 1545
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -51593,6 +51835,7 @@
       RawValue: 1532
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -51808,6 +52051,7 @@
       RawValue: 1519
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -52022,6 +52266,7 @@
       RawValue: 1499
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -52236,6 +52481,7 @@
       RawValue: 1482
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -52450,6 +52696,7 @@
       RawValue: 1463
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -52664,6 +52911,7 @@
       RawValue: 1446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -52877,6 +53125,7 @@
       RawValue: 1423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -53092,6 +53341,7 @@
       RawValue: 1397
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -53306,6 +53556,7 @@
       RawValue: 1377
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -53520,6 +53771,7 @@
       RawValue: 1361
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -53734,6 +53986,7 @@
       RawValue: 1354
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -53948,6 +54201,7 @@
       RawValue: 1345
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -54162,6 +54416,7 @@
       RawValue: 1335
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -54376,6 +54631,7 @@
       RawValue: 1322
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -54591,6 +54847,7 @@
       RawValue: 1312
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -54806,6 +55063,7 @@
       RawValue: 1305
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -55021,6 +55279,7 @@
       RawValue: 1299
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -55233,6 +55492,7 @@
       RawValue: 1289
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -55445,6 +55705,7 @@
       RawValue: 1279
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -55657,6 +55918,7 @@
       RawValue: 1272
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -55871,6 +56133,7 @@
       RawValue: 1263
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -56085,6 +56348,7 @@
       RawValue: 1259
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -56299,6 +56563,7 @@
       RawValue: 1250
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -56511,6 +56776,7 @@
       RawValue: 1240
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -56723,6 +56989,7 @@
       RawValue: 1230
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -56937,6 +57204,7 @@
       RawValue: 1223
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -57152,6 +57420,7 @@
       RawValue: 1213
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -57367,6 +57636,7 @@
       RawValue: 1204
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -57582,6 +57852,7 @@
       RawValue: 1190
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -57796,6 +58067,7 @@
       RawValue: 1174
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -58009,6 +58281,7 @@
       RawValue: 1158
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -58222,6 +58495,7 @@
       RawValue: 1164
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -58437,6 +58711,7 @@
       RawValue: 1181
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -58652,6 +58927,7 @@
       RawValue: 1197
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -58866,6 +59142,7 @@
       RawValue: 1204
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -59080,6 +59357,7 @@
       RawValue: 1207
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -59292,6 +59570,7 @@
       RawValue: 1204
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -59504,6 +59783,7 @@
       RawValue: 1194
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -59718,6 +59998,7 @@
       RawValue: 1181
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -59933,6 +60214,7 @@
       RawValue: 1164
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -60147,6 +60429,7 @@
       RawValue: 1151
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -60361,6 +60644,7 @@
       RawValue: 1138
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -60575,6 +60859,7 @@
       RawValue: 1118
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -60788,6 +61073,7 @@
       RawValue: 1095
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -61001,6 +61287,7 @@
       RawValue: 1076
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -61215,6 +61502,7 @@
       RawValue: 1056
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -61429,6 +61717,7 @@
       RawValue: 1040
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -61643,6 +61932,7 @@
       RawValue: 1026
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -61856,6 +62146,7 @@
       RawValue: 1017
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -62070,6 +62361,7 @@
       RawValue: 1013
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -62284,6 +62576,7 @@
       RawValue: 1010
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -62499,6 +62792,7 @@
       RawValue: 1007
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -62714,6 +63008,7 @@
       RawValue: 1007
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -62929,6 +63224,7 @@
       RawValue: 1013
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -63144,6 +63440,7 @@
       RawValue: 1017
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -63358,6 +63655,7 @@
       RawValue: 1017
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -63572,6 +63870,7 @@
       RawValue: 1013
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -63787,6 +64086,7 @@
       RawValue: 1017
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -64002,6 +64302,7 @@
       RawValue: 1023
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -64217,6 +64518,7 @@
       RawValue: 1026
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -64432,6 +64734,7 @@
       RawValue: 1030
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -64646,6 +64949,7 @@
       RawValue: 1030
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -64858,6 +65162,7 @@
       RawValue: 1023
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -65073,6 +65378,7 @@
       RawValue: 1013
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -65288,6 +65594,7 @@
       RawValue: 1000
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -65503,6 +65810,7 @@
       RawValue: 987
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -65718,6 +66026,7 @@
       RawValue: 977
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -65931,6 +66240,7 @@
       RawValue: 964
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -66145,6 +66455,7 @@
       RawValue: 958
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -66359,6 +66670,7 @@
       RawValue: 948
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -66574,6 +66886,7 @@
       RawValue: 941
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -66789,6 +67102,7 @@
       RawValue: 935
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -67004,6 +67318,7 @@
       RawValue: 928
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -67219,6 +67534,7 @@
       RawValue: 918
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -67433,6 +67749,7 @@
       RawValue: 908
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -67647,6 +67964,7 @@
       RawValue: 895
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -67862,6 +68180,7 @@
       RawValue: 882
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -68077,6 +68396,7 @@
       RawValue: 866
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -68292,6 +68612,7 @@
       RawValue: 859
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -68507,6 +68828,7 @@
       RawValue: 853
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -68721,6 +69043,7 @@
       RawValue: 849
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -68935,6 +69258,7 @@
       RawValue: 849
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -69149,6 +69473,7 @@
       RawValue: 843
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -69364,6 +69689,7 @@
       RawValue: 833
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -69579,6 +69905,7 @@
       RawValue: 813
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -69794,6 +70121,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -70007,6 +70335,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -70221,6 +70550,7 @@
       RawValue: 793
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -70435,6 +70765,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -70649,6 +70980,7 @@
       RawValue: 793
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -70864,6 +71196,7 @@
       RawValue: 784
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -71079,6 +71412,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -71293,6 +71627,7 @@
       RawValue: 767
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -71507,6 +71842,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -71721,6 +72057,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -71936,6 +72273,7 @@
       RawValue: 741
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -72151,6 +72489,7 @@
       RawValue: 734
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -72366,6 +72705,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -72581,6 +72921,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -72795,6 +73136,7 @@
       RawValue: 721
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -73007,6 +73349,7 @@
       RawValue: 715
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -73222,6 +73565,7 @@
       RawValue: 711
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -73437,6 +73781,7 @@
       RawValue: 705
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -73652,6 +73997,7 @@
       RawValue: 702
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -73867,6 +74213,7 @@
       RawValue: 695
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -74081,6 +74428,7 @@
       RawValue: 688
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -74293,6 +74641,7 @@
       RawValue: 679
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -74506,6 +74855,7 @@
       RawValue: 669
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -74721,6 +75071,7 @@
       RawValue: 652
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -74935,6 +75286,7 @@
       RawValue: 636
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -75149,6 +75501,7 @@
       RawValue: 623
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -75362,6 +75715,7 @@
       RawValue: 610
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -75575,6 +75929,7 @@
       RawValue: 600
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -75789,6 +76144,7 @@
       RawValue: 597
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -76004,6 +76360,7 @@
       RawValue: 593
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -76219,6 +76576,7 @@
       RawValue: 587
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -76434,6 +76792,7 @@
       RawValue: 577
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -76649,6 +77008,7 @@
       RawValue: 561
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -76862,6 +77222,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -77075,6 +77436,7 @@
       RawValue: 524
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -77289,6 +77651,7 @@
       RawValue: 508
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -77503,6 +77866,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -77718,6 +78082,7 @@
       RawValue: 492
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -77933,6 +78298,7 @@
       RawValue: 485
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -78147,6 +78513,7 @@
       RawValue: 479
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -78361,6 +78728,7 @@
       RawValue: 472
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -78575,6 +78943,7 @@
       RawValue: 465
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -78790,6 +79159,7 @@
       RawValue: 459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -79005,6 +79375,7 @@
       RawValue: 452
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -79220,6 +79591,7 @@
       RawValue: 446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -79434,6 +79806,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -79648,6 +80021,7 @@
       RawValue: 436
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -79862,6 +80236,7 @@
       RawValue: 433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -80077,6 +80452,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -80292,6 +80668,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -80507,6 +80884,7 @@
       RawValue: 449
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -80722,6 +81100,7 @@
       RawValue: 452
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -80937,6 +81316,7 @@
       RawValue: 459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -81151,6 +81531,7 @@
       RawValue: 462
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -81365,6 +81746,7 @@
       RawValue: 459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -81579,6 +81961,7 @@
       RawValue: 456
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -81793,6 +82176,7 @@
       RawValue: 446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -82007,6 +82391,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -82221,6 +82606,7 @@
       RawValue: 429
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -82436,6 +82822,7 @@
       RawValue: 433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -82650,6 +83037,7 @@
       RawValue: 436
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -82864,6 +83252,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -83078,6 +83467,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -83292,6 +83682,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -83506,6 +83897,7 @@
       RawValue: 446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -83718,6 +84110,7 @@
       RawValue: 446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -83930,6 +84323,7 @@
       RawValue: 456
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -84142,6 +84536,7 @@
       RawValue: 459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -84356,6 +84751,7 @@
       RawValue: 462
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -84570,6 +84966,7 @@
       RawValue: 462
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -84784,6 +85181,7 @@
       RawValue: 462
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -84998,6 +85396,7 @@
       RawValue: 465
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -85210,6 +85609,7 @@
       RawValue: 456
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -85422,6 +85822,7 @@
       RawValue: 449
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -85635,6 +86036,7 @@
       RawValue: 446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -85850,6 +86252,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -86065,6 +86468,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -86280,6 +86684,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -86494,6 +86899,7 @@
       RawValue: 436
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -86708,6 +87114,7 @@
       RawValue: 446
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -86922,6 +87329,7 @@
       RawValue: 456
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -87137,6 +87545,7 @@
       RawValue: 459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -87352,6 +87761,7 @@
       RawValue: 459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -87567,6 +87977,7 @@
       RawValue: 452
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -87780,6 +88191,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -87993,6 +88405,7 @@
       RawValue: 423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -88207,6 +88620,7 @@
       RawValue: 410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -88421,6 +88835,7 @@
       RawValue: 403
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -88636,6 +89051,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -88851,6 +89267,7 @@
       RawValue: 396
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -89065,6 +89482,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -89277,6 +89695,7 @@
       RawValue: 403
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -89489,6 +89908,7 @@
       RawValue: 403
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -89703,6 +90123,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -89917,6 +90338,7 @@
       RawValue: 380
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -90132,6 +90554,7 @@
       RawValue: 380
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -90347,6 +90770,7 @@
       RawValue: 380
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -90562,6 +90986,7 @@
       RawValue: 383
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -90776,6 +91201,7 @@
       RawValue: 387
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -90990,6 +91416,7 @@
       RawValue: 383
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -91205,6 +91632,7 @@
       RawValue: 374
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -91420,6 +91848,7 @@
       RawValue: 380
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -91635,6 +92064,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -91850,6 +92280,7 @@
       RawValue: 396
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -92064,6 +92495,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -92278,6 +92710,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -92492,6 +92925,7 @@
       RawValue: 393
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -92707,6 +93141,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -92922,6 +93357,7 @@
       RawValue: 387
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -93137,6 +93573,7 @@
       RawValue: 387
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -93352,6 +93789,7 @@
       RawValue: 380
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -93566,6 +94004,7 @@
       RawValue: 370
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -93778,6 +94217,7 @@
       RawValue: 370
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -93992,6 +94432,7 @@
       RawValue: 367
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -94206,6 +94647,7 @@
       RawValue: 357
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -94420,6 +94862,7 @@
       RawValue: 357
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -94634,6 +95077,7 @@
       RawValue: 344
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -94847,6 +95291,7 @@
       RawValue: 347
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -95059,6 +95504,7 @@
       RawValue: 351
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -95271,6 +95717,7 @@
       RawValue: 347
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -95485,6 +95932,7 @@
       RawValue: 354
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -95699,6 +96147,7 @@
       RawValue: 364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -95913,6 +96362,7 @@
       RawValue: 367
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -96128,6 +96578,7 @@
       RawValue: 377
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -96342,6 +96793,7 @@
       RawValue: 383
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -96556,6 +97008,7 @@
       RawValue: 393
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -96770,6 +97223,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -96985,6 +97439,7 @@
       RawValue: 403
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -97200,6 +97655,7 @@
       RawValue: 410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -97415,6 +97871,7 @@
       RawValue: 416
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -97630,6 +98087,7 @@
       RawValue: 419
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -97844,6 +98302,7 @@
       RawValue: 423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -98058,6 +98517,7 @@
       RawValue: 426
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -98272,6 +98732,7 @@
       RawValue: 433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -98487,6 +98948,7 @@
       RawValue: 436
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -98702,6 +99164,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -98917,6 +99380,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -99132,6 +99596,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -99346,6 +99811,7 @@
       RawValue: 442
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -99558,6 +100024,7 @@
       RawValue: 449
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -99770,6 +100237,7 @@
       RawValue: 459
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -99984,6 +100452,7 @@
       RawValue: 465
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -100198,6 +100667,7 @@
       RawValue: 472
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -100412,6 +100882,7 @@
       RawValue: 482
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -100626,6 +101097,7 @@
       RawValue: 485
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -100838,6 +101310,7 @@
       RawValue: 492
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -101050,6 +101523,7 @@
       RawValue: 495
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -101264,6 +101738,7 @@
       RawValue: 501
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -101479,6 +101954,7 @@
       RawValue: 505
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -101694,6 +102170,7 @@
       RawValue: 511
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -101909,6 +102386,7 @@
       RawValue: 515
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -102124,6 +102602,7 @@
       RawValue: 521
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -102338,6 +102817,7 @@
       RawValue: 524
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -102552,6 +103032,7 @@
       RawValue: 531
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -102767,6 +103248,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -102982,6 +103464,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -103197,6 +103680,7 @@
       RawValue: 554
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -103412,6 +103896,7 @@
       RawValue: 561
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -103626,6 +104111,7 @@
       RawValue: 567
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -103840,6 +104326,7 @@
       RawValue: 574
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -104054,6 +104541,7 @@
       RawValue: 577
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -104269,6 +104757,7 @@
       RawValue: 580
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -104484,6 +104973,7 @@
       RawValue: 587
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -104699,6 +105189,7 @@
       RawValue: 593
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -104914,6 +105405,7 @@
       RawValue: 600
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -105128,6 +105620,7 @@
       RawValue: 606
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -105342,6 +105835,7 @@
       RawValue: 613
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -105556,6 +106050,7 @@
       RawValue: 623
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -105771,6 +106266,7 @@
       RawValue: 633
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -105986,6 +106482,7 @@
       RawValue: 643
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -106201,6 +106698,7 @@
       RawValue: 656
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -106416,6 +106914,7 @@
       RawValue: 666
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -106630,6 +107129,7 @@
       RawValue: 672
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -106844,6 +107344,7 @@
       RawValue: 679
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -107059,6 +107560,7 @@
       RawValue: 688
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -107274,6 +107776,7 @@
       RawValue: 692
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -107489,6 +107992,7 @@
       RawValue: 698
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -107704,6 +108208,7 @@
       RawValue: 702
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -107919,6 +108424,7 @@
       RawValue: 708
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -108133,6 +108639,7 @@
       RawValue: 715
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -108347,6 +108854,7 @@
       RawValue: 721
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -108562,6 +109070,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -108777,6 +109286,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -108992,6 +109502,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -109207,6 +109718,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -109421,6 +109933,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -109635,6 +110148,7 @@
       RawValue: 731
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -109849,6 +110363,7 @@
       RawValue: 731
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -110064,6 +110579,7 @@
       RawValue: 734
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -110279,6 +110795,7 @@
       RawValue: 731
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -110494,6 +111011,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -110709,6 +111227,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -110923,6 +111442,7 @@
       RawValue: 721
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -111137,6 +111657,7 @@
       RawValue: 718
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -111352,6 +111873,7 @@
       RawValue: 715
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -111567,6 +112089,7 @@
       RawValue: 718
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -111782,6 +112305,7 @@
       RawValue: 721
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -111997,6 +112521,7 @@
       RawValue: 721
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -112210,6 +112735,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 58
     },
     Gids: {
@@ -112423,6 +112949,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 53
     },
     Gids: {
@@ -112636,6 +113163,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -112851,6 +113379,7 @@
       RawValue: 731
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -113066,6 +113595,7 @@
       RawValue: 734
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -113281,6 +113811,7 @@
       RawValue: 738
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -113495,6 +114026,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -113709,6 +114241,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -113923,6 +114456,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -114137,6 +114671,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -114352,6 +114887,7 @@
       RawValue: 744
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -114567,6 +115103,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -114782,6 +115319,7 @@
       RawValue: 770
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -114996,6 +115534,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -115210,6 +115749,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -115424,6 +115964,7 @@
       RawValue: 774
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -115639,6 +116180,7 @@
       RawValue: 764
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -115854,6 +116396,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -116069,6 +116612,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -116284,6 +116828,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -116498,6 +117043,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -116712,6 +117258,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -116927,6 +117474,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -117142,6 +117690,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -117357,6 +117906,7 @@
       RawValue: 754
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -117572,6 +118122,7 @@
       RawValue: 761
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -117787,6 +118338,7 @@
       RawValue: 767
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -118001,6 +118553,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -118215,6 +118768,7 @@
       RawValue: 780
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -118430,6 +118984,7 @@
       RawValue: 784
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -118645,6 +119200,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -118860,6 +119416,7 @@
       RawValue: 761
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -119074,6 +119631,7 @@
       RawValue: 754
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -119288,6 +119846,7 @@
       RawValue: 770
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -119502,6 +120061,7 @@
       RawValue: 787
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -119717,6 +120277,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -119932,6 +120493,7 @@
       RawValue: 816
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -120147,6 +120709,7 @@
       RawValue: 830
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -120362,6 +120925,7 @@
       RawValue: 846
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -120576,6 +121140,7 @@
       RawValue: 859
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -120790,6 +121355,7 @@
       RawValue: 862
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -121004,6 +121570,7 @@
       RawValue: 859
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -121219,6 +121786,7 @@
       RawValue: 846
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -121434,6 +122002,7 @@
       RawValue: 833
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -121648,6 +122217,7 @@
       RawValue: 820
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -121862,6 +122432,7 @@
       RawValue: 807
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -122075,6 +122646,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -122288,6 +122860,7 @@
       RawValue: 774
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -122502,6 +123075,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -122717,6 +123291,7 @@
       RawValue: 741
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -122931,6 +123506,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -123145,6 +123721,7 @@
       RawValue: 708
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -123358,6 +123935,7 @@
       RawValue: 688
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -123571,6 +124149,7 @@
       RawValue: 675
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -123786,6 +124365,7 @@
       RawValue: 662
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -124000,6 +124580,7 @@
       RawValue: 649
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -124214,6 +124795,7 @@
       RawValue: 633
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -124428,6 +125010,7 @@
       RawValue: 616
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -124641,6 +125224,7 @@
       RawValue: 600
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -124854,6 +125438,7 @@
       RawValue: 583
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -125067,6 +125652,7 @@
       RawValue: 570
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -125281,6 +125867,7 @@
       RawValue: 551
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -125495,6 +126082,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -125709,6 +126297,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -125923,6 +126512,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -126137,6 +126727,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -126351,6 +126942,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -126566,6 +127158,7 @@
       RawValue: 534
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -126781,6 +127374,7 @@
       RawValue: 524
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -126996,6 +127590,7 @@
       RawValue: 515
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -127211,6 +127806,7 @@
       RawValue: 508
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -127425,6 +128021,7 @@
       RawValue: 505
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -127639,6 +128236,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -127853,6 +128451,7 @@
       RawValue: 495
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -128068,6 +128667,7 @@
       RawValue: 485
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -128283,6 +128883,7 @@
       RawValue: 475
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -128498,6 +129099,7 @@
       RawValue: 465
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -128713,6 +129315,7 @@
       RawValue: 456
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -128927,6 +129530,7 @@
       RawValue: 452
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -129141,6 +129745,7 @@
       RawValue: 439
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -129356,6 +129961,7 @@
       RawValue: 433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -129571,6 +130177,7 @@
       RawValue: 429
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -129786,6 +130393,7 @@
       RawValue: 429
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -130001,6 +130609,7 @@
       RawValue: 433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -130215,6 +130824,7 @@
       RawValue: 433
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -130429,6 +131039,7 @@
       RawValue: 429
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 54
     },
     Gids: {
@@ -130643,6 +131254,7 @@
       RawValue: 419
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -130858,6 +131470,7 @@
       RawValue: 406
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -131072,6 +131685,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -131287,6 +131901,7 @@
       RawValue: 396
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -131502,6 +132117,7 @@
       RawValue: 393
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 70
     },
     Gids: {
@@ -131716,6 +132332,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 69
     },
     Gids: {
@@ -131930,6 +132547,7 @@
       RawValue: 383
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -132143,6 +132761,7 @@
       RawValue: 377
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -132358,6 +132977,7 @@
       RawValue: 364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -132573,6 +133193,7 @@
       RawValue: 357
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -132788,6 +133409,7 @@
       RawValue: 351
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -133002,6 +133624,7 @@
       RawValue: 344
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -133216,6 +133839,7 @@
       RawValue: 344
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -133430,6 +134054,7 @@
       RawValue: 347
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -133645,6 +134270,7 @@
       RawValue: 347
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 58
     },
     Gids: {
@@ -133859,6 +134485,7 @@
       RawValue: 351
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -134074,6 +134701,7 @@
       RawValue: 351
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -134289,6 +134917,7 @@
       RawValue: 347
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -134503,6 +135132,7 @@
       RawValue: 354
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -134717,6 +135347,7 @@
       RawValue: 357
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -134931,6 +135562,7 @@
       RawValue: 360
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -135146,6 +135778,7 @@
       RawValue: 364
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -135361,6 +135994,7 @@
       RawValue: 370
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -135576,6 +136210,7 @@
       RawValue: 370
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -135790,6 +136425,7 @@
       RawValue: 370
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -136004,6 +136640,7 @@
       RawValue: 374
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -136219,6 +136856,7 @@
       RawValue: 377
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -136434,6 +137072,7 @@
       RawValue: 387
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -136649,6 +137288,7 @@
       RawValue: 393
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -136864,6 +137504,7 @@
       RawValue: 393
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -137078,6 +137719,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -137292,6 +137934,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -137506,6 +138149,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -137721,6 +138365,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -137936,6 +138581,7 @@
       RawValue: 390
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -138151,6 +138797,7 @@
       RawValue: 393
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -138365,6 +139012,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -138579,6 +139227,7 @@
       RawValue: 406
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -138794,6 +139443,7 @@
       RawValue: 413
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -139009,6 +139659,7 @@
       RawValue: 413
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -139224,6 +139875,7 @@
       RawValue: 413
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -139439,6 +140091,7 @@
       RawValue: 410
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -139653,6 +140306,7 @@
       RawValue: 403
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -139867,6 +140521,7 @@
       RawValue: 393
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -140081,6 +140736,7 @@
       RawValue: 396
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -140296,6 +140952,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -140511,6 +141168,7 @@
       RawValue: 403
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -140726,6 +141384,7 @@
       RawValue: 400
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -140941,6 +141600,7 @@
       RawValue: 406
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -141154,6 +141814,7 @@
       RawValue: 413
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -141368,6 +142029,7 @@
       RawValue: 423
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -141583,6 +142245,7 @@
       RawValue: 436
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -141798,6 +142461,7 @@
       RawValue: 449
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -142013,6 +142677,7 @@
       RawValue: 462
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -142228,6 +142893,7 @@
       RawValue: 472
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -142443,6 +143109,7 @@
       RawValue: 479
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 58
     },
     Gids: {
@@ -142657,6 +143324,7 @@
       RawValue: 479
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 58
     },
     Gids: {
@@ -142871,6 +143539,7 @@
       RawValue: 479
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -143086,6 +143755,7 @@
       RawValue: 482
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -143301,6 +143971,7 @@
       RawValue: 485
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -143516,6 +144187,7 @@
       RawValue: 488
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -143731,6 +144403,7 @@
       RawValue: 492
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -143945,6 +144618,7 @@
       RawValue: 495
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -144158,6 +144832,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -144372,6 +145047,7 @@
       RawValue: 501
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -144586,6 +145262,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -144801,6 +145478,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -145016,6 +145694,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -145231,6 +145910,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -145445,6 +146125,7 @@
       RawValue: 498
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -145659,6 +146340,7 @@
       RawValue: 501
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -145873,6 +146555,7 @@
       RawValue: 508
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -146087,6 +146770,7 @@
       RawValue: 515
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -146302,6 +146986,7 @@
       RawValue: 515
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 58
     },
     Gids: {
@@ -146517,6 +147202,7 @@
       RawValue: 505
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -146732,6 +147418,7 @@
       RawValue: 505
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -146946,6 +147633,7 @@
       RawValue: 511
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -147160,6 +147848,7 @@
       RawValue: 518
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -147375,6 +148064,7 @@
       RawValue: 521
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -147590,6 +148280,7 @@
       RawValue: 524
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -147805,6 +148496,7 @@
       RawValue: 524
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -148020,6 +148712,7 @@
       RawValue: 528
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -148234,6 +148927,7 @@
       RawValue: 531
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -148448,6 +149142,7 @@
       RawValue: 531
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -148662,6 +149357,7 @@
       RawValue: 521
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -148877,6 +149573,7 @@
       RawValue: 511
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -149092,6 +149789,7 @@
       RawValue: 515
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -149307,6 +150005,7 @@
       RawValue: 528
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -149522,6 +150221,7 @@
       RawValue: 534
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -149736,6 +150436,7 @@
       RawValue: 538
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -149950,6 +150651,7 @@
       RawValue: 534
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -150165,6 +150867,7 @@
       RawValue: 534
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -150380,6 +151083,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -150595,6 +151299,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -150810,6 +151515,7 @@
       RawValue: 551
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -151024,6 +151730,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -151238,6 +151945,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -151452,6 +152160,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -151667,6 +152376,7 @@
       RawValue: 551
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -151882,6 +152592,7 @@
       RawValue: 554
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -152097,6 +152808,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -152312,6 +153024,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -152526,6 +153239,7 @@
       RawValue: 538
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -152740,6 +153454,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -152954,6 +153669,7 @@
       RawValue: 544
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -153169,6 +153885,7 @@
       RawValue: 541
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -153384,6 +154101,7 @@
       RawValue: 534
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -153599,6 +154317,7 @@
       RawValue: 538
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -153814,6 +154533,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -154028,6 +154748,7 @@
       RawValue: 561
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -154242,6 +154963,7 @@
       RawValue: 557
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -154456,6 +155178,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -154670,6 +155393,7 @@
       RawValue: 547
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -154885,6 +155609,7 @@
       RawValue: 551
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -155100,6 +155825,7 @@
       RawValue: 561
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -155315,6 +156041,7 @@
       RawValue: 564
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -155529,6 +156256,7 @@
       RawValue: 557
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -155743,6 +156471,7 @@
       RawValue: 551
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -155956,6 +156685,7 @@
       RawValue: 551
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -156171,6 +156901,7 @@
       RawValue: 554
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -156386,6 +157117,7 @@
       RawValue: 564
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -156601,6 +157333,7 @@
       RawValue: 567
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -156816,6 +157549,7 @@
       RawValue: 564
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -157030,6 +157764,7 @@
       RawValue: 564
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -157244,6 +157979,7 @@
       RawValue: 570
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -157458,6 +158194,7 @@
       RawValue: 580
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -157673,6 +158410,7 @@
       RawValue: 590
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -157888,6 +158626,7 @@
       RawValue: 590
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 55
     },
     Gids: {
@@ -158102,6 +158841,7 @@
       RawValue: 590
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 53
     },
     Gids: {
@@ -158317,6 +159057,7 @@
       RawValue: 587
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 54
     },
     Gids: {
@@ -158531,6 +159272,7 @@
       RawValue: 583
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -158745,6 +159487,7 @@
       RawValue: 580
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 59
     },
     Gids: {
@@ -158959,6 +159702,7 @@
       RawValue: 580
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 56
     },
     Gids: {
@@ -159173,6 +159917,7 @@
       RawValue: 590
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 58
     },
     Gids: {
@@ -159388,6 +160133,7 @@
       RawValue: 597
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 55
     },
     Gids: {
@@ -159601,6 +160347,7 @@
       RawValue: 600
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 55
     },
     Gids: {
@@ -159816,6 +160563,7 @@
       RawValue: 603
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 56
     },
     Gids: {
@@ -160031,6 +160779,7 @@
       RawValue: 603
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 57
     },
     Gids: {
@@ -160245,6 +160994,7 @@
       RawValue: 603
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 55
     },
     Gids: {
@@ -160458,6 +161208,7 @@
       RawValue: 606
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -160672,6 +161423,7 @@
       RawValue: 606
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -160887,6 +161639,7 @@
       RawValue: 606
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -161102,6 +161855,7 @@
       RawValue: 610
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -161317,6 +162071,7 @@
       RawValue: 610
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -161532,6 +162287,7 @@
       RawValue: 610
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -161746,6 +162502,7 @@
       RawValue: 616
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -161960,6 +162717,7 @@
       RawValue: 613
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -162174,6 +162932,7 @@
       RawValue: 606
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -162388,6 +163147,7 @@
       RawValue: 610
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -162603,6 +163363,7 @@
       RawValue: 610
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -162818,6 +163579,7 @@
       RawValue: 616
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -163033,6 +163795,7 @@
       RawValue: 629
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -163247,6 +164010,7 @@
       RawValue: 636
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -163461,6 +164225,7 @@
       RawValue: 636
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -163675,6 +164440,7 @@
       RawValue: 633
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -163890,6 +164656,7 @@
       RawValue: 626
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -164105,6 +164872,7 @@
       RawValue: 623
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -164320,6 +165088,7 @@
       RawValue: 623
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 61
     },
     Gids: {
@@ -164534,6 +165303,7 @@
       RawValue: 629
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -164749,6 +165519,7 @@
       RawValue: 636
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -164963,6 +165734,7 @@
       RawValue: 639
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -165177,6 +165949,7 @@
       RawValue: 652
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -165391,6 +166164,7 @@
       RawValue: 662
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -165606,6 +166380,7 @@
       RawValue: 669
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -165821,6 +166596,7 @@
       RawValue: 669
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -166036,6 +166812,7 @@
       RawValue: 672
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -166251,6 +167028,7 @@
       RawValue: 675
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -166465,6 +167243,7 @@
       RawValue: 685
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -166679,6 +167458,7 @@
       RawValue: 688
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 60
     },
     Gids: {
@@ -166892,6 +167672,7 @@
       RawValue: 685
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 62
     },
     Gids: {
@@ -167107,6 +167888,7 @@
       RawValue: 685
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -167322,6 +168104,7 @@
       RawValue: 685
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -167537,6 +168320,7 @@
       RawValue: 682
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -167751,6 +168535,7 @@
       RawValue: 682
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -167965,6 +168750,7 @@
       RawValue: 679
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -168179,6 +168965,7 @@
       RawValue: 669
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -168394,6 +169181,7 @@
       RawValue: 675
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -168609,6 +169397,7 @@
       RawValue: 682
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -168824,6 +169613,7 @@
       RawValue: 688
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -169039,6 +169829,7 @@
       RawValue: 695
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -169253,6 +170044,7 @@
       RawValue: 685
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -169467,6 +170259,7 @@
       RawValue: 682
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -169681,6 +170474,7 @@
       RawValue: 685
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -169896,6 +170690,7 @@
       RawValue: 688
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -170111,6 +170906,7 @@
       RawValue: 692
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -170326,6 +171122,7 @@
       RawValue: 692
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -170541,6 +171338,7 @@
       RawValue: 695
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -170755,6 +171553,7 @@
       RawValue: 708
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -170969,6 +171768,7 @@
       RawValue: 721
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -171184,6 +171984,7 @@
       RawValue: 731
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -171399,6 +172200,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -171614,6 +172416,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -171829,6 +172632,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -172043,6 +172847,7 @@
       RawValue: 721
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -172257,6 +173062,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -172471,6 +173277,7 @@
       RawValue: 738
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -172686,6 +173493,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -172900,6 +173708,7 @@
       RawValue: 761
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -173114,6 +173923,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -173328,6 +174138,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -173540,6 +174351,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -173752,6 +174564,7 @@
       RawValue: 813
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -173964,6 +174777,7 @@
       RawValue: 816
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -174178,6 +174992,7 @@
       RawValue: 813
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -174392,6 +175207,7 @@
       RawValue: 810
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -174606,6 +175422,7 @@
       RawValue: 807
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -174820,6 +175637,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -175032,6 +175850,7 @@
       RawValue: 793
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -175244,6 +176063,7 @@
       RawValue: 784
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -175456,6 +176276,7 @@
       RawValue: 780
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -175670,6 +176491,7 @@
       RawValue: 784
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -175885,6 +176707,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -176100,6 +176923,7 @@
       RawValue: 787
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -176315,6 +177139,7 @@
       RawValue: 774
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -176528,6 +177353,7 @@
       RawValue: 767
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -176742,6 +177568,7 @@
       RawValue: 780
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -176956,6 +177783,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -177171,6 +177999,7 @@
       RawValue: 784
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -177386,6 +178215,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -177601,6 +178431,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -177815,6 +178646,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -178029,6 +178861,7 @@
       RawValue: 793
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -178243,6 +179076,7 @@
       RawValue: 797
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -178458,6 +179292,7 @@
       RawValue: 797
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -178673,6 +179508,7 @@
       RawValue: 797
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -178888,6 +179724,7 @@
       RawValue: 797
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -179103,6 +179940,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -179317,6 +180155,7 @@
       RawValue: 807
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -179531,6 +180370,7 @@
       RawValue: 810
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -179745,6 +180585,7 @@
       RawValue: 813
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -179960,6 +180801,7 @@
       RawValue: 810
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -180175,6 +181017,7 @@
       RawValue: 810
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -180390,6 +181233,7 @@
       RawValue: 807
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -180605,6 +181449,7 @@
       RawValue: 807
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -180819,6 +181664,7 @@
       RawValue: 803
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -181033,6 +181879,7 @@
       RawValue: 803
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -181247,6 +182094,7 @@
       RawValue: 803
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -181462,6 +182310,7 @@
       RawValue: 803
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -181677,6 +182526,7 @@
       RawValue: 807
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -181892,6 +182742,7 @@
       RawValue: 810
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -182107,6 +182958,7 @@
       RawValue: 813
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -182321,6 +183173,7 @@
       RawValue: 820
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -182535,6 +183388,7 @@
       RawValue: 820
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -182749,6 +183603,7 @@
       RawValue: 826
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -182964,6 +183819,7 @@
       RawValue: 830
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -183179,6 +184035,7 @@
       RawValue: 843
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -183394,6 +184251,7 @@
       RawValue: 856
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -183608,6 +184466,7 @@
       RawValue: 869
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -183822,6 +184681,7 @@
       RawValue: 882
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -184036,6 +184896,7 @@
       RawValue: 898
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -184251,6 +185112,7 @@
       RawValue: 915
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -184466,6 +185328,7 @@
       RawValue: 928
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -184681,6 +185544,7 @@
       RawValue: 941
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -184896,6 +185760,7 @@
       RawValue: 961
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -185110,6 +185975,7 @@
       RawValue: 974
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -185324,6 +186190,7 @@
       RawValue: 987
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -185538,6 +186405,7 @@
       RawValue: 1000
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -185753,6 +186621,7 @@
       RawValue: 1000
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -185968,6 +186837,7 @@
       RawValue: 990
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -186183,6 +187053,7 @@
       RawValue: 961
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -186397,6 +187268,7 @@
       RawValue: 931
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -186610,6 +187482,7 @@
       RawValue: 902
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -186823,6 +187696,7 @@
       RawValue: 875
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -187037,6 +187911,7 @@
       RawValue: 846
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -187251,6 +188126,7 @@
       RawValue: 823
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -187465,6 +188341,7 @@
       RawValue: 803
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -187679,6 +188556,7 @@
       RawValue: 780
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -187892,6 +188770,7 @@
       RawValue: 770
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -188106,6 +188985,7 @@
       RawValue: 761
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -188320,6 +189200,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 63
     },
     Gids: {
@@ -188534,6 +189415,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -188749,6 +189631,7 @@
       RawValue: 738
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 64
     },
     Gids: {
@@ -188964,6 +189847,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -189179,6 +190063,7 @@
       RawValue: 708
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -189392,6 +190277,7 @@
       RawValue: 695
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -189605,6 +190491,7 @@
       RawValue: 688
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -189819,6 +190706,7 @@
       RawValue: 675
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -190034,6 +190922,7 @@
       RawValue: 662
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -190248,6 +191137,7 @@
       RawValue: 656
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -190463,6 +191353,7 @@
       RawValue: 646
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -190677,6 +191568,7 @@
       RawValue: 643
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -190891,6 +191783,7 @@
       RawValue: 649
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -191105,6 +191998,7 @@
       RawValue: 662
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -191320,6 +192214,7 @@
       RawValue: 675
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -191535,6 +192430,7 @@
       RawValue: 692
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -191750,6 +192646,7 @@
       RawValue: 692
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -191965,6 +192862,7 @@
       RawValue: 679
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -192179,6 +193077,7 @@
       RawValue: 666
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -192392,6 +193291,7 @@
       RawValue: 672
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -192606,6 +193506,7 @@
       RawValue: 698
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -192821,6 +193722,7 @@
       RawValue: 731
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -193036,6 +193938,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -193251,6 +194154,7 @@
       RawValue: 770
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -193466,6 +194370,7 @@
       RawValue: 770
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -193680,6 +194585,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 67
     },
     Gids: {
@@ -193894,6 +194800,7 @@
       RawValue: 725
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -194107,6 +195014,7 @@
       RawValue: 718
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -194322,6 +195230,7 @@
       RawValue: 728
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -194537,6 +195446,7 @@
       RawValue: 738
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -194752,6 +195662,7 @@
       RawValue: 744
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -194966,6 +195877,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -195180,6 +196092,7 @@
       RawValue: 774
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -195394,6 +196307,7 @@
       RawValue: 787
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -195609,6 +196523,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -195824,6 +196739,7 @@
       RawValue: 803
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -196039,6 +196955,7 @@
       RawValue: 800
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 65
     },
     Gids: {
@@ -196254,6 +197171,7 @@
       RawValue: 793
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -196468,6 +197386,7 @@
       RawValue: 793
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -196682,6 +197601,7 @@
       RawValue: 787
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -196896,6 +197816,7 @@
       RawValue: 780
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -197111,6 +198032,7 @@
       RawValue: 774
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -197326,6 +198248,7 @@
       RawValue: 770
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -197541,6 +198464,7 @@
       RawValue: 767
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -197753,6 +198677,7 @@
       RawValue: 761
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -197965,6 +198890,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -198177,6 +199103,7 @@
       RawValue: 751
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -198391,6 +199318,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -198605,6 +199533,7 @@
       RawValue: 744
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -198819,6 +199748,7 @@
       RawValue: 748
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -199031,6 +199961,7 @@
       RawValue: 754
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -199243,6 +200174,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -199455,6 +200387,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -199669,6 +200602,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -199883,6 +200817,7 @@
       RawValue: 757
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -200098,6 +201033,7 @@
       RawValue: 764
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -200312,6 +201248,7 @@
       RawValue: 777
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -200526,6 +201463,7 @@
       RawValue: 784
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -200740,6 +201678,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -200955,6 +201894,7 @@
       RawValue: 790
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -201170,6 +202110,7 @@
       RawValue: 793
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -201385,6 +202326,7 @@
       RawValue: 797
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -201599,6 +202541,7 @@
       RawValue: 803
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -201813,6 +202756,7 @@
       RawValue: 810
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -202027,6 +202971,7 @@
       RawValue: 816
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -202242,6 +203187,7 @@
       RawValue: 820
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -202457,6 +203403,7 @@
       RawValue: 826
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -202672,6 +203619,7 @@
       RawValue: 830
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -202887,6 +203835,7 @@
       RawValue: 836
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -203101,6 +204050,7 @@
       RawValue: 843
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -203315,6 +204265,7 @@
       RawValue: 849
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -203530,6 +204481,7 @@
       RawValue: 853
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -203745,6 +204697,7 @@
       RawValue: 849
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -203960,6 +204913,7 @@
       RawValue: 839
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -204175,6 +205129,7 @@
       RawValue: 833
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -204389,6 +205344,7 @@
       RawValue: 833
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -204603,6 +205559,7 @@
       RawValue: 833
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -204818,6 +205775,7 @@
       RawValue: 836
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -205033,6 +205991,7 @@
       RawValue: 836
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -205248,6 +206207,7 @@
       RawValue: 839
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -205463,6 +206423,7 @@
       RawValue: 839
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -205677,6 +206638,7 @@
       RawValue: 843
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -205891,6 +206853,7 @@
       RawValue: 839
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {
@@ -206106,6 +207069,7 @@
       RawValue: 836
     },
     GpsPhoneSpeed: {
+      SourceSpeedUnit: MILES,
       RawValue: 66
     },
     Gids: {

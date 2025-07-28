@@ -86,7 +86,8 @@ namespace TripView
             var result = System.Windows.MessageBox.Show(
                 $"Are you sure you wish to restore TripView to its default settings.\n\n"+
                 $"This will remove {System.IO.Path.GetFileName(UserSettingsManager.UserSettingsFile)}.\n"+
-                $"This operation cannot be undone.",
+                $"This operation cannot be undone."+
+                "\n\nYou will need to restart TripView for the changes to take effect.",
                 "Reset TripView",MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
