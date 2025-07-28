@@ -16,4 +16,7 @@
 	* Look into adding: 
 		https://github.com/Humanizr/Humanizer
 		For more friendly date and times
+
+
+adb pull -a /storage/emulated/0/Android/data/com.Turbo3.Leaf_Spy_Pro c:\adb-temp\
 		
