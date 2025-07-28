@@ -42,9 +42,14 @@ namespace TripView.Configuration
         public AirPressureUnit AirPressureUnit { get; set; } = AirPressureUnit.PSI;
 
         /// <summary>
-        /// Unit of distance to use for display
+        /// Unit of distance to use for distance display
         /// </summary>
-        public DistanceUnit DistanceUnit { get; set; } = DistanceUnit.FEET;
+        public DistanceUnit DistanceUnit { get; set; } = DistanceUnit.MILES;
+
+        /// <summary>
+        /// Unit of distance to use for elevation display
+        /// </summary>
+        public DistanceUnit ElevationUnit { get; set; } = DistanceUnit.FEET;
 
         /// <summary>
         /// Unit of temperature to display

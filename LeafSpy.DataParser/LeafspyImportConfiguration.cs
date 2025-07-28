@@ -22,10 +22,11 @@
  * SOFTWARE.
  */
 namespace LeafSpy.DataParser
-{
+{    
     public class LeafspyImportConfiguration
     {
-        public DistanceUnit DistanceUnit { get; set; }
+        public DistanceUnit GpsSpeedUnit { get; set; }
+        public DistanceUnit GpsElevUnit { get; set; }
         public string CsvDelimiter { get; set; } = ",";
     }
 }

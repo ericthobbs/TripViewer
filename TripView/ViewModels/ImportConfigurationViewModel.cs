@@ -29,7 +29,10 @@ namespace TripView.ViewModels
     public partial class ImportConfigurationViewModel : ObservableObject
     {
         [ObservableProperty]
-        private DistanceUnit distanceUnit;
+        private DistanceUnit gpsSpeedUnit;
+
+        [ObservableProperty]
+        private DistanceUnit gpsElevUnit;
 
         [ObservableProperty]
         private string? csvDelimiter;
@@ -40,26 +43,17 @@ namespace TripView.ViewModels
 
         public void Read(LeafspyImportConfiguration config)
         {
-            DistanceUnit = config.DistanceUnit;
+            GpsSpeedUnit = config.GpsSpeedUnit;
+            GpsElevUnit = config.GpsElevUnit;
             CsvDelimiter = config.CsvDelimiter;
         }
 
         public LeafspyImportConfiguration ToLeafSpyImportConfiguration()
         {
-            //Temp Fix to map MILES to FEET and KM to M.
-            var du = DistanceUnit;
-            if (du == DistanceUnit.MILES)
-            {
-                du = DistanceUnit.FEET;
-            }
-            else if (du == DistanceUnit.KILOMETERS)
-            {
-                du = DistanceUnit.METER;
-            }
-
             return new LeafspyImportConfiguration()
             {
-                DistanceUnit = du,
+                GpsSpeedUnit = GpsSpeedUnit,
+                GpsElevUnit = GpsElevUnit,
                 CsvDelimiter = CsvDelimiter ?? string.Empty
             };
         }

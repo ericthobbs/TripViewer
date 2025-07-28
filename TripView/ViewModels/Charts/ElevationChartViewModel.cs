@@ -58,7 +58,7 @@ namespace TripView.ViewModels.Charts
                 LabelsRotation = _chartConfiguration.CurrentValue.TimeAxisLabelRotation,
             });
 
-            var unit = _chartConfiguration.CurrentValue.DistanceUnit.GetDisplayName();
+            var unit = _chartConfiguration.CurrentValue.ElevationUnit.GetDisplayName();
             YAxes.Add(new Axis()
             {
                 
@@ -74,7 +74,7 @@ namespace TripView.ViewModels.Charts
         {
             Series.Add(new LineSeries<DateTimePoint>
             {
-                Values = BuildDateTimePoints(Events, e => e.GpsPhoneElevation.ConvertTo(_chartConfiguration.CurrentValue.DistanceUnit), minMinutesBetweenTrip),
+                Values = BuildDateTimePoints(Events, e => e.GpsPhoneElevation.ConvertTo(_chartConfiguration.CurrentValue.ElevationUnit), minMinutesBetweenTrip),
                 Name = "Elevation",
                 Stroke = new SolidColorPaint(ConfigurationUtilities.GetColorFromString(_colorConfiguration.CurrentValue.ChartPrimaryColor, ChartDefaults.Series1Color)) { StrokeThickness = _chartConfiguration.CurrentValue.ChartLineThickness },
                 Fill = null,
