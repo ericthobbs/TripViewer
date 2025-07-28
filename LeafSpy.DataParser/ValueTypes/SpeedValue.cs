@@ -28,7 +28,9 @@ namespace LeafSpy.DataParser.ValueTypes
     public class SpeedValue : BaseValue
     {
         public DistanceUnit SourceSpeedUnit { get; private set; }
+        public const float MphToMh = 1609.34f;
         public const float MphToKmh = 1.609344f;
+        public const float MphToFph = 5280f;
         public SpeedValue(DistanceUnit unit, string rawValue) : base(rawValue)
         {
             SourceSpeedUnit = unit;
@@ -39,9 +41,9 @@ namespace LeafSpy.DataParser.ValueTypes
             if (string.IsNullOrWhiteSpace(RawValue))
                 return 0;
 
-            if (SourceSpeedUnit == DistanceUnit.FEET)
+            if (SourceSpeedUnit == DistanceUnit.MILES)
                 return float.Parse(RawValue);
-            return ConvertTo(DistanceUnit.FEET);
+            return ConvertTo(DistanceUnit.MILES);
         }
 
         public float ToKilometersPerHour()
@@ -49,9 +51,9 @@ namespace LeafSpy.DataParser.ValueTypes
             if (string.IsNullOrWhiteSpace(RawValue))
                 return 0;
 
-            if (SourceSpeedUnit == DistanceUnit.METER)
+            if (SourceSpeedUnit == DistanceUnit.KILOMETERS)
                 return float.Parse(RawValue);
-            return ConvertTo(DistanceUnit.METER);
+            return ConvertTo(DistanceUnit.KILOMETERS);
         }
 
         public float ConvertTo(DistanceUnit unit)
@@ -62,15 +64,26 @@ namespace LeafSpy.DataParser.ValueTypes
             if (SourceSpeedUnit == unit)
                 return float.Parse(RawValue);
 
-            switch (unit)
+            float value = float.Parse(RawValue);
+
+            //normalize unit to be in mph
+            float valueInMph = SourceSpeedUnit switch
             {
-                case DistanceUnit.FEET:
-                    return float.Parse(RawValue) / MphToKmh;
-                case DistanceUnit.METER:
-                    return float.Parse(RawValue) * MphToKmh;
-                default:
-                    throw new InvalidEnumArgumentException(nameof(unit));
-            }
+                DistanceUnit.FEET => value / MphToFph,
+                DistanceUnit.MILES => value,
+                DistanceUnit.METER => value / MphToMh,
+                DistanceUnit.KILOMETERS => value / MphToKmh,
+                _ => throw new InvalidEnumArgumentException(nameof(SourceSpeedUnit))
+            };
+
+            return unit switch
+            {
+                DistanceUnit.FEET => valueInMph / MphToFph,
+                DistanceUnit.MILES => valueInMph,
+                DistanceUnit.METER => valueInMph * MphToMh,
+                DistanceUnit.KILOMETERS => valueInMph * MphToKmh,
+                _ => throw new InvalidEnumArgumentException(nameof(unit))
+            };
         }
     }
 }

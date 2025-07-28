@@ -31,7 +31,17 @@ namespace LeafSpy.DataParser.ClassMaps
     {
         public CsvToTripLogMap(LeafspyImportConfiguration config)
         {
-            Map(m => m.DateTime).Name("Date/Time");                 //Date/Time
+            var speedUnit = config.DistanceUnit;
+            if (speedUnit == DistanceUnit.FEET)
+            {
+                speedUnit = DistanceUnit.MILES;
+            }
+            else if (speedUnit == DistanceUnit.METER)
+            {
+                speedUnit = DistanceUnit.KILOMETERS;
+            }
+
+                Map(m => m.DateTime).Name("Date/Time");                 //Date/Time
 
             Map(m => m.GpsPhoneCoordinates)
                 .Convert(args =>
@@ -45,7 +55,7 @@ namespace LeafSpy.DataParser.ClassMaps
             Map(m => m.GpsPhoneElevation).Name("Elv")
                 .TypeConverter(new AltitudeValueConverter(config.DistanceUnit));              //Elv
             Map(m => m.GpsPhoneSpeed).Name("Speed")
-                .TypeConverter(new SpeedValueConverter(config.DistanceUnit));                //Speed
+                .TypeConverter(new SpeedValueConverter(speedUnit)); //Speed
             Map(m => m.Gids).Name("Gids")
                 .TypeConverter<GidConverter>();                     //Gids
             Map(m => m.StateOfChargePercent).Name("SOC")

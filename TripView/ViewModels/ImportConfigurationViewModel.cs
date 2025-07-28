@@ -46,9 +46,20 @@ namespace TripView.ViewModels
 
         public LeafspyImportConfiguration ToLeafSpyImportConfiguration()
         {
+            //Temp Fix to map MILES to FEET and KM to M.
+            var du = DistanceUnit;
+            if (du == DistanceUnit.MILES)
+            {
+                du = DistanceUnit.FEET;
+            }
+            else if (du == DistanceUnit.KILOMETERS)
+            {
+                du = DistanceUnit.METER;
+            }
+
             return new LeafspyImportConfiguration()
             {
-                DistanceUnit = DistanceUnit,
+                DistanceUnit = du,
                 CsvDelimiter = CsvDelimiter ?? string.Empty
             };
         }

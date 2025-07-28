@@ -143,11 +143,16 @@ namespace LeafSpy.DataParser.Tests
         }
 
         [DataTestMethod]
-        [DataRow(DistanceUnit.FEET,  "25", DistanceUnit.FEET,  25.0f )]
-        [DataRow(DistanceUnit.FEET,  "25", DistanceUnit.METER, 40.23f)]
-        [DataRow(DistanceUnit.METER,  "9", DistanceUnit.METER, 9f    )]
-        [DataRow(DistanceUnit.METER,   "", DistanceUnit.METER, 0f    )]
-        [DataRow(DistanceUnit.METER, null, DistanceUnit.METER, 0f    )]
+        [DataRow(DistanceUnit.FEET,      "25", DistanceUnit.FEET,              25.0f)]
+        [DataRow(DistanceUnit.FEET,      "25", DistanceUnit.METER,             7.62f)]
+        [DataRow(DistanceUnit.METER,      "9", DistanceUnit.METER,                9f)]
+        [DataRow(DistanceUnit.METER,       "", DistanceUnit.METER,                0f)]
+        [DataRow(DistanceUnit.METER,     null, DistanceUnit.METER,                0f)]
+        [DataRow(DistanceUnit.FEET,    "5280", DistanceUnit.MILES,                1f)]
+        [DataRow(DistanceUnit.FEET,       "1", DistanceUnit.MILES,      0.000189394f)]
+        [DataRow(DistanceUnit.MILES,      "1", DistanceUnit.KILOMETERS,     1.60934f)]
+        [DataRow(DistanceUnit.MILES,     "60", DistanceUnit.MILES,               60f)]
+        [DataRow(DistanceUnit.FEET,  "316800", DistanceUnit.MILES,               60f)]
         public void SpeedValue_ConvertToTests(DistanceUnit sourceUnit, string rawValue, DistanceUnit outputUnit, float expectedValue)
         {
             var alt = new SpeedValue(sourceUnit, rawValue);
@@ -155,11 +160,11 @@ namespace LeafSpy.DataParser.Tests
         }
 
         [DataTestMethod]
-        [DataRow(DistanceUnit.FEET, "25", (DistanceUnit)4)]
+        [DataRow(DistanceUnit.FEET, "25", (DistanceUnit)12)]
         public void SpeedValue_ConvertTo_InvalidValue_Tests(DistanceUnit sourceUnit, string rawValue, DistanceUnit outputUnit)
         {
             var alt = new SpeedValue(sourceUnit, rawValue);
-            Assert.ThrowsException<InvalidEnumArgumentException>(() => alt.ConvertTo(outputUnit));
+            Assert.ThrowsExactly<InvalidEnumArgumentException>(() => alt.ConvertTo(outputUnit));
         }
     }
 }
